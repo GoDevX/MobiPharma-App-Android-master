@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menubg">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/small_padding">
+
+        <Button
+            android:id="@+id/btnMain"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@android:color/darker_gray"
+            android:drawableTop="@drawable/btnhome"
+            android:textSize="@dimen/extra_small_text_size"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            style="?android:borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/extra_small_text_size"
+            android:drawableTop="@drawable/btncategory"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            style="?android:borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnOrders"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Orders"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/extra_small_text_size"
+            android:drawableTop="@drawable/btncart"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            style="?android:borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnOffers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Offers"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/extra_small_text_size"
+            android:drawableTop="@drawable/btnoffers"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            style="?android:borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnMore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="More"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/extra_small_text_size"
+            android:drawableTop="@drawable/btnmore"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            style="?android:borderlessButtonStyle"/>
+
+    </LinearLayout>
+</LinearLayout>

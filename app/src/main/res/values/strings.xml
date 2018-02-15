@@ -1,0 +1,198 @@
+<!--
+  ~ Copyright (c) 2017. http://hiteshsahu.com- All Rights Reserved
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited
+  ~ If you use or distribute this project then you MUST ADD A COPY OF LICENCE
+  ~ along with the project.
+  ~  Written by Hitesh Sahu <hiteshkrsahu@Gmail.com>, 2017.
+  -->
+
+<resources>
+
+
+    <string name="simple_circle_button_example">Simple Circle Button Example</string>
+    <string name="text_inside_circle_button_example">Text Inside Circle Button Example</string>
+    <string name="text_outside_circle_button_example">Text Outside Circle Button Example</string>
+    <string name="ham_button_example">Ham Button Example</string>
+    <string name="square_and_piece_corner_radius_example">Square And Piece Corner Radius Example</string>
+    <string name="boom_example">Boom Example</string>
+    <string name="button_place_alignment_example">Button Place Alignment Example</string>
+    <string name="order_example">Order Example</string>
+    <string name="actionbar_example">ActionBar Example</string>
+    <string name="tool_bar_example">ToolBar Example</string>
+    <string name="draggable_example">Draggable Example</string>
+    <string name="ease_example">Ease Example</string>
+    <string name="listener_example">Listener Example</string>
+    <string name="control_example">Control Example</string>
+    <string name="share_example">Share Example</string>
+    <string name="list_example">List Example</string>
+    <string name="recycler_view_example">Recycler View Example</string>
+    <string name="fragment_example">Fragment Example</string>
+    <string name="change_boom_button_example">Change Boom Button Example</string>
+    <string name="three_d_animation_example">3D Animation Example</string>
+    <string name="custom_position_example">Custom Position Example</string>
+    <string name="fade_views_example">Fade Views Example</string>
+    <string name="orientation_example">Orientation Example</string>
+    <string name="text_inside_circle_button_text_normal">Text Inside Circle Button(Normal)</string>
+    <string name="text_inside_circle_button_text_highlighted">Text Inside Circle Button(Highlighted)</string>
+    <string name="text_inside_circle_button_text_unable">Text Inside Circle Button(Unable)</string>
+    <string name="text_outside_circle_button_text_normal">Text Outside Circle Button(Normal)</string>
+    <string name="text_outside_circle_button_text_highlighted">Text Outside Circle Button(Highlighted)</string>
+    <string name="text_outside_circle_button_text_unable">Text Outside Circle Button(Unable)</string>
+    <string name="text_ham_button_text_normal">Ham Button Text(Normal)</string>
+    <string name="text_ham_button_text_highlighted">Ham Button Text(Highlighted)</string>
+    <string name="text_ham_button_text_unable">Ham Button Text(Unable)</string>
+    <string name="text_ham_button_sub_text_normal">Ham Button Sub Text(Normal)</string>
+    <string name="text_ham_button_sub_text_highlighted">Ham Button Sub Text(Highlighted)</string>
+    <string name="text_ham_button_sub_text_unable">Ham Button Sub Text(Unable)</string>
+    <string name="upload_prescriptin">Upload Your Prescription</string>
+    <string name="record_voice">Record Your Voice</string>
+    <string name="Write_text">Write Text</string>
+    <string name="enterphonenumber">Enter Phone Number</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="action_edit"><u>Edit</u></string>
+    <string name="phone_number"><u>Phone Number</u></string>
+    <string name="account_registeration"><u>Account Login</u></string>
+    <string name="verify">Verify</string>
+    <string name="info_delivery_areas">Delivery Areas: %1$s</string>
+    <string name="pleasewait">Please wait</string>
+    <string name="register">Verify Your phone</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="submit">Submit</string>
+    <string name="select_date">Select Date</string>
+    <string name="Current_location">Current location</string>
+
+    <string name="invalid_phone_number">Please enter a valid phone number</string>
+    <string name="valid_phone_number">Valid phone numbers!</string>
+    <string name="current_location">Current Location</string>
+    <string name="address">Address</string>
+    <string name="building_no">Building No.</string>
+    <string name="Floor">Floor</string>
+
+
+    <string name="add" formatted="false">\u20B9 %1$.2f</string>
+    <string-array name="my_items">
+        <item>Dummy Item 1</item>
+        <item>Dummy Item 2</item>
+        <item>Dummy Item 3</item>
+        <item>Dummy Item 4</item>
+        <item>Dummy Item 5</item>
+        <item>Dummy Item 6</item>
+        <item>Dummy Item 7</item>
+        <item>Dummy Item 8</item>
+        <item>Dummy Item 9</item>
+        <item>Dummy Item 10</item>
+        <item>Dummy Item 11</item>
+        <item>Dummy Item 12</item>
+        <item>Dummy Item 13</item>
+        <item>Dummy Item 14</item>
+    </string-array>
+    <string name="pharmacy_email_address">hello@gmail.com</string>
+    <string name="pharmacy_address">Ahana Pharmacy \n S K Sahana Road\n Kenduadihi, Bankura \n  722103</string>
+    <string name="add_order">Add order</string>
+
+    <string name="author_contact_no">9563777896</string>
+    <string name="developer_contact">http://arkanayan.me</string>
+    <string name="action_licenses">Open Source Licenses</string>
+    <string name="action_settings">Settings</string>
+    <string name="empty_text">Select song from below to play</string>
+    <string name="standard">Standard</string>
+    <string name="title_changelog">Change log</string>
+    <string name="changelog_close">Close</string>
+    <string name="action_hide">Hide Panel</string>
+    <string name="action_show">Show Panel</string>
+    <string name="action_anchor_enable">Enable Anchor Point</string>
+    <string name="action_anchor_disable">Disable Anchor Point</string>
+    <string name="idle">Idle</string>
+    <string name="crash_toast_text">Oops Crashe Occurred</string>
+    <string name="offer_banner">"Shop for 2000 to get Rs 100 discount and shop for 3000 to get Rs 200 discount"</string>
+    <string name="order">Order</string>
+    <string name="similar_product">You may also like</string>
+    <string name="slogan">Assignment</string>
+    <string name="email_developer_">Email Developer:</string>
+    <string name="personal_website_">Personal Website :</string>
+    <string name="site_hitesh">www.hiteshsahu.com</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="mob_num">8888813275</string>
+    <string name="lab_locations">Locations</string>
+    <string name="pune">Pune</string>
+    <string name="address_value">C 1002, Lorelle Socity Wakad Pune</string>
+    <string name="app_name">MobiPharma</string>
+    <string name="upload_prescription">Upload Prescription</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Menu item texts -->
+    <string name="action_search">Search</string>
+    <string name="action_cart">Cart</string>
+    <string name="action_notifications">Notifications</string>
+
+    <string name="item_1">Offers</string>
+    <string name="item_2">Electronics</string>
+    <string name="item_3">Lifestyle</string>
+    <string name="item_4">Home Appliances</string>
+    <string name="item_5">Books \u0026 More</string>
+    <string name="item_6">More</string>
+
+    <string name="my_profile">My Profile</string>
+    <string name="my_rewards">My Rewards</string>
+    <string name="my_orders">My Orders</string>
+    <string name="my_cart">My Cart</string>
+    <string name="my_wishlist">My Wishlist</string>
+    <string name="my_account">My Account</string>
+
+    <string name="help_support">Help \u0026 Support</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="terms_conditions">Terms \u0026 Conditions</string>
+    <string name="help_center">Help Center</string>
+
+    <string name="search_hint">Search for Products, Brands and More</string>
+
+
+    <!--Intro slider texts -->
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Hello Food!</string>
+    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!
+    </string>
+
+    <string name="slide_2_title">Movie Tickets</string>
+    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
+
+    <string name="slide_3_title">Great Discounts</string>
+    <string name="slide_3_desc">Best discounts on every single service we offer!</string>
+
+    <string name="slide_4_title">World Travel</string>
+    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome
+        slider -> clear data
+    </string>
+    <string name="play_again">Play Again</string>
+    <string name="tab_1">Label 1</string>
+    <string name="tab_2">Label 2</string>
+    <string name="tab_3">Label 3</string>
+    <string name="tab_4">Label 4</string>
+    <string name="tab_5">Label 5</string>
+    <string-array name="query_suggestions">
+        <item>Android</item>
+        <item>iOS</item>
+        <item>SCALA</item>
+        <item>Ruby</item>
+        <item>JavaScript</item>
+    </string-array>
+    <string name="menu_1">Home</string>
+    <string name="menu_2">Catalog</string>
+    <string name="menu_3">MyOrders</string>
+    <string name="menu_4">Offers</string>
+    <string name="menu_5">Points</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="Add_items_prescrption">PlaceOrder</string>
+
+</resources>
