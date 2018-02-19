@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ahmedkhames.pharmacyclientapp.activities.SavedLocations">
+    tools:context="com.vamer.Pharma.pharmacyclientapp.activities.SavedLocations">
 
     <TextView
         android:layout_width="match_parent"

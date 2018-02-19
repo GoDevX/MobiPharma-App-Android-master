@@ -44,7 +44,7 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:padding="16dp"
 
         >
 
@@ -52,23 +52,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text_view_date"
-            android:text="10"
+            android:text="10/10"
             android:layout_gravity="center_horizontal"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
             android:paddingBottom="16dp"
             android:textColor="@color/black"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_view_month"
-            android:text="May"
-            android:layout_gravity="center_horizontal"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-            android:textColor="@color/black"
 
-            />
     </LinearLayout>
 
 

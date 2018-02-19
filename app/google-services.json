@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "984559924239",
+    "firebase_url": "https://mobipharmacy-193908.firebaseio.com",
+    "project_id": "mobipharmacy-193908",
+    "storage_bucket": "mobipharmacy-193908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984559924239:android:b6fd176a8cc24a78",
+        "android_client_info": {
+          "package_name": "com.vamer.Pharma.pharmacyclientapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984559924239-qm33aokp7rq77la0o6otkqi5uvvl4usb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMGGbUb9nvcAR_QEsDl6TEn9mNgGVj5L4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
