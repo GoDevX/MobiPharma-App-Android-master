@@ -27,12 +27,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.DrawableCompat;
 
 import com.vamer.Pharma.pharmacyclientapp.R;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.PlaceOrderFragment;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.CategoryFragment;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.ContactUsFragment;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.MyCartFragment;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.ProductOverviewFragment;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.SettingsFragment;
+import com.vamer.Pharma.pharmacyclientapp.fragment.PlaceOrderFragment;
+import com.vamer.Pharma.pharmacyclientapp.fragment.CategoryFragment;
+import com.vamer.Pharma.pharmacyclientapp.fragment.ContactUsFragment;
+import com.vamer.Pharma.pharmacyclientapp.fragment.MyCartFragment;
+import com.vamer.Pharma.pharmacyclientapp.fragment.ProductOverviewFragment;
+import com.vamer.Pharma.pharmacyclientapp.fragment.SettingsFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,6 +54,8 @@ public class Utils {
     public static final String SETTINGS_FRAGMENT_TAG = "SettingsFragment";
     public static final String OTP_LOGIN_TAG = "OTPLogingFragment";
     public static final String CONTACT_US_FRAGMENT = "ContactUs";
+    public static final String RECORD_FRAGMENT = "RecordFragment";
+
     private static final String PREFERENCES_FILE = "materialsample_settings";
     private static String CURRENT_TAG = null;
     private static Map<String, Typeface> TYPEFACE = new HashMap<String, Typeface>();
@@ -69,102 +71,6 @@ public class Utils {
                 R.dimen.statusbar_size);
         return height;
     }
-//
-//	public static Map<String, Integer> buildEffectMap(Context context) {
-//		Map<String, Integer> effectMap = new LinkedHashMap<>();
-//		int i = 0;
-//		String[] effects = context.getResources().getStringArray(
-//				R.array.jazzy_effects);
-//		for (String effect : effects) {
-//			effectMap.put(effect, i++);
-//		}
-//		return effectMap;
-//	}
-
-//	public static PageTransformer currentPageTransformer(Context context) {
-//		PageTransformer transformer = null;
-//
-//		switch (PreferenceHelper.getPrefernceHelperInstace().getInteger(
-//				context, AppConstants.VIEW_PAGER_ANIME, 13)) {
-//		case AppConstants.STANDARD:
-//
-//			transformer = new DefaultTransformer();
-//
-//			break;
-//
-//		case AppConstants.TABLET:
-//
-//			transformer = new TabletTransformer();
-//
-//			break;
-//
-//		case AppConstants.CUBEIN:
-//
-//			transformer = new CubeInTransformer();
-//
-//			break;
-//
-//		case AppConstants.CUBEOUT:
-//
-//			transformer = new CubeOutTransformer();
-//
-//			break;
-//
-//		case AppConstants.FLIPVERTICAL:
-//
-//			transformer = new FlipVerticalTransformer();
-//
-//			break;
-//
-//		case AppConstants.FLIPHORIZONTAL:
-//
-//			transformer = new FlipHorizontalTransformer();
-//
-//			break;
-//
-//		case AppConstants.STACK:
-//
-//			transformer = new StackTransformer();
-//
-//			break;
-//
-//		case AppConstants.ZOOMIN:
-//
-//			transformer = new ZoomInTransformer();
-//
-//			break;
-//
-//		case AppConstants.ZOOMOUT:
-//
-//			transformer = new ZoomOutTranformer();
-//
-//			break;
-//
-//		case AppConstants.ROTATEUP:
-//
-//			transformer = new RotateUpTransformer();
-//
-//			break;
-//
-//		case AppConstants.ROTATEDOWN:
-//
-//			transformer = new RotateDownTransformer();
-//
-//			break;
-//
-//		case AppConstants.ACCORDION:
-//
-//			transformer = new AccordionTransformer();
-//
-//			break;
-//
-//		default:
-//
-//			transformer = new CubeOutTransformer();
-//			break;
-//		}
-//		return transformer;
-//	}
 
     public static Drawable tintMyDrawable(Drawable drawable, int color) {
         drawable = DrawableCompat.wrap(drawable);
@@ -277,6 +183,12 @@ public class Utils {
             }
         }
 
+
+        if(transitionStyle==null)
+        {
+            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left,
+                    R.anim.slide_out_right, R.anim.slide_in_right);
+        }
         CURRENT_TAG = TAG;
 
         fragmentTransaction.replace(id, fragment);
@@ -333,7 +245,11 @@ public class Utils {
                         break;
                 }
             }
-
+            if(transitionStyle==null)
+            {
+                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left,
+                        R.anim.slide_out_right, R.anim.slide_in_right);
+            }
             // Try to find the fragment we are switching to
             Fragment fragment = fragmentManager.findFragmentByTag(TAG);
 
@@ -378,6 +294,7 @@ public class Utils {
 
             // Replace our current fragment with the one we are changing to
             transaction.replace(id, fragmentToReplace, TAG);
+            //transaction.addToBackStack(TAG);
             transaction.commit();
 
         } else

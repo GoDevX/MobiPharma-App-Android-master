@@ -4,8 +4,21 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp">
-
+ >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        app:title="Complete Profile"
+        app:titleTextColor="@android:color/white" />
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +33,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
-
         <EditText
             android:id="@+id/your_full_name"
             android:layout_width="fill_parent"
@@ -47,16 +59,54 @@
             app:dateFormat="yyyy/MM/dd"/>
 
     </android.support.design.widget.TextInputLayout>
+
+    <co.ceryle.radiorealbutton.RadioRealButtonGroup
+        android:id="@+id/radioButtonGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="2dp"
+        app:rrbg_borderColor="@color/yellow_600"
+        app:rrbg_borderSize="1dp"
+        app:rrbg_bottomLineSize="0dp"
+        app:rrbg_dividerColor="@color/yellow_600"
+        app:rrbg_dividerPadding="0dp"
+        app:rrbg_dividerSize="1dp"
+        app:rrbg_radius="10dp"
+        app:rrbg_selectorColor="@color/red_700"
+        app:rrbg_selectorSize="6dp">
+
+        <co.ceryle.radiorealbutton.RadioRealButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rrb_drawable="@drawable/b12"
+            app:rrb_drawableHeight="40dp"
+            app:rrb_drawableWidth="40dp"
+            app:rrb_rippleColor="@color/black"/>
+
+        <co.ceryle.radiorealbutton.RadioRealButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rrb_drawable="@drawable/b13"
+            app:rrb_drawableHeight="40dp"
+            app:rrb_drawableWidth="40dp"
+            app:rrb_rippleColor="@color/DarkRed"/>
+    </co.ceryle.radiorealbutton.RadioRealButtonGroup>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp">
+
     <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/spinner"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:hint="Gender"
-        app:ms_background_color="#FAFAFA"
+        app:ms_background_color="@color/green"
         android:layout_height="wrap_content"/>
+
+
     </android.support.design.widget.TextInputLayout>
     <Button
         android:layout_width="fill_parent"
@@ -67,5 +117,5 @@
         android:id="@+id/btnDone"
         android:textColor="#fff" />
 
-
+    </LinearLayout>
 </LinearLayout>

@@ -14,14 +14,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.vamer.Pharma.pharmacyclientapp.R;
+import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
 import com.vamer.Pharma.pharmacyclientapp.domain.mock.FakeWebServer;
 import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils.AnimationType;
-import com.vamer.Pharma.pharmacyclientapp.view.activities.ECartHomeActivity;
-import com.vamer.Pharma.pharmacyclientapp.view.adapter.CategoryListAdapter;
-import com.vamer.Pharma.pharmacyclientapp.view.adapter.CategoryListAdapter.OnItemClickListener;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.ProductOverviewFragment;
+import com.vamer.Pharma.pharmacyclientapp.adapter.CategoryListAdapter;
+import com.vamer.Pharma.pharmacyclientapp.adapter.CategoryListAdapter.OnItemClickListener;
+import com.vamer.Pharma.pharmacyclientapp.fragment.ProductOverviewFragment;
 
 /**
  * The Class ImageLoaderTask.
@@ -43,8 +43,8 @@ public class ProductCategoryLoaderTask extends AsyncTask<String, Void, Void> {
 
         super.onPreExecute();
 
-        if (null != ((ECartHomeActivity) context).getProgressBar())
-            ((ECartHomeActivity) context).getProgressBar().setVisibility(
+        if (null != ((HomeActivity) context).getProgressBar())
+            ((HomeActivity) context).getProgressBar().setVisibility(
                     View.VISIBLE);
 
     }
@@ -53,8 +53,8 @@ public class ProductCategoryLoaderTask extends AsyncTask<String, Void, Void> {
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
 
-        if (null != ((ECartHomeActivity) context).getProgressBar())
-            ((ECartHomeActivity) context).getProgressBar().setVisibility(
+        if (null != ((HomeActivity) context).getProgressBar())
+            ((HomeActivity) context).getProgressBar().setVisibility(
                     View.GONE);
 
         if (recyclerView != null) {
@@ -74,7 +74,7 @@ public class ProductCategoryLoaderTask extends AsyncTask<String, Void, Void> {
                             Utils.switchFragmentWithAnimation(
                                     R.id.frag_container,
                                     new ProductOverviewFragment(),
-                                    ((ECartHomeActivity) context), null,
+                                    ((HomeActivity) context), null,
                                     AnimationType.SLIDE_LEFT);
 
                         }
@@ -88,6 +88,8 @@ public class ProductCategoryLoaderTask extends AsyncTask<String, Void, Void> {
 
         try {
             Thread.sleep(3000);
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

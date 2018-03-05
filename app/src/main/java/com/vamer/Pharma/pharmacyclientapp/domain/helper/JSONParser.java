@@ -11,8 +11,8 @@ package com.vamer.Pharma.pharmacyclientapp.domain.helper;
 import android.util.Log;
 
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
-import com.vamer.Pharma.pharmacyclientapp.model.entities.Product;
-import com.vamer.Pharma.pharmacyclientapp.model.entities.ProductCategoryModel;
+import com.vamer.Pharma.pharmacyclientapp.model.Product;
+import com.vamer.Pharma.pharmacyclientapp.model.ProductCategoryModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;

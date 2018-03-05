@@ -14,6 +14,8 @@ package com.vamer.Pharma.pharmacyclientapp.util;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
+import com.vamer.Pharma.pharmacyclientapp.model.Customer;
+
 /**
  * @author Hitesh
  */
@@ -25,6 +27,16 @@ public class PreferenceHelper {
     // Handle Local Caching of data for responsiveness
     public static final String MY_CART_LIST_LOCAL = "MyCartItems";
     private static final String USER_LOGGED_IN = "isLoggedIn";
+    public static final String USER_CODE_VERIFCATION = "userCodeVerification";
+
+    public static final String CUSTOMER_MOBILE = "MobNo";
+    public static final String CUSTOMER_NAME = "Name";
+    public static final String CUSTOMER_TOKEN = "CustomerToken";
+    public static final String CUSTOMER_GENDER = "Gender";
+    public static final String CUSTOMER_BIRTH_DATE = "BirthDate";
+
+
+    //private static final String USER_TOKEN = "userCodeVerification";
     private static PreferenceHelper preferenceHelperInstance = new PreferenceHelper();
 
     private PreferenceHelper() {
@@ -40,6 +52,22 @@ public class PreferenceHelper {
         PreferenceManager.getDefaultSharedPreferences(appContext).edit()
                 .putBoolean(key, value).apply();
     }
+
+    public  void setCustomerData(Context c,String date,String phone,String token,String gender,String name) {
+        setString(c,CUSTOMER_NAME,name);
+        setString(c,CUSTOMER_MOBILE,phone);
+        setString(c,CUSTOMER_GENDER,gender);
+        setString(c,CUSTOMER_BIRTH_DATE,date);
+        setString(c,CUSTOMER_TOKEN,token);
+
+    }
+
+
+    public  Customer getCustomerData(Context c) {
+        Customer cu=new Customer( getString(c,CUSTOMER_BIRTH_DATE,""), getString(c,CUSTOMER_NAME,""), getString(c,CUSTOMER_TOKEN,""), getString(c,CUSTOMER_GENDER,""), getString(c,CUSTOMER_MOBILE,""));
+        return cu;
+    }
+
 
     public void setInteger(Context appContext, String key, int value) {
 
@@ -58,6 +86,8 @@ public class PreferenceHelper {
         PreferenceManager.getDefaultSharedPreferences(appContext).edit()
                 .putString(key, value).apply();
     }
+
+
 
     // To retrieve values from shared preferences:
 
@@ -81,19 +111,17 @@ public class PreferenceHelper {
     }
 
     public String getString(Context appContext, String key, String defaultValue) {
-
         return PreferenceManager.getDefaultSharedPreferences(appContext)
                 .getString(key, defaultValue);
     }
 
     public void setUserLoggedIn(boolean UserLoggedIn, Context appContext) {
-
         setBoolean(appContext, USER_LOGGED_IN, UserLoggedIn);
     }
 
     public boolean isUserLoggedIn(Context appContext) {
-
         return getBoolean(appContext, USER_LOGGED_IN, false);
     }
+
 
 }

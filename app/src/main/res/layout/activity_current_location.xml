@@ -1,108 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
 
-    <TextView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        app:title="Confirm Location"
+        app:titleTextColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnCurrentLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:gravity="center_horizontal"
-        android:text="Your Location"
+        android:text="Current Location"
         android:textColor="@color/button_red"
-        android:textSize="33dp"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/btnCurrentLocation">
 
-
-        <FrameLayout
+        <LinearLayout
+            android:id="@+id/expandableLinearCurrentLayout"
             android:layout_width="match_parent"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:layout_height="wrap_content"
-             >
-            <EditText
-                android:id="@+id/address"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/linear"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textColor="#ff0000"
-                android:hint="@string/address"
-                android:singleLine="true" />
+                android:layout_weight="3"
+                android:layout_marginTop="0dp">
 
-            <Button
-                android:id="@+id/btn_clear"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:onClick="getLocationFromMap"
-                android:background="@android:drawable/ic_menu_edit"
-                 />
-        </FrameLayout>
+                    <EditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/address"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="#ff0000" />
 
+            </android.support.design.widget.TextInputLayout>
+                <Button
+                    android:id="@+id/btn_clear"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="10"
+                    android:background="@drawable/icon"
+                    android:onClick="getLocationFromMap" />
 
+                </LinearLayout>
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/building_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/building_no"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/Floor"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/Floor"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/Appartment"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/Appartment"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/location_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/location_name"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btnSavedLocations"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/frameLayout"
+        android:gravity="center_horizontal"
+        android:text="Saved Locations"
+        android:textColor="@color/button_red"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/building_no"
+    <com.melnykov.fab.ObservableScrollView
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSavedLocations">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/expandableLinearSavedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/LocationsRecylcerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <!--
+                    </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+            -->
+        </LinearLayout>
+
+    </com.melnykov.fab.ObservableScrollView>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_margin="20dp"
+        android:gravity="bottom"
+        android:id="@+id/frameLayout2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveMyLocation"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/building_no"
-            android:inputType="number" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:background="@color/button_red"
+            android:text="Save"
+            android:textColor="#fff"
+            android:visibility="gone" />
 
-        <EditText
-            android:id="@+id/Floor"
+        <Button
+            android:id="@+id/btnGoToAvailablePharmacies"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/Floor"
-            android:inputType="number" />
-    </android.support.design.widget.TextInputLayout>
-
-   <LinearLayout
-       android:orientation="horizontal"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-       <Button
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="16dp"
-           android:background="@color/button_red"
-           android:text="Save"
-           android:layout_weight="1"
-           android:id="@+id/btnDone"
-           android:layout_marginRight="10dp"
-           android:textColor="#fff" />
-       <Button
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="16dp"
-           android:background="#b45705"
-           android:text="Next"
-           android:id="@+id/btnNext"
-           android:layout_weight="1"
-           android:onClick="goToAvailablePharmacies"
-           android:layout_marginLeft="10dp"
-           android:textColor="#fff" />
-   </LinearLayout>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:background="#b45705"
+            android:text="Next"
+            android:textColor="#fff" />
+    </FrameLayout>
 
 
-
-</LinearLayout>
+</RelativeLayout>

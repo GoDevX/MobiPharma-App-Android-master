@@ -9,8 +9,8 @@
 package com.vamer.Pharma.pharmacyclientapp.domain.mock;
 
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
-import com.vamer.Pharma.pharmacyclientapp.model.entities.Product;
-import com.vamer.Pharma.pharmacyclientapp.model.entities.ProductCategoryModel;
+import com.vamer.Pharma.pharmacyclientapp.model.Product;
+import com.vamer.Pharma.pharmacyclientapp.model.ProductCategoryModel;
 
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;

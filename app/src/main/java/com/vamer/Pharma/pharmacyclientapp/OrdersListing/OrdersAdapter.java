@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 
 import com.vamer.Pharma.pharmacyclientapp.R;
+import com.vamer.Pharma.pharmacyclientapp.model.Order;
 
 import java.util.ArrayList;
 

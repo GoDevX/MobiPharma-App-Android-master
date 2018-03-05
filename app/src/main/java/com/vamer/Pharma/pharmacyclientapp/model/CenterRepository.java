@@ -8,9 +8,6 @@
 
 package com.vamer.Pharma.pharmacyclientapp.model;
 
-import com.vamer.Pharma.pharmacyclientapp.model.entities.Product;
-import com.vamer.Pharma.pharmacyclientapp.model.entities.ProductCategoryModel;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -27,7 +24,7 @@ public class CenterRepository {
     private ConcurrentHashMap<String, ArrayList<Product>> mapOfProductsInCategory = new ConcurrentHashMap<String, ArrayList<Product>>();
     private List<Product> listOfProductsInShoppingList = Collections.synchronizedList(new ArrayList<Product>());
     private List<Set<String>> listOfItemSetsForDataMining = new ArrayList<>();
-
+//initialize object of list
     public static CenterRepository getCenterRepository() {
         if (null == centerRepository) {
             centerRepository = new CenterRepository();
@@ -35,35 +32,37 @@ public class CenterRepository {
         return centerRepository;
     }
 
-
+//Get Shopping List
     public List<Product> getListOfProductsInShoppingList() {
         return listOfProductsInShoppingList;
     }
 
+    //Set Shopping List
     public void setListOfProductsInShoppingList(ArrayList<Product> getShoppingList) {
         this.listOfProductsInShoppingList = getShoppingList;
     }
 
+    //Get products In category
     public Map<String, ArrayList<Product>> getMapOfProductsInCategory() {
-
         return mapOfProductsInCategory;
     }
 
+    //Set Products in category
     public void setMapOfProductsInCategory(ConcurrentHashMap<String, ArrayList<Product>> mapOfProductsInCategory) {
         this.mapOfProductsInCategory = mapOfProductsInCategory;
     }
 
+    //GetCategoryList
     public ArrayList<ProductCategoryModel> getListOfCategory() {
-
         return listOfCategory;
     }
 
+    //SetCategoryList
     public void setListOfCategory(ArrayList<ProductCategoryModel> listOfCategory) {
         this.listOfCategory = listOfCategory;
     }
 
     public List<Set<String>> getItemSetList() {
-
         return listOfItemSetsForDataMining;
     }
 

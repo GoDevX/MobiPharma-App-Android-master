@@ -38,10 +38,12 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/htab_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                android:minHeight="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+                app:title="@string/Products"
+                app:titleTextColor="@android:color/white" />
             <android.support.design.widget.TabLayout
                 android:id="@+id/htab_tabs"
                 android:layout_width="wrap_content"
@@ -72,11 +74,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <com.nightonke.boommenu.BoomMenuButton
+            android:layout_marginTop="10dp"
+            android:id="@+id/bmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            />
     </LinearLayout>
-    <com.nightonke.boommenu.BoomMenuButton
-        android:id="@+id/bmb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
-        />
+
 </android.support.design.widget.CoordinatorLayout>

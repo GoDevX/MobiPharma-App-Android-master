@@ -19,6 +19,8 @@
     <dimen name="extra_small_text_size">10dp</dimen>
     <dimen name="cardview_toolbar_spacer">16dp</dimen>
 
+
+    <dimen name="tab_indicator_height">5dp</dimen>
     <dimen name="toolbar_double_height">112dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="activity_margin_half">8dp</dimen>

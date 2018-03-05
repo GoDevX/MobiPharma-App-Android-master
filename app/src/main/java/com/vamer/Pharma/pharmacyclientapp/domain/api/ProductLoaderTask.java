@@ -15,11 +15,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
 import com.vamer.Pharma.pharmacyclientapp.domain.mock.FakeWebServer;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
-import com.vamer.Pharma.pharmacyclientapp.view.activities.ECartHomeActivity;
-import com.vamer.Pharma.pharmacyclientapp.view.adapter.ProductsInCategoryPagerAdapter;
-import com.vamer.Pharma.pharmacyclientapp.view.fragment.ProductListFragment;
+import com.vamer.Pharma.pharmacyclientapp.adapter.ProductsInCategoryPagerAdapter;
+import com.vamer.Pharma.pharmacyclientapp.fragment.ProductListFragment;
 
 import java.util.Set;
 
@@ -47,8 +47,8 @@ public class ProductLoaderTask extends AsyncTask<String, Void, Void> {
 
         super.onPreExecute();
 
-        if (null != ((ECartHomeActivity) context).getProgressBar())
-            ((ECartHomeActivity) context).getProgressBar().setVisibility(
+        if (null != ((HomeActivity) context).getProgressBar())
+            ((HomeActivity) context).getProgressBar().setVisibility(
                     View.VISIBLE);
 
     }
@@ -57,8 +57,8 @@ public class ProductLoaderTask extends AsyncTask<String, Void, Void> {
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
 
-        if (null != ((ECartHomeActivity) context).getProgressBar())
-            ((ECartHomeActivity) context).getProgressBar().setVisibility(
+        if (null != ((HomeActivity) context).getProgressBar())
+            ((HomeActivity) context).getProgressBar().setVisibility(
                     View.GONE);
 
         setUpUi();
@@ -202,7 +202,7 @@ public class ProductLoaderTask extends AsyncTask<String, Void, Void> {
     private void setupViewPager() {
 
         ProductsInCategoryPagerAdapter adapter = new ProductsInCategoryPagerAdapter(
-                ((ECartHomeActivity) context).getSupportFragmentManager());
+                ((HomeActivity) context).getSupportFragmentManager());
 
         Set<String> keys = CenterRepository.getCenterRepository().getMapOfProductsInCategory()
                 .keySet();

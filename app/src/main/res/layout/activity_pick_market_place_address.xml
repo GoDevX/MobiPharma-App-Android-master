@@ -1,114 +1,130 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+  >
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:id="@+id/map_frame"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true">
+        android:background="@color/white"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        fancy:layout_constraintStart_toStartOf="parent"
+        fancy:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/layout1"
-            android:layout_width="match_parent"
-            android:layout_height="510dp"
-            android:layout_below="@+id/img_header">
-
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <!-- Image View that acts as map marker notice centerInParent-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/confirm_address_map_custom_marker"
-                        android:layout_width="60dp"
-                        android:padding="10dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/pin" />
-                </FrameLayout>
-
-            </LinearLayout>
-
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:id="@+id/btn_get_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
-                android:onClick="chooseThisAddress"
-                fancy:fb_borderColor="#FFFFFF"
-                android:layout_alignParentBottom="true"
-                fancy:fb_borderWidth="1dp"
-                fancy:fb_defaultColor="@color/button_brown"
-                fancy:fb_focusColor="#9bd823"
-                fancy:fb_iconPosition="left"
-                fancy:fb_radius="5dp"
-                android:layout_above="@+id/mapView"
-                fancy:fb_text="Choose this address"
-                fancy:fb_textColor="#FFFFFF" />
-        </RelativeLayout>
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardFromTo"
+        <LinearLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="3dp"
-            app:cardElevation="5dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    >
-                    <TextView
-                        android:id="@+id/tv_current_location"
-                        android:layout_width="0dp"
-                        android:layout_weight=".9"
-                        android:layout_height="50dp"
-                        android:background="@android:color/transparent"
-                        android:ellipsize="end"
-                        android:gravity="center_vertical"
-                        android:hint="@string/Current_location"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"/>
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="20dp"
-                        android:layout_weight=".1"
-                        android:src="@drawable/star"
-                        android:id="@+id/ivAddTofavPlaced"
-                        android:layout_gravity="center_vertical"
-                        />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-    </FrameLayout>
-</android.support.design.widget.CoordinatorLayout>
+            <TextView
+                android:id="@+id/tv_current_location"
+                android:layout_width="281dp"
+                android:layout_height="50dp"
+                android:layout_weight=".9"
+                android:background="@android:color/transparent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="@string/Current_location"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/ivAddTofavPlaced"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".1"
+                android:src="@drawable/star" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        fancy:layout_constraintBottom_toBottomOf="parent"
+        fancy:layout_constraintEnd_toEndOf="parent"
+        fancy:layout_constraintStart_toStartOf="parent"
+        fancy:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!-- Image View that acts as map marker notice centerInParent-->
+
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        fancy:layout_constraintBottom_toBottomOf="parent"
+        fancy:layout_constraintEnd_toEndOf="parent"
+        fancy:layout_constraintStart_toStartOf="parent"
+        fancy:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/confirm_address_map_custom_marker"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="10dp"
+                android:src="@drawable/pin" />
+        </FrameLayout>
+
+    </LinearLayout>
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btn_get_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="20dp"
+        android:layout_marginStart="8dp"
+        android:onClick="chooseThisAddress"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="@color/button_brown"
+        fancy:fb_focusColor="#9bd823"
+        fancy:fb_iconPosition="left"
+        fancy:fb_radius="5dp"
+        fancy:fb_text="Choose this address"
+        fancy:fb_textColor="#FFFFFF"
+        fancy:layout_constraintBottom_toBottomOf="parent"
+        fancy:layout_constraintEnd_toEndOf="parent"
+        fancy:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>
 
