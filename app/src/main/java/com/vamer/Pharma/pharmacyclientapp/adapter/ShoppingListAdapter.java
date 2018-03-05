@@ -93,8 +93,8 @@ public class ShoppingListAdapter extends
     public void onBindViewHolder(final ItemViewHolder holder, final int position) {
 
 
-        if(productList.get(position).getQuantity().equals("")){
-            if(productList.get(position).getItemName().equals("Record")){
+        if (productList.get(position).getQuantity().equals("")) {
+            if (productList.get(position).getItemName().equals("Record")) {
                 Glide.with(context).load(ImageUrl).placeholder(drawable)
                         .error(drawable).animate(R.anim.base_slide_right_in)
                         .centerCrop().into(holder.imagView);
@@ -110,31 +110,27 @@ public class ShoppingListAdapter extends
             holder.availability.setVisibility(View.INVISIBLE);
             holder.itemCost.setVisibility(View.INVISIBLE);
             holder.quanitity.setVisibility(View.INVISIBLE);
-            Uri  uri = Uri.fromFile(new File(productList.get(position).getImageURL()));
+            Uri uri = Uri.fromFile(new File(productList.get(position).getImageURL()));
             Glide.with(context).load(uri).placeholder(drawable)
                     .error(drawable).animate(R.anim.base_slide_right_in)
                     .centerCrop().into(holder.imagView);
-        }
+        } else {
+            holder.itemName.setText(productList.get(position).getItemName());
 
+            holder.itemDesc.setText(productList.get(position).getItemShortDesc());
 
+            String sellCostString = Money.rupees(
+                    BigDecimal.valueOf(Long.valueOf(productList.get(position)
+                            .getSellMRP()))).toString()
+                    + "  ";
 
-        else{
-        holder.itemName.setText(productList.get(position).getItemName());
+            String buyMRP = Money.rupees(
+                    BigDecimal.valueOf(Long.valueOf(productList.get(position)
+                            .getMRP()))).toString();
 
-        holder.itemDesc.setText(productList.get(position).getItemShortDesc());
+            String costString = sellCostString + buyMRP;
 
-        String sellCostString = Money.rupees(
-                BigDecimal.valueOf(Long.valueOf(productList.get(position)
-                        .getSellMRP()))).toString()
-                + "  ";
-
-        String buyMRP = Money.rupees(
-                BigDecimal.valueOf(Long.valueOf(productList.get(position)
-                        .getMRP()))).toString();
-
-        String costString = sellCostString + buyMRP;
-
-        holder.itemCost.setText(costString, BufferType.SPANNABLE);
+            holder.itemCost.setText(costString, BufferType.SPANNABLE);
             CenterRepository
                     .getCenterRepository()
                     .getListOfProductsInShoppingList()
@@ -144,68 +140,41 @@ public class ShoppingListAdapter extends
                                     Integer.valueOf(CenterRepository
                                             .getCenterRepository().getListOfProductsInShoppingList()
                                             .get(position).getQuantity())));
-        Spannable spannable = (Spannable) holder.itemCost.getText();
+            Spannable spannable = (Spannable) holder.itemCost.getText();
 
-        spannable.setSpan(new StrikethroughSpan(), sellCostString.length(),
-                costString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannable.setSpan(new StrikethroughSpan(), sellCostString.length(),
+                    costString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        mDrawableBuilder = TextDrawable.builder().beginConfig().withBorder(4)
-                .endConfig().roundRect(10);
+            mDrawableBuilder = TextDrawable.builder().beginConfig().withBorder(4)
+                    .endConfig().roundRect(10);
 
-        drawable = mDrawableBuilder.build(String.valueOf(productList
-                .get(position).getItemName().charAt(0)), mColorGenerator
-                .getColor(productList.get(position).getItemName()));
+            drawable = mDrawableBuilder.build(String.valueOf(productList
+                    .get(position).getItemName().charAt(0)), mColorGenerator
+                    .getColor(productList.get(position).getItemName()));
 
-        ImageUrl = productList.get(position).getImageURL();
+            ImageUrl = productList.get(position).getImageURL();
 
-        holder.quanitity.setText(CenterRepository.getCenterRepository()
-                .getListOfProductsInShoppingList().get(position).getQuantity());
+            holder.quanitity.setText(CenterRepository.getCenterRepository()
+                    .getListOfProductsInShoppingList().get(position).getQuantity());
 
-        Glide.with(context).load(ImageUrl).placeholder(drawable)
-                .error(drawable).animate(R.anim.base_slide_right_in)
-                .centerCrop().into(holder.imagView);
+            Glide.with(context).load(ImageUrl).placeholder(drawable)
+                    .error(drawable).animate(R.anim.base_slide_right_in)
+                    .centerCrop().into(holder.imagView);
 
-        // Start a drag whenever the handle view it touched
-        holder.imagView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-                    mDragStartListener.onStartDrag(holder);
+            // Start a drag whenever the handle view it touched
+            holder.imagView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+                        //mDragStartListener.onStartDrag(holder);
+                    }
+                    return false;
                 }
-                return false;
-            }
-        });
+            });
 
-        holder.addItem.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CenterRepository
-                        .getCenterRepository()
-                        .getListOfProductsInShoppingList()
-                        .get(position)
-                        .setQuantity(
-                                String.valueOf(
-                                        Integer.valueOf(CenterRepository
-                                                .getCenterRepository().getListOfProductsInShoppingList()
-                                                .get(position).getQuantity()) + 1));
-
-                holder.quanitity.setText(CenterRepository.getCenterRepository()
-                        .getListOfProductsInShoppingList().get(position).getQuantity());
-                Utils.vibrate(context);
-                ((HomeActivity) context).updateCheckOutAmount(
-                        BigDecimal.valueOf(Long.valueOf(CenterRepository
-                                .getCenterRepository().getListOfProductsInShoppingList()
-                                .get(position).getSellMRP())), true);
-
-            }
-        });
-
-        holder.removeItem.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (Integer.valueOf(CenterRepository.getCenterRepository()
-                        .getListOfProductsInShoppingList().get(position).getQuantity()) >1 ) {
+            holder.addItem.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     CenterRepository
                             .getCenterRepository()
                             .getListOfProductsInShoppingList()
@@ -213,21 +182,48 @@ public class ShoppingListAdapter extends
                             .setQuantity(
                                     String.valueOf(
                                             Integer.valueOf(CenterRepository
-                                                    .getCenterRepository()
-                                                    .getListOfProductsInShoppingList().get(position)
-                                                    .getQuantity()) - 1));
+                                                    .getCenterRepository().getListOfProductsInShoppingList()
+                                                    .get(position).getQuantity()) + 1));
 
-                    holder.quanitity.setText(CenterRepository
-                            .getCenterRepository().getListOfProductsInShoppingList()
-                            .get(position).getQuantity());
-
+                    holder.quanitity.setText(CenterRepository.getCenterRepository()
+                            .getListOfProductsInShoppingList().get(position).getQuantity());
+                    Utils.vibrate(context);
                     ((HomeActivity) context).updateCheckOutAmount(
                             BigDecimal.valueOf(Long.valueOf(CenterRepository
                                     .getCenterRepository().getListOfProductsInShoppingList()
-                                    .get(position).getSellMRP())), false);
+                                    .get(position).getSellMRP())), true);
 
-                    Utils.vibrate(context);
-                } else {/*if (Integer.valueOf(CenterRepository.getCenterRepository()
+                }
+            });
+
+            holder.removeItem.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    if (Integer.valueOf(CenterRepository.getCenterRepository()
+                            .getListOfProductsInShoppingList().get(position).getQuantity()) > 1) {
+                        CenterRepository
+                                .getCenterRepository()
+                                .getListOfProductsInShoppingList()
+                                .get(position)
+                                .setQuantity(
+                                        String.valueOf(
+                                                Integer.valueOf(CenterRepository
+                                                        .getCenterRepository()
+                                                        .getListOfProductsInShoppingList().get(position)
+                                                        .getQuantity()) - 1));
+
+                        holder.quanitity.setText(CenterRepository
+                                .getCenterRepository().getListOfProductsInShoppingList()
+                                .get(position).getQuantity());
+
+                        ((HomeActivity) context).updateCheckOutAmount(
+                                BigDecimal.valueOf(Long.valueOf(CenterRepository
+                                        .getCenterRepository().getListOfProductsInShoppingList()
+                                        .get(position).getSellMRP())), false);
+
+                        Utils.vibrate(context);
+                    } else {/*if (Integer.valueOf(CenterRepository.getCenterRepository()
                         .getListOfProductsInShoppingList().get(position).getQuantity()) == 1) {
                             CenterRepository.getCenterRepository().getListOfProductsInShoppingList().remove(position);
                            notifyDataSetChanged();
@@ -251,15 +247,11 @@ public class ShoppingListAdapter extends
                     }*/
 
 
-            }
+                }
 
 
-
-
-
-
-        });
-    }
+            });
+        }
         if (Integer.valueOf(((HomeActivity) context)
                 .getItemCount()) == 0) {
 
@@ -267,48 +259,47 @@ public class ShoppingListAdapter extends
 
         }
 
-        Utils.vibrate(context);
+        // Utils.vibrate(context);
     }
 
     @Override
     public void onItemDismiss(int position) {
-         if(productList.get(position).getQuantity().equals("")){
-             ((HomeActivity) context).updateItemCount(false);
-          CenterRepository.getCenterRepository().getListOfProductsInShoppingList().remove(position);
+        if (productList.get(position).getQuantity().equals("")) {
+            ((HomeActivity) context).updateItemCount(false);
+            CenterRepository.getCenterRepository().getListOfProductsInShoppingList().remove(position);
 
-       if (Integer.valueOf(((HomeActivity) context).getItemCount()) == 0) {
+            if (Integer.valueOf(((HomeActivity) context).getItemCount()) == 0) {
 
-        MyCartFragment.updateMyCartFragment(false);
-           notifyItemRemoved(position);
+                MyCartFragment.updateMyCartFragment(false);
+                notifyItemRemoved(position);
 
-    }
-    Utils.vibrate(context);
+            }
+            Utils.vibrate(context);
 
-    // productList.remove(position);
-    notifyItemRemoved(position);
-}
-else{
-        ((HomeActivity) context).updateItemCount(false);
-        ((HomeActivity) context).updateCheckOutAmount(
-                BigDecimal.valueOf(Long.valueOf(CenterRepository
-                        .getCenterRepository().getListOfProductsInShoppingList().get(position)
-                        .getSellMRP())*Long.valueOf(CenterRepository
-                        .getCenterRepository().getListOfProductsInShoppingList().get(position)
-                        .getQuantity())), false);
+            // productList.remove(position);
+            notifyItemRemoved(position);
+        } else {
+            ((HomeActivity) context).updateItemCount(false);
+            ((HomeActivity) context).updateCheckOutAmount(
+                    BigDecimal.valueOf(Long.valueOf(CenterRepository
+                            .getCenterRepository().getListOfProductsInShoppingList().get(position)
+                            .getSellMRP()) * Long.valueOf(CenterRepository
+                            .getCenterRepository().getListOfProductsInShoppingList().get(position)
+                            .getQuantity())), false);
 
-        CenterRepository.getCenterRepository().getListOfProductsInShoppingList().remove(position);
+            CenterRepository.getCenterRepository().getListOfProductsInShoppingList().remove(position);
 
-        if (Integer.valueOf(((HomeActivity) context).getItemCount()) == 0) {
+            if (Integer.valueOf(((HomeActivity) context).getItemCount()) == 0) {
 
-            MyCartFragment.updateMyCartFragment(false);
+                MyCartFragment.updateMyCartFragment(false);
 
+            }
+
+            Utils.vibrate(context);
+
+            // productList.remove(position);
+            notifyItemRemoved(position);
         }
-
-        Utils.vibrate(context);
-
-        // productList.remove(position);
-        notifyItemRemoved(position);
-    }
     }
 
     @Override
@@ -393,13 +384,14 @@ else{
 
 
     }
+
     FileObserver observer =
             new FileObserver(android.os.Environment.getExternalStorageDirectory().toString()
                     + "/SoundRecorder") {
                 // set up a file observer to watch this directory on sd card
                 @Override
                 public void onEvent(int event, String file) {
-                    if(event == FileObserver.DELETE){
+                    if (event == FileObserver.DELETE) {
                         // user deletes a recording file out of the app
 
                         String filePath = android.os.Environment.getExternalStorageDirectory().toString()
@@ -410,7 +402,7 @@ else{
                                 + "/SoundRecorder" + file + "]");
 
                         // remove file from database and recyclerview
-                      //  mFileViewerAdapter.removeOutOfApp(filePath);
+                        //  mFileViewerAdapter.removeOutOfApp(filePath);
                     }
                 }
             };
