@@ -108,11 +108,11 @@ public class CompleteProfileActivity extends AppCompatActivity {
             progressDialog.setMessage(getResources().getString(R.string.pleasewait));
             progressDialog.setCancelable(false);
             progressDialog.show();
-        Map<String, String> postParam = new HashMap<String, String>();
-        postParam.put(PreferenceHelper.CUSTOMER_TOKEN, pr.getString(CompleteProfileActivity.this,PreferenceHelper.CUSTOMER_TOKEN,""));
-        postParam.put(PreferenceHelper.CUSTOMER_NAME, name);
-        postParam.put(PreferenceHelper.CUSTOMER_GENDER, gender);
-        postParam.put(PreferenceHelper.CUSTOMER_BIRTH_DATE, birthdate);
+         Map<String, String> postParam = new HashMap<String, String>();
+         postParam.put(PreferenceHelper.CUSTOMER_TOKEN, pr.getString(CompleteProfileActivity.this,PreferenceHelper.CUSTOMER_TOKEN,""));
+         postParam.put(PreferenceHelper.CUSTOMER_NAME, name);
+         postParam.put(PreferenceHelper.CUSTOMER_GENDER, gender);
+         postParam.put(PreferenceHelper.CUSTOMER_BIRTH_DATE, birthdate);
         //TODO email
         postParam.put("Email", "email@gmail.com");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, "http://192.168.1.5:123/api/Customer/UpdateCustomerProfile", new JSONObject(postParam),

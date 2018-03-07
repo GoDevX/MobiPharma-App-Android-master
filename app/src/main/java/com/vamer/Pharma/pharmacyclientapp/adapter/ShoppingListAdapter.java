@@ -110,7 +110,7 @@ public class ShoppingListAdapter extends
             holder.availability.setVisibility(View.INVISIBLE);
             holder.itemCost.setVisibility(View.INVISIBLE);
             holder.quanitity.setVisibility(View.INVISIBLE);
-            Uri uri = Uri.fromFile(new File(productList.get(position).getImageURL()));
+            Uri uri = Uri.fromFile(new File(productList.get(position).getFilePath()));
             Glide.with(context).load(uri).placeholder(drawable)
                     .error(drawable).animate(R.anim.base_slide_right_in)
                     .centerCrop().into(holder.imagView);
@@ -152,7 +152,7 @@ public class ShoppingListAdapter extends
                     .get(position).getItemName().charAt(0)), mColorGenerator
                     .getColor(productList.get(position).getItemName()));
 
-            ImageUrl = productList.get(position).getImageURL();
+            ImageUrl = productList.get(position).getFilePath();
 
             holder.quanitity.setText(CenterRepository.getCenterRepository()
                     .getListOfProductsInShoppingList().get(position).getQuantity());

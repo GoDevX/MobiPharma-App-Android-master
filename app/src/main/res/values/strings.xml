@@ -129,6 +129,11 @@
     <string name="customer_found">Welcome Back . </string>
     <string name="location_added">Location Added Successfully . </string>
     <string name="location_not_added">Location Not Added  . </string>
+
+
+    <string name="order_submitted">Order Submitted Successfully . </string>
+    <string name="order_not_submitted">Order Not Submitted  . </string>
+
     <string name="error_location_empty">Location Not Selected From List . </string>
     <string name="insert_location_name">Please Insert Your Location Name. </string>
     <string name="select_location_form_list">Please Select Location From List. </string>

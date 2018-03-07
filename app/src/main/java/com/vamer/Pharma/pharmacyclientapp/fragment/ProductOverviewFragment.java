@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
@@ -50,6 +51,8 @@ import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Set;
 
 public class ProductOverviewFragment extends Fragment {
@@ -83,6 +86,7 @@ public class ProductOverviewFragment extends Fragment {
         // Simulate Web service calls
         FakeWebServer.getFakeWebServer().getAllProducts(
                 AppConstants.CURRENT_CATEGORY);
+
 
         // TODO We Can use Async task But pallete creation is problemitic job
         // will
@@ -274,7 +278,12 @@ public class ProductOverviewFragment extends Fragment {
                 });
 
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
+        linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+    }
     private void setupViewPager(ViewPager viewPager) {
         ProductsInCategoryPagerAdapter adapter = new ProductsInCategoryPagerAdapter(
                 getActivity().getSupportFragmentManager());
@@ -422,7 +431,7 @@ public class ProductOverviewFragment extends Fragment {
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String picturePath = cursor.getString(columnIndex);
                     cursor.close();
-                    Product product=new Product("Prescription","Prescription","Prescrption","","","","",picturePath,"");
+                    Product product=new Product("2","Prescription","Prescription","Prescrption","","","","",picturePath,"");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -430,14 +439,14 @@ public class ProductOverviewFragment extends Fragment {
 
                 }
             case REQUEST_IMAGE_CAPTURE:
-                if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK&& null != data) {
+                if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
                     Toast.makeText(getActivity(),"Prescription Added Successfully",Toast.LENGTH_LONG).show();
                     String[] projection = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().managedQuery(mCapturedImageURI, projection, null, null, null);
                     int column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                     cursor.moveToFirst();
                     String picturePath = cursor.getString(column_index_data);
-                    Product product=new Product("Prescription","Prescription","Prescrption","0","0","0","0",picturePath,"");
+                    Product product=new Product("2","Prescription","Prescription","Prescrption","0","0","0","",picturePath,"");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -512,7 +521,7 @@ public class ProductOverviewFragment extends Fragment {
             public void onClick(View v) {
                 if(!textToPrescription.getText().toString().equals("")) {
                     dialog.dismiss();
-                    Product product = new Product("TextNote",textToPrescription.getText().toString() , "Prescrption", "", "", "", "", "", "");
+                    Product product = new Product("2","TextNote",textToPrescription.getText().toString() , "Prescrption", "", "", "", "", "", "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -619,10 +628,12 @@ public class ProductOverviewFragment extends Fragment {
     private void activeTakePhoto() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            String fileName = "temp.jpg";
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            String imageFileName = "JPEG_" + timeStamp + "_";
+            //String fileName =
             ContentValues values = new ContentValues();
-            values.put(MediaStore.Images.Media.TITLE, fileName);
-            mCapturedImageURI =getActivity(). getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+            values.put(MediaStore.Images.Media.TITLE, imageFileName);
+            mCapturedImageURI = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }

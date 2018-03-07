@@ -40,6 +40,7 @@ public class PreferenceHelper {
     private static PreferenceHelper preferenceHelperInstance = new PreferenceHelper();
 
     private PreferenceHelper() {
+
     }
 
     public static PreferenceHelper getPrefernceHelperInstace() {

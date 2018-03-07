@@ -117,7 +117,7 @@ public class ProductListAdapter extends
                 .get(position).getItemName().charAt(0)), mColorGenerator
                 .getColor(productList.get(position).getItemName()));
 
-        ImageUrl = productList.get(position).getImageURL();
+        ImageUrl = productList.get(position).getFilePath();
 
 
         Glide.with(context).load(ImageUrl).placeholder(drawable)

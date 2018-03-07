@@ -123,7 +123,7 @@ public class SimilarProductsPagerAdapter extends PagerAdapter {
                         .getItemName()));
 
         final String ImageUrl = CenterRepository.getCenterRepository().getMapOfProductsInCategory()
-                .get(productCategory).get(position).getImageURL();
+                .get(productCategory).get(position).getFilePath();
 
         Picasso.with(mContext).load(ImageUrl).placeholder(drawable)
                 .error(drawable).fit().centerCrop()

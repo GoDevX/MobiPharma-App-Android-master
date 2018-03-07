@@ -69,8 +69,7 @@ public class SearchProductFragment extends Fragment {
                 container, false);
         DrawerLayout mDrawerLayout=getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        LinearLayout linearLayOut_CheckOut=getActivity().findViewById(R.id.linearLayOut_CheckOut);
-        linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+
         btnSpeak = (ImageButton) rootView.findViewById(R.id.btnSpeak);
         heading = (TextView) rootView.findViewById(R.id.txtSpeech_heading);
         serchInput = (AutoCompleteTextView) rootView.findViewById(R.id.edt_search_input);
@@ -138,6 +137,12 @@ public class SearchProductFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
+        linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+    }
     /**
      * Showing google speech input dialog.
      */

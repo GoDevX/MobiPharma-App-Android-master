@@ -21,15 +21,23 @@ import android.os.Parcelable;
  */
 public class Product implements Parcelable {
 
-    private String mName; // file name
-    private String mFilePath; //file path
-    private int mId; //id in database
-    private int mLength; // length of recording in seconds
-    private long mTime; // date/time of the recording
+
+
+
+    public void setOrderItemType(String orderItemType) {
+        OrderItemType = orderItemType;
+    }
+
+    public String getOrderItemType() {
+        return OrderItemType;
+    }
 
     /**
      * The item short desc.
      */
+
+    private String OrderItemType = "";
+
     private String description = "";
 
     /**
@@ -55,19 +63,19 @@ public class Product implements Parcelable {
     /**
      * The quantity.
      */
-    private String orderQty;
+    private String ItemQuantity;
 
     /**
      * The image url.
      */
-    private String imageUrl = "";
+    private String FilePath = "";
 
     /**
      * The item name.
      */
     private String productName = "";
 
-    private String productId = "";
+    private String ProductID = "";
 
     /**
      * @param itemName
@@ -79,25 +87,27 @@ public class Product implements Parcelable {
      * @param quantity
      * @param imageURL
      */
-    public Product(String itemName, String itemShortDesc, String itemDetail,
+    public Product(String OrderItemType, String itemName, String itemShortDesc, String itemDetail,
                    String MRP, String discount, String sellMRP, String quantity,
                    String imageURL, String orderId) {
+        this.OrderItemType = OrderItemType;
         this.productName = itemName;
         this.description = itemShortDesc;
         this.longDescription = itemDetail;
         this.mrp = MRP;
         this.discount = discount;
         this.salePrice = sellMRP;
-        this.orderQty = quantity;
-        this.imageUrl = imageURL;
-        this.productId = orderId;
+        this.ItemQuantity = quantity;
+        this.FilePath = imageURL;
+        this.ProductID = orderId;
     }
-    public Product(Parcel in){
-        mName = in.readString();
-        mFilePath = in.readString();
-        mId = in.readInt();
-        mLength = in.readInt();
-        mTime = in.readLong();
+
+    public Product(Parcel in) {
+          //  mName = in.readString();
+          // mFilePath = in.readString();
+          //  mId = in.readInt();
+          // mLength = in.readInt();
+          // mTime = in.readLong();
     }
 
     public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
@@ -112,11 +122,11 @@ public class Product implements Parcelable {
 
 
     public String getProductId() {
-        return productId;
+        return ProductID;
     }
 
     public void setProductId(String productId) {
-        this.productId = productId;
+        this.ProductID = productId;
     }
 
     public String getItemName() {
@@ -172,19 +182,19 @@ public class Product implements Parcelable {
     }
 
     public String getQuantity() {
-        return orderQty;
+        return ItemQuantity;
     }
 
     public void setQuantity(String quantity) {
-        this.orderQty = quantity;
+        this.ItemQuantity = quantity;
     }
 
-    public String getImageURL() {
-        return imageUrl;
+    public String getFilePath() {
+        return FilePath;
     }
 
     public void setImageURL(String imageURL) {
-        this.imageUrl = imageURL;
+        this.FilePath = imageURL;
     }
 
     @Override
@@ -194,10 +204,10 @@ public class Product implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(mId);
-        dest.writeInt(mLength);
-        dest.writeLong(mTime);
-        dest.writeString(mFilePath);
-        dest.writeString(mName);
+        //  dest.writeInt(mId);
+        // dest.writeInt(mLength);
+        // dest.writeLong(mTime);
+        //dest.writeString(mFilePath);
+        //  dest.writeString(mName);
     }
 }

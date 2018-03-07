@@ -25,15 +25,24 @@ import io.rmiri.skeleton.Master.IsCanSetAdapterListener;
 import io.rmiri.skeleton.SkeletonGroup;
 
 
-public class PharmacyAdapter extends AdapterSkeleton<Pharmacy,PharmacyAdapter.ViewHolder> {
+public class PharmacyAdapter extends AdapterSkeleton<Pharmacy, PharmacyAdapter.ViewHolder> {
 
 
-    public PharmacyAdapter(final Context context, final ArrayList<Pharmacy> items, final RecyclerView recyclerView, final IsCanSetAdapterListener isCanSetAdapterListener) {
+    public MyAdapterListener onClickListener;
+
+    public interface MyAdapterListener {
+
+
+        void btnOrderOnClick(View v, int position);
+
+    }
+
+    public PharmacyAdapter(final Context context, final ArrayList<Pharmacy> items, final RecyclerView recyclerView, final IsCanSetAdapterListener isCanSetAdapterListener, MyAdapterListener listener) {
         this.context = context;
         this.items = items;
         this.isCanSetAdapterListener = isCanSetAdapterListener;
         measureHeightRecyclerViewAndItem(recyclerView, R.layout.pharmacy_item);// Set height
-
+        onClickListener = listener;
     }
 
 
@@ -59,15 +68,23 @@ public class PharmacyAdapter extends AdapterSkeleton<Pharmacy,PharmacyAdapter.Vi
         ViewHolder(View itemView) {
             super(itemView);
 
-            cardView =  itemView.findViewById(R.id.cardView);
+            cardView = itemView.findViewById(R.id.cardView);
             skeletonGroup = (SkeletonGroup) itemView.findViewById(R.id.skeletonGroup);
             photoACImgV = (AppCompatImageView) itemView.findViewById(R.id.photoACImgV);
-            btnOrder =  itemView.findViewById(R.id.btnOrder);
+            btnOrder = itemView.findViewById(R.id.btnOrder);
             titleTv = (TextView) itemView.findViewById(R.id.titleTv);
             descriptionTv = (TextView) itemView.findViewById(R.id.descriptionTv);
             addToParkingImgBtn = (AppCompatImageButton) itemView.findViewById(R.id.addToParkingImgBtn);
             compareImgBtn = (AppCompatImageButton) itemView.findViewById(R.id.compareImgBtn);
             priceTv = (RatingBar) itemView.findViewById(R.id.priceTv);
+            btnOrder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickListener.btnOrderOnClick(v, getAdapterPosition());
+                }
+            });
+
+
 
         }
     }
@@ -87,19 +104,17 @@ public class PharmacyAdapter extends AdapterSkeleton<Pharmacy,PharmacyAdapter.Vi
         }
 
         //set data in view
-        final Pharmacy cardObj = items.get(position);
+        Pharmacy cardObj = items.get(position);
 
         holder.titleTv.setText(cardObj.getPharmacyName());
         holder.descriptionTv.setText(cardObj.getPharmacyDesc());
         holder.priceTv.setRating(Float.parseFloat(cardObj.getPharmacyRate()));
 
 
-
         //set photo by Picasso lib
         Picasso.with(context).load(cardObj.getPharmacyLogo()).into(holder.photoACImgV);
 
     }
-
 
 
 }

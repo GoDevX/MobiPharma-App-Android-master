@@ -171,6 +171,7 @@ public class JSONParser {
                                     if (productListObjecty.length() != 0) {
 
                                         tempProductList.add(new Product(
+                                                productListObjecty.getString("OrderItemType"),
                                                 productListObjecty
 
                                                         .getString("productName"),
@@ -272,7 +273,11 @@ public class JSONParser {
 
                                 CenterRepository
                                         .getCenterRepository()
-                                        .getListOfProductsInShoppingList().add(new Product(productListObjecty
+                                        .getListOfProductsInShoppingList().add(new Product(
+                                        productListObjecty
+
+                                                .getString("OrderItemType"),
+                                                productListObjecty
 
                                         .getString("productName"), productListObjecty
 

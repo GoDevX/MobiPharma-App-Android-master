@@ -71,7 +71,9 @@ import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 
 public class MyCartFragment extends Fragment implements OnStartDragListener {
@@ -90,6 +92,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
     RecyclerView.OnScrollListener listener;
     private Uri mCapturedImageURI;
     TextView v;
+    private boolean back = false;
     RelativeLayout slide_down;
 
     public MyCartFragment() {
@@ -137,14 +140,21 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
 
         listener = new RecyclerView.OnScrollListener() {
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.TOUCH_SLOP_PAGING || newState != RecyclerView.SCROLL_STATE_IDLE) {
-                    hideViews();
+                if (!back ) {
+                    if (newState == RecyclerView.TOUCH_SLOP_PAGING || newState != RecyclerView.SCROLL_STATE_IDLE) {
+                        hideViews();
+                    } else {
+                        bmb.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1)).start();
+                        linearLayOut_CheckOut.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1)).start();
+                        slide_down.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1)).start();
+                        showViews();
+                    }
                 } else {
-                    bmb.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1)).start();
-                    linearLayOut_CheckOut.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1)).start();
-                    slide_down.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1)).start();
-                    showViews();
+                    linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+                    recyclerView.addOnScrollListener(null);
+
                 }
+
             }
         };
 
@@ -165,7 +175,10 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
                         new PlaceOrderFragment(),
                         ((HomeActivity) getActivity()), Utils.PLACE_ORDER_FRAGMENT,
                         Utils.AnimationType.SLIDE_LEFT);*/
+                back = true;
                 getActivity().onBackPressed();
+                linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+
             }
 
         });
@@ -274,7 +287,9 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
                 if (event.getAction() == KeyEvent.ACTION_UP
                         && keyCode == KeyEvent.KEYCODE_BACK) {
                     //getActivity().getFragmentManager().popBackStack();
+                    back = true;
                     getActivity().onBackPressed();
+
                     return true;
 
                 }
@@ -286,6 +301,8 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
     }
 
     private void showViews() {
+
+
         // TODO uncomment this Hide Footer in android when Scrolling
         bmb.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1.4f)).setListener(new Animator.AnimatorListener() {
             @Override
@@ -311,6 +328,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
         linearLayOut_CheckOut.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1.4f)).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
+
                 linearLayOut_CheckOut.setVisibility(View.VISIBLE);
 
             }
@@ -329,7 +347,6 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
             public void onAnimationRepeat(Animator animation) {
             }
         });
-
         slide_down.animate().alpha(1.0f).translationY(0).setInterpolator(new DecelerateInterpolator(1.4f)).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -404,6 +421,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
             @Override
             public void onAnimationEnd(Animator animation) {
                 slide_down.setVisibility(View.GONE);
+
             }
 
             @Override
@@ -443,14 +461,14 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
 								// TODO Auto-generated method stub
 								switch(event.getAction()){
 									*//*case MotionEvent.ACTION_DOWN:
-										AppLog.logString("Start Recording");
+                                        AppLog.logString("Start Recording");
 										startRecording();
 										break;
 									case MotionEvent.ACTION_UP:
 										AppLog.logString("stop Recording");
 										stopRecording();
 										break;*//*
-								}
+                                }
 								return false;
 							}
 						});
@@ -502,7 +520,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String picturePath = cursor.getString(columnIndex);
                     cursor.close();
-                    Product product = new Product("Prescription", "Prescription", "Prescrption", "", "", "", "", picturePath, "");
+                    Product product = new Product("2","Prescription", "Prescription", "Prescrption", "", "", "", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -510,14 +528,14 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
                     shoppinListAdapter.notifyDataSetChanged();
                 }
             case REQUEST_IMAGE_CAPTURE:
-                if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK && null != data) {
+                if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK ) {
                     Toast.makeText(getActivity(), "Prescription Added Successfully", Toast.LENGTH_LONG).show();
                     String[] projection = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().managedQuery(mCapturedImageURI, projection, null, null, null);
                     int column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                     cursor.moveToFirst();
                     String picturePath = cursor.getString(column_index_data);
-                    Product product = new Product("Prescription", "Prescription", "Prescrption", "0", "0", "0", "0", picturePath, "");
+                    Product product = new Product("2","Prescription", "Prescription", "Prescrption", "", "0", "0", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -614,9 +632,11 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
     private void activeTakePhoto() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            String fileName = "temp.jpg";
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            String imageFileName = "JPEG_" + timeStamp + "_";
+            //String fileName =
             ContentValues values = new ContentValues();
-            values.put(MediaStore.Images.Media.TITLE, fileName);
+            values.put(MediaStore.Images.Media.TITLE, imageFileName);
             mCapturedImageURI = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
@@ -637,7 +657,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
             public void onClick(View v) {
                 if (!textToPrescription.getText().toString().equals("")) {
                     dialog.dismiss();
-                    Product product = new Product("TextNote", textToPrescription.getText().toString(), "Prescrption", "", "", "", "", "", "");
+                    Product product = new Product("4","TextNote", textToPrescription.getText().toString(), "Prescrption", "", "", "", "", "", "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())

@@ -54,6 +54,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
@@ -111,6 +112,8 @@ public class HomeActivity extends AppCompatActivity {
         CenterRepository.getCenterRepository().setListOfProductsInShoppingList(
                 new TinyDB(getApplicationContext()).getListObject(
                         PreferenceHelper.MY_CART_LIST_LOCAL, Product.class));
+        List<Product> cr = CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
+
         itemCount = CenterRepository.getCenterRepository().getListOfProductsInShoppingList()
                 .size();
         //   offerBanner = ((TextView) findViewById(R.id.new_offers_banner));
@@ -123,8 +126,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //      showPurchaseDialog();
-
-
                 if (preferenceHelper.isUserLoggedIn(HomeActivity.this)) {
                     ArrayList<String> productId = new ArrayList<String>();
                     for (Product productFromShoppingList : CenterRepository.getCenterRepository().getListOfProductsInShoppingList())
@@ -144,9 +145,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         checkOutAmount.setSelected(true);
-
         checkOutAmount.setText(Money.rupees(checkoutAmount).toString());
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         progressBar = (AVLoadingIndicatorView) findViewById(R.id.loading_bar);

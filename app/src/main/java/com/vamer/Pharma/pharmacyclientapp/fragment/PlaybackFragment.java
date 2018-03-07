@@ -213,7 +213,7 @@ public class PlaybackFragment extends DialogFragment {
         mMediaPlayer = new MediaPlayer();
 
         try {
-            mMediaPlayer.setDataSource(item.getImageURL());
+            mMediaPlayer.setDataSource(item.getFilePath());
             mMediaPlayer.prepare();
             mSeekBar.setMax(mMediaPlayer.getDuration());
 
@@ -246,7 +246,7 @@ public class PlaybackFragment extends DialogFragment {
         mMediaPlayer = new MediaPlayer();
 
         try {
-            mMediaPlayer.setDataSource(item.getImageURL());
+            mMediaPlayer.setDataSource(item.getFilePath());
             mMediaPlayer.prepare();
             mSeekBar.setMax(mMediaPlayer.getDuration());
             mMediaPlayer.seekTo(progress);

@@ -49,10 +49,8 @@ public class ProductListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_product_list_fragment, container,
                 false);
-        LinearLayout linearLayOut_CheckOut=getActivity().findViewById(R.id.linearLayOut_CheckOut);
         DrawerLayout mDrawerLayout=getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
         if (isShoppingList) {
             view.findViewById(R.id.slide_down).setVisibility(View.VISIBLE);
             view.findViewById(R.id.slide_down).setOnTouchListener(
@@ -117,5 +115,10 @@ public class ProductListFragment extends Fragment {
 
         return view;
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
+        linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+    }
 }

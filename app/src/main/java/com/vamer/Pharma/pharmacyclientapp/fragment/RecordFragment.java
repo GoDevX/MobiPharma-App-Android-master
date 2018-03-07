@@ -88,8 +88,7 @@ public class RecordFragment extends DialogFragment {
         DrawerLayout mDrawerLayout=getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         final Toolbar toolbar = (Toolbar) recordView.findViewById(R.id.anim_toolbar);
-        LinearLayout linearLayOut_CheckOut=getActivity().findViewById(R.id.linearLayOut_CheckOut);
-        linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+
         ((HomeActivity) getActivity()).setSupportActionBar(toolbar);
         ((HomeActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
@@ -132,7 +131,12 @@ public class RecordFragment extends DialogFragment {
         return recordView;
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
+        linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+    }
     /////////
     private void showElapsedTime() {
         elapsedMillis = SystemClock.elapsedRealtime() - mChronometer.getBase();

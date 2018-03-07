@@ -18,7 +18,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <android.support.design.widget.AppBarLayout
             android:id="@+id/htab_appbar"
             android:layout_width="match_parent"
@@ -46,6 +46,7 @@
                 app:titleTextColor="@android:color/white" />
             <android.support.design.widget.TabLayout
                 android:id="@+id/htab_tabs"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="bottom"
@@ -72,15 +73,25 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/htab_viewpager"
             android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_items"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         <com.nightonke.boommenu.BoomMenuButton
-            android:layout_marginTop="10dp"
             android:id="@+id/bmb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
+            android:layout_marginBottom="10dp"
             />
+        </FrameLayout>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

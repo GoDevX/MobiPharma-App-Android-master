@@ -140,7 +140,7 @@ public class RecordingService extends Service {
 
         try {
 
-            Product product = new Product("Record","" , "", "", "", "", "", mFilePath, "");
+            Product product = new Product("3","Record","" , "", "", "", "", "", mFilePath, "");
             CenterRepository.getCenterRepository()
                     .getListOfProductsInShoppingList().add(product);
 
