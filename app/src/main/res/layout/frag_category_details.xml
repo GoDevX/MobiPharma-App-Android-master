@@ -58,6 +58,7 @@
             android:layout_width="match_parent"
             android:padding="5dp"
             android:background="@color/white"
+            android:visibility="gone"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
@@ -70,6 +71,8 @@
                 android:hint="Search for your product"/>
 
         </android.support.design.widget.TextInputLayout>
+        <include layout="@layout/widget_search_bar" />
+
         <android.support.v4.view.ViewPager
             android:id="@+id/htab_viewpager"
             android:layout_width="match_parent"
@@ -77,13 +80,10 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         <FrameLayout
+            android:id="@+id/list_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_items"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
         <com.nightonke.boommenu.BoomMenuButton
             android:id="@+id/bmb"
             android:layout_width="wrap_content"

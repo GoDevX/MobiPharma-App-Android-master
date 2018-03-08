@@ -42,9 +42,9 @@ public class CategoryListAdapter extends
     private String ImageUrl;
     private Context context;
 
-    public CategoryListAdapter(Context context) {
-
-        categoryList = CenterRepository.getCenterRepository().getListOfCategory();
+    public CategoryListAdapter(Context context,List<ProductCategoryModel> categoryList) {
+         this.categoryList=categoryList;
+     //  categoryList = CenterRepository.getCenterRepository().getListOfCategory();
 
         this.context = context;
     }
@@ -62,28 +62,28 @@ public class CategoryListAdapter extends
                                  int categoryIndex) {
 
         versionViewHolder.itemName.setText(categoryList.get(categoryIndex)
-                .getProductCategoryName());
+                .getCategoryName_EN());
 
         versionViewHolder.itemDesc.setText(categoryList.get(categoryIndex)
-                .getProductCategoryDescription());
+                .getCategoryDesc_EN());
 
         mDrawableBuilder = TextDrawable.builder().beginConfig().withBorder(4)
                 .endConfig().roundRect(10);
 
         drawable = mDrawableBuilder.build(String.valueOf(categoryList
-                        .get(categoryIndex).getProductCategoryName().charAt(0)),
+                        .get(categoryIndex).getCategoryName_EN().charAt(0)),
                 mColorGenerator.getColor(categoryList.get(categoryIndex)
-                        .getProductCategoryName()));
+                        .getCategoryName_EN()));
 
-        ImageUrl = categoryList.get(categoryIndex).getProductCategoryImageUrl();
+        ImageUrl = categoryList.get(categoryIndex).getCategoryImage();
 
         Glide.with(context).load(ImageUrl).placeholder(drawable)
                 .error(drawable).animate(R.anim.base_slide_right_in)
                 .centerCrop().into(versionViewHolder.imagView);
 
         LabelView label = new LabelView(context);
-        label.setText(categoryList.get(categoryIndex)
-                .getProductCategoryDiscount());
+        /*label.setText(categoryList.get(categoryIndex)
+                .get());*/
         label.setBackgroundColor(0xffE91E63);
         label.setTargetView(versionViewHolder.imagView, 10,
                 LabelView.Gravity.RIGHT_TOP);
@@ -109,18 +109,12 @@ public class CategoryListAdapter extends
         TextView itemName, itemDesc, itemCost, availability, quanitity,
                 addItem, removeItem;
         ImageView imagView;
-
         public VersionViewHolder(View itemView) {
             super(itemView);
-
             itemName = (TextView) itemView.findViewById(R.id.item_name);
-
             itemDesc = (TextView) itemView.findViewById(R.id.item_short_desc);
-
             itemName.setSelected(true);
-
             imagView = ((ImageView) itemView.findViewById(R.id.imageView));
-
             itemView.setOnClickListener(this);
 
         }

@@ -15,55 +15,105 @@ package com.vamer.Pharma.pharmacyclientapp.model;
  * @author Hitesh
  */
 public class ProductCategoryModel {
+    public String getCategoryDesc_AR() {
+        return CategoryDesc_AR;
+    }
 
-    private String categoryName;
-    private String categoryDescription;
-    private String categoryDiscount;
-    private String categoryImageUrl;
+    public void setCategoryDesc_AR(String categoryDesc_AR) {
+        CategoryDesc_AR = categoryDesc_AR;
+    }
 
-    public ProductCategoryModel(String productCategoryName, String productCategoryDescription,
-                                String productCategoryDiscount, String productCategoryUrl) {
-        super();
-        this.categoryName = productCategoryName;
-        this.categoryDescription = productCategoryDescription;
-        this.categoryDiscount = productCategoryDiscount;
-        this.categoryImageUrl = productCategoryUrl;
+    public String getParent_CategoryID() {
+        return Parent_CategoryID;
     }
-    public String getProductCategoryName() {
-        return categoryName;
+
+    public void setParent_CategoryID(String parent_CategoryID) {
+        Parent_CategoryID = parent_CategoryID;
     }
-    public void setProductCategoryName(String idproductcategory) {
-        this.categoryName = idproductcategory;
+
+    private String Parent_CategoryID;
+
+    private String CategoryDesc_AR;
+    private String CategoryID;
+
+    public ProductCategoryModel(String categoryID, String categoryName_EN, String categoryDesc_EN, String categoryName_AR, String categoryLevel, String categoryImage, String defaultProductsImage) {
+        CategoryID = categoryID;
+        CategoryName_EN = categoryName_EN;
+        CategoryDesc_EN = categoryDesc_EN;
+        CategoryName_AR = categoryName_AR;
+        CategoryLevel = categoryLevel;
+        CategoryImage = categoryImage;
+        DefaultProductsImage = defaultProductsImage;
     }
-    /**
-     * @return the productDescription
-     */
-    public String getProductCategoryDescription() {
-        return categoryDescription;
+
+    public void setCategoryID(String categoryID) {
+        CategoryID = categoryID;
     }
-    /**
-     * @param productDescription the productDescription to set
-     */
-    public void setProductCategoryDescription(String productDescription) {
-        this.categoryDescription = productDescription;
+
+    public void setCategoryName_EN(String categoryName_EN) {
+        CategoryName_EN = categoryName_EN;
     }
-    /**
-     * @return the productDiscount
-     */
-    public String getProductCategoryDiscount() {
-        return categoryDiscount;
+
+    public void setCategoryDesc_EN(String categoryDesc_EN) {
+        CategoryDesc_EN = categoryDesc_EN;
     }
-    /**
-     * @param productDiscount the productDiscount to set
-     */
-    public void setProductCategoryDiscount(String productDiscount) {
-        this.categoryDiscount = productDiscount;
+
+    public void setCategoryName_AR(String categoryName_AR) {
+        CategoryName_AR = categoryName_AR;
     }
-    public String getProductCategoryImageUrl() {
-        return categoryImageUrl;
+
+    public void setCategoryLevel(String categoryLevel) {
+        CategoryLevel = categoryLevel;
     }
-    public void setProductCategoryImageUrl(String productUrl) {
-        this.categoryImageUrl = productUrl;
+
+    public void setCategoryImage(String categoryImage) {
+        CategoryImage = "http://192.168.1.5:123/_Media/Category_Products_Images/Category_Images/"+categoryImage;
+        String a=CategoryImage;
     }
+
+    public void setDefaultProductsImage(String defaultProductsImage) {
+        DefaultProductsImage = defaultProductsImage;
+    }
+
+    private String CategoryName_EN;
+    private String CategoryDesc_EN;
+    private String CategoryName_AR;
+    private String CategoryLevel;
+    private String CategoryImage;
+
+    public String getCategoryID() {
+        return CategoryID;
+    }
+
+    public String getCategoryName_EN() {
+        return CategoryName_EN;
+    }
+
+    public String getCategoryDesc_EN() {
+        return CategoryDesc_EN;
+    }
+
+    public String getCategoryName_AR() {
+        return CategoryName_AR;
+    }
+
+    public String getCategoryLevel() {
+        return CategoryLevel;
+    }
+
+    public String getCategoryImage() {
+        return CategoryImage;
+    }
+
+    public String getDefaultProductsImage() {
+        return DefaultProductsImage;
+    }
+
+    private String DefaultProductsImage;
+
+
+    public ProductCategoryModel(){}
+
+
 
 }

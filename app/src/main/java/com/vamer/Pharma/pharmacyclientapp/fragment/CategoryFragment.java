@@ -9,6 +9,7 @@
 package com.vamer.Pharma.pharmacyclientapp.fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -37,11 +38,23 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.JsonObject;
+import com.vamer.Pharma.pharmacyclientapp.AppController;
 import com.vamer.Pharma.pharmacyclientapp.R;
+import com.vamer.Pharma.pharmacyclientapp.activities.GetNearPharmacies;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
+import com.vamer.Pharma.pharmacyclientapp.adapter.CategoryListAdapter;
 import com.vamer.Pharma.pharmacyclientapp.domain.api.ProductCategoryLoaderTask;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
+import com.vamer.Pharma.pharmacyclientapp.model.Pharmacy;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
+import com.vamer.Pharma.pharmacyclientapp.model.ProductCategoryModel;
+import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils.AnimationType;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
@@ -53,8 +66,17 @@ import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import xyz.sahildave.widget.SearchViewLayout;
 
 public class CategoryFragment extends Fragment {
     int mutedColor = R.attr.colorPrimary;
@@ -66,6 +88,8 @@ public class CategoryFragment extends Fragment {
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
     FrameLayout rootlayout;
+    private ArrayList<ProductCategoryModel> dataObjects = new ArrayList<>();
+    CategoryListAdapter simpleRecyclerAdapter;
 
     int _xDelta;
     int _yDelta;
@@ -80,15 +104,30 @@ public class CategoryFragment extends Fragment {
         }
     };
     private Handler mHandler = new Handler();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_product_category, container, false);
-        DrawerLayout mDrawerLayout=getActivity().findViewById(R.id.nav_drawer);
+        DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
+        searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true));
+        int paddingDp = 25;
+        float density = getActivity().getResources().getDisplayMetrics().density;
+        int paddingPixel = (int) (paddingDp * density);
 
+        // searchViewLayout.setPadding(10,10,10,10);
+        final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
+
+        ((HomeActivity) getActivity()).setSupportActionBar(toolbar);
+        ((HomeActivity) getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(true);
+        searchViewLayout.handleToolbarAnimation(toolbar);
+        searchViewLayout.setCollapsedHint("Search For Item");
+        searchViewLayout.setExpandedHint("Search For Item");
         initateBoomMenu(view);
-        txtSearchCategories=view.findViewById(R.id.txtSearchCategories);
+        txtSearchCategories = view.findViewById(R.id.txtSearchCategories);
         txtSearchCategories.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,34 +137,17 @@ public class CategoryFragment extends Fragment {
                         AnimationType.SLIDE_UP);
             }
         });
-        final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
-        ((HomeActivity) getActivity()).setSupportActionBar(toolbar);
-        ((HomeActivity) getActivity()).getSupportActionBar()
-                .setDisplayHomeAsUpEnabled(true);
-       // toolbar.setNavigationIcon(R.drawable.ic_action_keyboard_backspace);
-        /*toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((HomeActivity) getActivity()).getmDrawerLayout()
-                        .openDrawer(GravityCompat.START);
-            }
-        });*/
+
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().onBackPressed();
-               /* FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                //this will clear the back stack and displays no animation on the screen
-                fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);*/
+
             }
 
         });
-       /* collapsingToolbar = (CollapsingToolbarLayout) view
-                .findViewById(R.id.collapsing_toolbar);
 
-        collapsingToolbar.setTitle("Categories");*/
-
-        //EditText header = (EditText) view.findViewById(R.id.header);
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                 R.drawable.header);
@@ -137,7 +159,7 @@ public class CategoryFragment extends Fragment {
 
                 mutedColor = palette.getMutedColor(R.color.primary_500);
 //                collapsingToolbar.setContentScrimColor(mutedColor);
-               // collapsingToolbar.setStatusBarScrimColor(R.color.black_trans80);
+                // collapsingToolbar.setStatusBarScrimColor(R.color.black_trans80);
             }
         });
 
@@ -148,49 +170,116 @@ public class CategoryFragment extends Fragment {
                 getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        new ProductCategoryLoaderTask(recyclerView, getActivity()).execute();
+        simpleRecyclerAdapter = new CategoryListAdapter(
+                getActivity(), dataObjects);
 
+
+        recyclerView.setAdapter(simpleRecyclerAdapter);
+        getCatgeories();
+        //  new ProductCategoryLoaderTask(recyclerView, getActivity()).execute();
+
+        simpleRecyclerAdapter.SetOnItemClickListener(new CategoryListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+
+                Utils.switchFragmentWithAnimation(R.id.frag_container,
+                        new ProductListFragment(  dataObjects.get(position).getCategoryID()),
+                        ((HomeActivity) getActivity()), null,
+                        AnimationType.SLIDE_UP);
+            }
+        });
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
         view.setFocusableInTouchMode(true);
         view.requestFocus();
 
-
-
-        view.setFocusableInTouchMode(true);
-        view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 getActivity().onBackPressed();
 
-                /*if (event.getAction() == KeyEvent.ACTION_UP
-                        && keyCode == KeyEvent.KEYCODE_BACK) {
-                    getActivity().onBackPressed();
-
-                    if (doubleBackToExitPressedOnce) {
-                        // super.onBackPressed();
-
-                        if (mHandler != null) {
-                            mHandler.removeCallbacks(mRunnable);
-                        }
-
-                        getActivity().finish();
-
-                        return true;
-                    }
-
-                    doubleBackToExitPressedOnce = true;
-
-                    getActivity().onBackPressed();
-
-                    mHandler.postDelayed(mRunnable, 2000);
-
-                }*/
                 return true;
             }
         });
         return view;
 
+    }
+
+
+    public void getCatgeories() {
+        if (null != ((HomeActivity) getActivity()).getProgressBar())
+            ((HomeActivity) getActivity()).getProgressBar().setVisibility(
+                    View.VISIBLE);
+        Map<String, String> postParam = new HashMap<String, String>();
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategories",null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        if (null != ((HomeActivity) getActivity()).getProgressBar())
+                            ((HomeActivity) getActivity()).getProgressBar().setVisibility(
+                                    View.GONE);
+                        try {
+                            String Status = response.getString("Status");
+                            if (Status.equals(AppConstants.success)) {
+
+                                JSONObject mjsonObject = response.getJSONObject("Result");
+                                JSONArray jsonArray = mjsonObject.getJSONArray("dtCategories");
+                                dataObjects.clear();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                    ProductCategoryModel productCategoryModel = new ProductCategoryModel();
+                                    productCategoryModel.setCategoryID(jsonObject.getString("CategoryID"));
+                                    productCategoryModel.setCategoryName_EN(jsonObject.getString("CategoryName_EN"));
+                                    productCategoryModel.setCategoryDesc_EN(jsonObject.getString("CategoryDesc_EN"));
+                                    productCategoryModel.setCategoryName_AR(jsonObject.getString("CategoryName_AR"));
+                                    productCategoryModel.setCategoryDesc_AR(jsonObject.getString("CategoryDesc_AR"));
+                                    productCategoryModel.setParent_CategoryID(jsonObject.getString("Parent_CategoryID"));
+                                    productCategoryModel.setCategoryLevel(jsonObject.getString("CategoryLevel"));
+                                    productCategoryModel.setCategoryImage(jsonObject.getString("CategoryImage"));
+                                    productCategoryModel.setDefaultProductsImage(jsonObject.getString("DefaultProductsImage"));
+                                    dataObjects.add(productCategoryModel);
+                                }
+                                //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
+                                simpleRecyclerAdapter.notifyDataSetChanged();
+                                //  LocationsRecylcerview.setAdapter(locationAdapter);
+
+                            } else {
+                                // Toast.makeText(GetNearPharmacies.this, "There is an error try again later ", Toast.LENGTH_SHORT).show();
+                            }
+                            //Todo
+                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
+
+                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (null != ((HomeActivity) getActivity()).getProgressBar())
+                    ((HomeActivity) getActivity()).getProgressBar().setVisibility(
+                            View.GONE);
+                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Basic YWhtZWQ6YWhtZWQ=");
+                return headers;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
     }
 
 
@@ -200,13 +289,14 @@ public class CategoryFragment extends Fragment {
         LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
         linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case RESULT_LOAD_IMAGE:
                 if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
-                    Toast.makeText(getActivity(),"Prescription Added Successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Prescription Added Successfully", Toast.LENGTH_LONG).show();
                     Uri selectedImage = data.getData();
                     String[] filePathColumn = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
@@ -214,7 +304,7 @@ public class CategoryFragment extends Fragment {
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String picturePath = cursor.getString(columnIndex);
                     cursor.close();
-                    Product product=new Product("2","Prescription","Prescription","Prescrption","","","","",picturePath,"");
+                    Product product = new Product("2", "Prescription", "Prescription", "Prescrption", "", "", "", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -223,13 +313,13 @@ public class CategoryFragment extends Fragment {
                 }
             case REQUEST_IMAGE_CAPTURE:
                 if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-                    Toast.makeText(getActivity(),"Prescription Added Successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Prescription Added Successfully", Toast.LENGTH_LONG).show();
                     String[] projection = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().managedQuery(mCapturedImageURI, projection, null, null, null);
                     int column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                     cursor.moveToFirst();
                     String picturePath = cursor.getString(column_index_data);
-                    Product product=new Product("2","Prescription","Prescription","Prescrption","0","0","0","",picturePath,"");
+                    Product product = new Product("2", "Prescription", "Prescription", "Prescrption", "0", "0", "0", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -240,18 +330,8 @@ public class CategoryFragment extends Fragment {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     private void initateBoomMenu(View view) {
-        bmb = (BoomMenuButton)view. findViewById(R.id.bmb);
+        bmb = (BoomMenuButton) view.findViewById(R.id.bmb);
         assert bmb != null;
         bmb.setButtonEnum(ButtonEnum.Ham);
 
@@ -298,7 +378,7 @@ public class CategoryFragment extends Fragment {
        }
    });*/
         for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
-            if(i==0){
+            if (i == 0) {
                 HamButton.Builder builder = new HamButton.Builder()
                         .listener(new OnBMClickListener() {
                             @Override
@@ -311,8 +391,7 @@ public class CategoryFragment extends Fragment {
                         .subNormalTextRes(R.string.upload_prescriptin);
 
                 bmb.addBuilder(builder);
-            }
-            else if(i==1){
+            } else if (i == 1) {
                 HamButton.Builder builder = new HamButton.Builder()
                         .listener(new OnBMClickListener() {
                             @Override
@@ -325,8 +404,7 @@ public class CategoryFragment extends Fragment {
                         .subNormalTextRes(R.string.record_voice);
 
                 bmb.addBuilder(builder);
-            }
-                else {
+            } else {
                 HamButton.Builder builder = new HamButton.Builder()
                         .listener(new OnBMClickListener() {
                             @Override
@@ -339,32 +417,35 @@ public class CategoryFragment extends Fragment {
                         .subNormalTextRes(R.string.Write_text);
 
                 bmb.addBuilder(builder);
-                }
             }
         }
-    public void WriteText(){
+    }
+
+    public void WriteText() {
         final DialogPlus dialog = DialogPlus.newDialog(getActivity())
                 .setContentHolder(new ViewHolder(R.layout.write_text_dialog))
                 .setExpanded(true)  // This will enable the expand feature, (similar to android L share dialog)
                 .create();
         dialog.show();
-        final EditText textToPrescription=(EditText) dialog.findViewById(R.id.textToPrescription);
-        final Button btnAddTextToPrescription=(Button) dialog.findViewById(R.id.btnAddTextToPrescription);
+        final EditText textToPrescription = (EditText) dialog.findViewById(R.id.textToPrescription);
+        final Button btnAddTextToPrescription = (Button) dialog.findViewById(R.id.btnAddTextToPrescription);
         btnAddTextToPrescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!textToPrescription.getText().toString().equals("")) {
+                if (!textToPrescription.getText().toString().equals("")) {
                     dialog.dismiss();
-                    Product product = new Product("4","TextNote",textToPrescription.getText().toString() , "Prescrption", "", "", "", "", "", "");
+                    Product product = new Product("4", "TextNote", textToPrescription.getText().toString(), "Prescrption", "", "", "", "", "", "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
                             .updateItemCount(true);
+                } else {
+                    Toast.makeText(getActivity(), "You have to enter Your medicine text", Toast.LENGTH_SHORT).show();
                 }
-                else {Toast.makeText(getActivity(),"You have to enter Your medicine text",Toast.LENGTH_SHORT).show();}
             }
         });
     }
+
     public void recordSound() {
         Utils.switchFragmentWithAnimation(R.id.frag_container,
                 new RecordFragment(),
@@ -372,60 +453,6 @@ public class CategoryFragment extends Fragment {
                 Utils.AnimationType.SLIDE_UP);
 
 
-		/*DialogPlus dialog = DialogPlus.newDialog(getActivity())
-				.setContentHolder(new ViewHolder(R.layout.record))
-				.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(DialogPlus dialog, View view) {
-						ImageView v=view.findViewById(R.id.btnRecordVoice);
-						v.setOnTouchListener(new View.OnTouchListener() {
-							@Override
-							public boolean onTouch(View v, MotionEvent event) {
-								// TODO Auto-generated method stub
-								switch(event.getAction()){
-									*//*case MotionEvent.ACTION_DOWN:
-										AppLog.logString("Start Recording");
-										startRecording();
-										break;
-									case MotionEvent.ACTION_UP:
-										AppLog.logString("stop Recording");
-										stopRecording();
-										break;*//*
-								}
-								return false;
-							}
-						});
-					}
-				})
-
-				.setOnItemClickListener(new OnItemClickListener() {
-					@Override
-					public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
-						ImageView v=view.findViewById(R.id.btnRecordVoice);
-						v.setOnTouchListener(new View.OnTouchListener() {
-							@Override
-							public boolean onTouch(View v, MotionEvent event) {
-
-
-								// TODO Auto-generated method stub
-								switch(event.getAction()){
-									case MotionEvent.ACTION_DOWN:
-								//		AppLog.logString("Start Recording");
-										startRecording();
-										break;
-									case MotionEvent.ACTION_UP:
-									//	AppLog.logString("stop Recording");
-										stopRecording();
-										break;
-								}
-								return false;
-							}
-						});
-					}
-				})
-				.setExpanded(true)  // This will enable the expand feature, (similar to android L share dialog)
-				.create();
-		dialog.show();*/
     }
 
     public void uploadPrescription() {
@@ -437,7 +464,7 @@ public class CategoryFragment extends Fragment {
         dialog.show();
 
 
-        Button btnChoosePath= (Button) dialog.findViewById(R.id.btnChoosePath);
+        Button btnChoosePath = (Button) dialog.findViewById(R.id.btnChoosePath);
         btnChoosePath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -445,7 +472,7 @@ public class CategoryFragment extends Fragment {
                 activeGallery();
             }
         });
-        Button btnTakePhoto=(Button) dialog.findViewById(R.id.btnTakePhoto);
+        Button btnTakePhoto = (Button) dialog.findViewById(R.id.btnTakePhoto);
         btnTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -454,10 +481,12 @@ public class CategoryFragment extends Fragment {
             }
         });
     }
+
     private void activeGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, RESULT_LOAD_IMAGE);
     }
+
     private void activeTakePhoto() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {

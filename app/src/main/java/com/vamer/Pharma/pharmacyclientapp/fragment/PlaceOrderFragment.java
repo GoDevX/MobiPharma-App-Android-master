@@ -58,6 +58,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import xyz.sahildave.widget.SearchViewLayout;
+
 /**
  *
  */
@@ -73,14 +75,14 @@ public class PlaceOrderFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private ContextMenuDialogFragment mMenuDialogFragment;
     private FragmentManager fragmentManager;
-    Button btnMain;
+    //Button btnMain;
     Button btnCategory;
     Button btnOrders;
     private TextInputEditText txtSearchEveryWhere;
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
-
+    SearchViewLayout searchViewLayout;
     /**
      * Create a new instance of the fragment
      */
@@ -116,8 +118,10 @@ public class PlaceOrderFragment extends Fragment {
         //	initMenuFragment();
         fragmentManager = getActivity().getSupportFragmentManager();
         View view = inflater.inflate(R.layout.fragment_place_order, container, false);
-
+        searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
+        searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true));
         initPlaceOrder(view);
+
         return view;
     }
 
@@ -132,9 +136,9 @@ public class PlaceOrderFragment extends Fragment {
         linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
         btnOrders = view.findViewById(R.id.btnOrders);
 
-        btnMain = view.findViewById(R.id.btnMain);
+        //btnMain = view.findViewById(R.id.btnMain);
         btnCategory = view.findViewById(R.id.btnCategory);
-        btnMain.setOnClickListener(new View.OnClickListener() {
+       /* btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
@@ -142,7 +146,7 @@ public class PlaceOrderFragment extends Fragment {
                         Utils.AnimationType.SLIDE_UP);
 
             }
-        });
+        });*/
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,7 +191,9 @@ public class PlaceOrderFragment extends Fragment {
                         .openDrawer(GravityCompat.START);
             }
         });
-
+        searchViewLayout.handleToolbarAnimation(toolbar);
+        searchViewLayout.setCollapsedHint("Search For Item");
+        searchViewLayout.setExpandedHint("Search For Item");
         view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
@@ -289,7 +295,7 @@ public class PlaceOrderFragment extends Fragment {
                     uploadPrescription();
                     //	getPosts();
                 } else if (position == 2) {
-				/*	final Intent intent = new Intent(getActivity(), CountryCodeForNumberActivity.class);
+                /*	final Intent intent = new Intent(getActivity(), CountryCodeForNumberActivity.class);
 					startActivityForResult(intent, 1);*/
                     recordSound();
                 } else if (position == 3) {

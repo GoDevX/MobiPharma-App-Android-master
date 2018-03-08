@@ -32,10 +32,11 @@ public class FakeWebServer {
 
     void initiateFakeServer() {
 
-        addCategory();
+        //addCategory();
 
     }
 
+/*
     public void addCategory() {
 
         ArrayList<ProductCategoryModel> listOfCategory = new ArrayList<ProductCategoryModel>();
@@ -56,6 +57,7 @@ public class FakeWebServer {
 
         CenterRepository.getCenterRepository().setListOfCategory(listOfCategory);
     }
+*/
 
     public void getAllElectronics() {
 
@@ -881,7 +883,7 @@ public class FakeWebServer {
                         "1999",
                         "0",
                         "http://img6a.flixcart.com/image/wardrobe-closet/f/b/p/srw-167-jute-pindia-purple-400x400-imaeb9g4d8uvatck.jpeg",
-                        "2"));
+                        "almirah_6"));
         productlist
                 .add(new Product(
                         "1",
@@ -893,7 +895,7 @@ public class FakeWebServer {
                         "1999",
                         "0",
                         "http://img6a.flixcart.com/image/wardrobe-closet/f/b/p/srw-167-jute-pindia-purple-400x400-imaeb9g4d8uvatck.jpeg",
-                        "2"));
+                        "almirah_6"));
         productlist
                 .add(new Product(
                         "1",
@@ -905,7 +907,7 @@ public class FakeWebServer {
                         "1999",
                         "0",
                         "http://img6a.flixcart.com/image/wardrobe-closet/f/b/p/srw-167-jute-pindia-purple-400x400-imaeb9g4d8uvatck.jpeg",
-                        "2"));
+                        "almirah_6"));
         productlist
                 .add(new Product(
                         "1",
@@ -917,7 +919,7 @@ public class FakeWebServer {
                         "1999",
                         "0",
                         "http://img6a.flixcart.com/image/wardrobe-closet/f/b/p/srw-167-jute-pindia-purple-400x400-imaeb9g4d8uvatck.jpeg",
-                        "2"));
+                        "almirah_6"));
         productlist
                 .add(new Product(
                         "1",
@@ -929,7 +931,7 @@ public class FakeWebServer {
                         "1999",
                         "0",
                         "http://img6a.flixcart.com/image/wardrobe-closet/f/b/p/srw-167-jute-pindia-purple-400x400-imaeb9g4d8uvatck.jpeg",
-                        "2"));
+                        "almirah_6"));
         productMap.put("Almirah", productlist);
 
         productMap.put("Almirah", productlist);
@@ -939,7 +941,11 @@ public class FakeWebServer {
     }
 
     public void getAllProducts(int productCategory) {
+        getAllElectronics();
+        getAllFurnitures();
 
+
+/*
         if (productCategory == 0) {
 
             getAllElectronics();
@@ -947,7 +953,7 @@ public class FakeWebServer {
 
             getAllFurnitures();
 
-        }
+        }*/
 
     }
 

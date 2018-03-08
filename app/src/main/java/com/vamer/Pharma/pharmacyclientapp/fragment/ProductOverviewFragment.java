@@ -17,8 +17,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.graphics.Palette;
@@ -29,6 +32,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -55,6 +59,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
+import xyz.sahildave.widget.SearchViewLayout;
+
 public class ProductOverviewFragment extends Fragment {
 
     // SimpleRecyclerAdapter adapter;
@@ -62,26 +68,29 @@ public class ProductOverviewFragment extends Fragment {
     private Bitmap bitmap;
     private Toolbar mToolbar;
     private ViewPager viewPager;
-  //  private CollapsingToolbarLayout collapsingToolbarLayout;
+    //  private CollapsingToolbarLayout collapsingToolbarLayout;
     private TabLayout tabLayout;
     private BoomMenuButton bmb;
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
+    FrameLayout list_fragment_container;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_category_details,
+        view = inflater.inflate(R.layout.frag_category_details,
                 container, false);
 
-        DrawerLayout mDrawerLayout=getActivity().findViewById(R.id.nav_drawer);
+        DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        list_fragment_container = (FrameLayout) view.findViewById(R.id.list_fragment_container);
 
 
-        initateBoomMenu(view);
+        //initateBoomMenu(view);
 
-       // getActivity().setTitle("Products");
+        // getActivity().setTitle("Products");
 
         // Simulate Web service calls
         FakeWebServer.getFakeWebServer().getAllProducts(
@@ -98,10 +107,10 @@ public class ProductOverviewFragment extends Fragment {
         // time consuming Leain it now
 
         viewPager = (ViewPager) view.findViewById(R.id.htab_viewpager);
-
+        list_fragment_container = (FrameLayout) view.findViewById(R.id.list_fragment_container);
         //collapsingToolbarLayout = (CollapsingToolbarLayout) view
-       // //        .findViewById(R.id.htab_collapse_toolbar);
-      //  collapsingToolbarLayout.setTitleEnabled(false);
+        // //        .findViewById(R.id.htab_collapse_toolbar);
+        //  collapsingToolbarLayout.setTitleEnabled(false);
 
         header = (KenBurnsView) view.findViewById(R.id.htab_header);
         header.setImageResource(R.drawable.header);
@@ -117,25 +126,25 @@ public class ProductOverviewFragment extends Fragment {
             ((HomeActivity) getActivity()).getSupportActionBar()
                     .setDisplayHomeAsUpEnabled(true);
 
-           // mToolbar.setNavigationIcon(R.drawable.ic_action_keyboard_backspace);
+            // mToolbar.setNavigationIcon(R.drawable.ic_action_keyboard_backspace);
 
         }
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Utils.switchFragmentWithAnimation(
-                        R.id.frag_container,
-                        new CategoryFragment(),
-                        ((HomeActivity) getActivity()), null,
-                        AnimationType.SLIDE_LEFT);*/
+
                 getActivity().onBackPressed();
             }
         });
 
 
-
         setUpUi();
+        final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
+        searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs",true));
+        searchViewLayout.handleToolbarAnimation(mToolbar);
+        searchViewLayout.setCollapsedHint("Search For Item");
+        searchViewLayout.setExpandedHint("Search For Item");
         view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
@@ -160,9 +169,9 @@ public class ProductOverviewFragment extends Fragment {
 
     private void setUpUi() {
 
-        setupViewPager(viewPager);
-
-        tabLayout.setupWithViewPager(viewPager);
+        // setupViewPager(viewPager);
+//
+        //   tabLayout.setupWithViewPager(viewPager);
 
         bitmap = BitmapFactory
                 .decodeResource(getResources(), R.drawable.header);
@@ -176,8 +185,8 @@ public class ProductOverviewFragment extends Fragment {
                 int vibrantDarkColor = palette
                         .getDarkVibrantColor(R.color.primary_700);
 //                collapsingToolbarLayout.setContentScrimColor(vibrantColor);
-             //   collapsingToolbarLayout
-                 //       .setStatusBarScrimColor(vibrantDarkColor);
+                //   collapsingToolbarLayout
+                //       .setStatusBarScrimColor(vibrantDarkColor);
             }
         });
 
@@ -206,10 +215,10 @@ public class ProductOverviewFragment extends Fragment {
                                                         .getVibrantColor(R.color.primary_500);
                                                 int vibrantDarkColor = palette
                                                         .getDarkVibrantColor(R.color.primary_700);
-                                              //  collapsingToolbarLayout
-                                              //          .setContentScrimColor(vibrantColor);
-                                             //   collapsingToolbarLayout
-                                                  //      .setStatusBarScrimColor(vibrantDarkColor);
+                                                //  collapsingToolbarLayout
+                                                //          .setContentScrimColor(vibrantColor);
+                                                //   collapsingToolbarLayout
+                                                //      .setStatusBarScrimColor(vibrantDarkColor);
                                             }
                                         });
                                 break;
@@ -230,10 +239,10 @@ public class ProductOverviewFragment extends Fragment {
                                                         .getVibrantColor(R.color.primary_500);
                                                 int vibrantDarkColor = palette
                                                         .getDarkVibrantColor(R.color.primary_700);
-                                              //  collapsingToolbarLayout
+                                                //  collapsingToolbarLayout
                                                 //        .setContentScrimColor(vibrantColor);
-                                               // collapsingToolbarLayout
-                                                    //    .setStatusBarScrimColor(vibrantDarkColor);
+                                                // collapsingToolbarLayout
+                                                //    .setStatusBarScrimColor(vibrantDarkColor);
                                             }
                                         });
 
@@ -278,12 +287,17 @@ public class ProductOverviewFragment extends Fragment {
                 });
 
     }
+
     @Override
     public void onResume() {
         super.onResume();
         LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
         linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
+        view.findViewById(R.id.anim_toolbar).setVisibility(View.GONE);
+
+
     }
+
     private void setupViewPager(ViewPager viewPager) {
         ProductsInCategoryPagerAdapter adapter = new ProductsInCategoryPagerAdapter(
                 getActivity().getSupportFragmentManager());
@@ -294,7 +308,7 @@ public class ProductOverviewFragment extends Fragment {
             adapter.addFrag(new ProductListFragment(string), string);
         }
 
-        viewPager.setAdapter(adapter);
+        //  viewPager.setAdapter(adapter);
 //		viewPager.setPageTransformer(true,
 //				Utils.currentPageTransformer(getActivity()));
     }
@@ -415,7 +429,14 @@ public class ProductOverviewFragment extends Fragment {
 	}
 */
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Fragment childFragment = new ProductListFragment("Almirah");
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.list_fragment_container, childFragment).commit();
 
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -423,7 +444,7 @@ public class ProductOverviewFragment extends Fragment {
         switch (requestCode) {
             case RESULT_LOAD_IMAGE:
                 if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
-                    Toast.makeText(getActivity(),"Prescription Added Successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Prescription Added Successfully", Toast.LENGTH_LONG).show();
                     Uri selectedImage = data.getData();
                     String[] filePathColumn = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
@@ -431,7 +452,7 @@ public class ProductOverviewFragment extends Fragment {
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String picturePath = cursor.getString(columnIndex);
                     cursor.close();
-                    Product product=new Product("2","Prescription","Prescription","Prescrption","","","","",picturePath,"");
+                    Product product = new Product("2", "Prescription", "Prescription", "Prescrption", "", "", "", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -440,13 +461,13 @@ public class ProductOverviewFragment extends Fragment {
                 }
             case REQUEST_IMAGE_CAPTURE:
                 if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-                    Toast.makeText(getActivity(),"Prescription Added Successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Prescription Added Successfully", Toast.LENGTH_LONG).show();
                     String[] projection = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().managedQuery(mCapturedImageURI, projection, null, null, null);
                     int column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                     cursor.moveToFirst();
                     String picturePath = cursor.getString(column_index_data);
-                    Product product=new Product("2","Prescription","Prescription","Prescrption","0","0","0","",picturePath,"");
+                    Product product = new Product("2", "Prescription", "Prescription", "Prescrption", "0", "0", "0", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -455,7 +476,7 @@ public class ProductOverviewFragment extends Fragment {
                 }
         }
     }
-    private void initateBoomMenu(View view) {
+  /*  private void initateBoomMenu(View view) {
         bmb = (BoomMenuButton)view. findViewById(R.id.bmb);
         assert bmb != null;
         bmb.setButtonEnum(ButtonEnum.Ham);
@@ -511,7 +532,7 @@ public class ProductOverviewFragment extends Fragment {
     public void WriteText(){
         final DialogPlus dialog = DialogPlus.newDialog(getActivity())
                 .setContentHolder(new ViewHolder(R.layout.write_text_dialog))
-               /* .setExpanded(true)*/  // This will enable the expand feature, (similar to android L share dialog)
+               *//* .setExpanded(true)*//*  // This will enable the expand feature, (similar to android L share dialog)
                 .create();
         dialog.show();
         final EditText textToPrescription=(EditText) dialog.findViewById(R.id.textToPrescription);
@@ -539,8 +560,8 @@ public class ProductOverviewFragment extends Fragment {
                 Utils.AnimationType.SLIDE_UP);
 
 
-		/*DialogPlus dialog = DialogPlus.newDialog(getActivity())
-				.setContentHolder(new ViewHolder(R.layout.record))
+		*//*DialogPlus dialog = DialogPlus.newDialog(getActivity())
+                .setContentHolder(new ViewHolder(R.layout.record))
 				.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(DialogPlus dialog, View view) {
@@ -550,14 +571,14 @@ public class ProductOverviewFragment extends Fragment {
 							public boolean onTouch(View v, MotionEvent event) {
 								// TODO Auto-generated method stub
 								switch(event.getAction()){
-									*//*case MotionEvent.ACTION_DOWN:
-										AppLog.logString("Start Recording");
+									*//**//*case MotionEvent.ACTION_DOWN:
+                                        AppLog.logString("Start Recording");
 										startRecording();
 										break;
 									case MotionEvent.ACTION_UP:
 										AppLog.logString("stop Recording");
 										stopRecording();
-										break;*//*
+										break;*//**//*
 								}
 								return false;
 							}
@@ -592,14 +613,14 @@ public class ProductOverviewFragment extends Fragment {
 				})
 				.setExpanded(true)  // This will enable the expand feature, (similar to android L share dialog)
 				.create();
-		dialog.show();*/
+		dialog.show();*//*
     }
 
     public void uploadPrescription() {
         final DialogPlus dialog = DialogPlus.newDialog(getActivity())
                 .setContentHolder(new ViewHolder(R.layout.custom_dialog_box))
 
-              /*  .setExpanded(true) */ // This will enable the expand feature, (similar to android L share dialog)
+              *//*  .setExpanded(true) *//* // This will enable the expand feature, (similar to android L share dialog)
                 .create();
         dialog.show();
 
@@ -637,5 +658,5 @@ public class ProductOverviewFragment extends Fragment {
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
-    }
+    }*/
 }

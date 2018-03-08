@@ -59,7 +59,7 @@ public class ProductCategoryLoaderTask extends AsyncTask<String, Void, Void> {
 
         if (recyclerView != null) {
             CategoryListAdapter simpleRecyclerAdapter = new CategoryListAdapter(
-                    context);
+                    context,null);
 
             recyclerView.setAdapter(simpleRecyclerAdapter);
 
@@ -94,7 +94,7 @@ public class ProductCategoryLoaderTask extends AsyncTask<String, Void, Void> {
             e.printStackTrace();
         }
 
-        FakeWebServer.getFakeWebServer().addCategory();
+        //FakeWebServer.getFakeWebServer().addCategory();
 
         return null;
     }

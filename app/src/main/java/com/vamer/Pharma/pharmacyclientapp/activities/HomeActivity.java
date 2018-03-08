@@ -36,6 +36,7 @@ import android.widget.Toast;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.vamer.Pharma.pharmacyclientapp.R;
+import com.vamer.Pharma.pharmacyclientapp.domain.mock.FakeWebServer;
 import com.vamer.Pharma.pharmacyclientapp.fragment.MyCartFragment;
 import com.vamer.Pharma.pharmacyclientapp.fragment.PlaceOrderFragment;
 import com.vamer.Pharma.pharmacyclientapp.domain.helper.Connectivity;
@@ -44,6 +45,7 @@ import com.vamer.Pharma.pharmacyclientapp.fragment.RecordFragment;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
 import com.vamer.Pharma.pharmacyclientapp.model.Money;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
+import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
 import com.vamer.Pharma.pharmacyclientapp.util.PreferenceHelper;
 import com.vamer.Pharma.pharmacyclientapp.util.TinyDB;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils;
@@ -93,10 +95,19 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecart);
+        /*if(getIntent()!=null)
+        {
+            if(getIntent().getStringExtra("new_cart").equals("new_cart"))
+              new TinyDB(HomeActivity.this).remove(PreferenceHelper.MY_CART_LIST_LOCAL);
+        }*/
+        try {
+            String new_cart = getIntent().getExtras().getString("new_cart");
+            new TinyDB(HomeActivity.this).remove(PreferenceHelper.MY_CART_LIST_LOCAL);
+        } catch (NullPointerException e ) {
 
+        }
         pr = PreferenceHelper.getPrefernceHelperInstace();
         preferenceHelper = PreferenceHelper.getPrefernceHelperInstace();
-
         setfirstOpen();
         mBroadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -113,9 +124,13 @@ public class HomeActivity extends AppCompatActivity {
                 new TinyDB(getApplicationContext()).getListObject(
                         PreferenceHelper.MY_CART_LIST_LOCAL, Product.class));
         List<Product> cr = CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
+        FakeWebServer.getFakeWebServer().getAllProducts(
+                AppConstants.CURRENT_CATEGORY);
 
         itemCount = CenterRepository.getCenterRepository().getListOfProductsInShoppingList()
                 .size();
+        ArrayList<Product> a= CenterRepository.getCenterRepository().getMapOfProductsInCategory()
+                .get("productMap");
         //   offerBanner = ((TextView) findViewById(R.id.new_offers_banner));
         linearLayOut_CheckOut = findViewById(R.id.linearLayOut_CheckOut);
         linearLayOut_CheckOut.setVisibility(View.INVISIBLE);

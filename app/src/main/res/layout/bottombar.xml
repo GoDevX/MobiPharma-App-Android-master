@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="center"
     android:layout_height="wrap_content"
-    android:background="@drawable/menubg">
+    android:background="@drawable/menubg"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@android:color/darker_gray" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,39 +21,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnMain"
-            style="?android:borderlessButtonStyle"
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/btnhome"
-            android:text="Home"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/extra_small_text_size" />
-        <Button
-            android:id="@+id/btnCategory"
-            style="?android:borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/btncategory"
-            android:text="Category"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/extra_small_text_size" />
-        <Button
-            android:id="@+id/btnOrders"
-            style="?android:borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/btncart"
-            android:text="Orders"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/extra_small_text_size" />
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btnOrders"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/btncart"
+                android:text="Orders"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/extra_small_text_size" />
+
+            <TextView
+                android:id="@+id/cart_badge"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="top|center"
+                android:background="@drawable/rounded"
+                android:gravity="center"
+                android:padding="0dp"
+                android:layout_marginStart="10dp"
+                android:text="10"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="73dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+
+        </FrameLayout>
+
         <Button
             android:id="@+id/btnOffers"
             style="?android:borderlessButtonStyle"
@@ -64,6 +67,7 @@
             android:text="Offers"
             android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/extra_small_text_size" />
+
         <Button
             android:id="@+id/btnMore"
             style="?android:borderlessButtonStyle"

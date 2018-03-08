@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="xyz.sahildave:searchviewlayout-0.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/searchviewlayout-0.6.aar/5662d78d0040e7c6ed6cc9e44f38da3e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/searchviewlayout-0.6.aar/5662d78d0040e7c6ed6cc9e44f38da3e/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/xyz.sahildave/searchviewlayout/0.6/7af112995b8167e28878fbbc020b932418c43a88/searchviewlayout-0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -63,9 +63,7 @@ public class GetNearPharmacies extends AppCompatActivity {
         setContentView(R.layout.activity_pharmacies);
         pr = PreferenceHelper.getPrefernceHelperInstace();
         productArrayList = CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
-
         ItemQuantity = String.valueOf(productArrayList.size());
-
         GPS_Latitude = getIntent().getStringExtra("GPS_Latitude");
         GPS_Longitude = getIntent().getStringExtra("GPS_Longitude");
         AppartmentNo = getIntent().getStringExtra("AppartmentNo");
@@ -101,8 +99,7 @@ public class GetNearPharmacies extends AppCompatActivity {
         }, new PharmacyAdapter.MyAdapterListener() {
             @Override
             public void btnOrderOnClick(View v, int position) {
-               /* Pharmacy c = dataObjects.get(position);
-                Toast.makeText(GetNearPharmacies.this,c.getPharmacyName(),Toast.LENGTH_SHORT).show();*/
+
                 PharmacyID = dataObjects.get(position).getBranchID();
                 if (PharmacyID != null && !PharmacyID.isEmpty()) {
                     try {
@@ -221,6 +218,7 @@ public class GetNearPharmacies extends AppCompatActivity {
             OrderItemJSON.put("ProductID", product.getProductId());
             OrderItemJSON.put("ItemQuantity", product.getQuantity());
             OrderItemJSON.put("TextItem", product.getItemShortDesc());
+            OrderItemJSON.put("MobileFileName", product.getFilePath());
 
             if (!product.getOrderItemType().equals("1") || !product.getOrderItemType().equals("4")) {
                 OrderItemJSON.put("FileData", encodeFile(product.getFilePath()));
@@ -254,16 +252,19 @@ public class GetNearPharmacies extends AppCompatActivity {
                         progressDialog.dismiss();
                         try {
                             String Status = response.getString("Status");
+
                             if (Status.equals(AppConstants.success)) {
+
                                 Toasty.success(GetNearPharmacies.this, getResources().getString(R.string.order_submitted), Toast.LENGTH_SHORT, true).show();
+                             //   CenterRepository.getCenterRepository().getListOfProductsInShoppingList().clear();
+                                Intent i = new Intent(GetNearPharmacies.this, OrderSuccessActivity.class);
+                                i.putExtra("order_id",response.getString("Result"));
+                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(i);
+
                             } else {
                                 Toasty.error(GetNearPharmacies.this, getResources().getString(R.string.order_not_submitted), Toast.LENGTH_SHORT, true).show();
                             }
-                            //Todo
-                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
-
-                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

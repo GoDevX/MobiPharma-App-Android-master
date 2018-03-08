@@ -94,7 +94,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
     TextView v;
     private boolean back = false;
     RelativeLayout slide_down;
-
+    View view;
     public MyCartFragment() {
     }
 
@@ -135,7 +135,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_product_list_fragment, container,
+         view = inflater.inflate(R.layout.frag_product_list_fragment, container,
                 false);
 
         listener = new RecyclerView.OnScrollListener() {
@@ -370,6 +370,12 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
         });
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        view.findViewById(R.id.anim_toolbar).setVisibility(View.VISIBLE);
     }
 
     private void hideViews() {

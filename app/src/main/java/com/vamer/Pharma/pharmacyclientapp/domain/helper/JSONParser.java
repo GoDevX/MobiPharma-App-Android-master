@@ -91,7 +91,7 @@ public class JSONParser {
         return jsonArray;
     }
 
-    public void parse() {
+    /*public void parse() {
 
         if (jsonResponse != null) {
             try {
@@ -190,11 +190,11 @@ public class JSONParser {
                                                 productListObjecty
 
                                                         .getString("salePrice"),
-                                            /*
+                                            *//*
                                              * productListObjecty
 											 *
 											 * .getString("avbleQuantity"),
-											 */
+											 *//*
                                                 "0", productListObjecty
 
                                                 .getString("imageUrl"),
@@ -290,11 +290,11 @@ public class JSONParser {
                                         .getString("discount"), productListObjecty
 
                                         .getString("salePrice"),
-                            /*
+                            *//*
                              * productListObjecty
 							 *
 							 * .getString("avbleQuantity"),
-							 */
+							 *//*
                                         "0", productListObjecty
 
                                         .getString("imageUrl"), productListObjecty
@@ -328,6 +328,6 @@ public class JSONParser {
             Log.e("ServiceHandler", "Couldn't get any data from the url");
         }
 
-    }
+    }*/
 
 }

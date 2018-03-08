@@ -57,8 +57,8 @@ public class ProductListAdapter extends
 
     private Context context;
 
-    public ProductListAdapter(String subcategoryKey, Context context,
-                              boolean isCartlist) {
+    public ProductListAdapter( Context context,
+                              boolean isCartlist,List<Product> productList) {
 
         if (isCartlist) {
 
@@ -66,9 +66,9 @@ public class ProductListAdapter extends
                     .getListOfProductsInShoppingList();
 
         } else {
-
-            productList = CenterRepository.getCenterRepository().getMapOfProductsInCategory()
-                    .get(subcategoryKey);
+            /*productList = CenterRepository.getCenterRepository().getMapOfProductsInCategory()
+                    .get(subcategoryKey);*/
+            this.productList=productList;
         }
 
         this.context = context;

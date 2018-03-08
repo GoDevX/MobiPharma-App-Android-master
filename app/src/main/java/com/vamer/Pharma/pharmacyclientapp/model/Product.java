@@ -22,7 +22,7 @@ import android.os.Parcelable;
 public class Product implements Parcelable {
 
 
-
+public Product(){}
 
     public void setOrderItemType(String orderItemType) {
         OrderItemType = orderItemType;
@@ -87,6 +87,8 @@ public class Product implements Parcelable {
      * @param quantity
      * @param imageURL
      */
+
+
     public Product(String OrderItemType, String itemName, String itemShortDesc, String itemDetail,
                    String MRP, String discount, String sellMRP, String quantity,
                    String imageURL, String orderId) {
