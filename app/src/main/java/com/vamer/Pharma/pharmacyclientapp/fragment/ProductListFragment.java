@@ -132,13 +132,14 @@ public class ProductListFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
 
-         adapter = new ProductListAdapter("Chairs",
+         adapter = new ProductListAdapter(
                 getActivity(), isShoppingList,productList);
         recyclerView.setAdapter(adapter);
 
-        adapter.SetOnItemClickListener(new OnItemClickListener() {
+       /* adapter.SetOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
                         new ProductDetailsFragment(subcategoryKey, position, false),
                         ((HomeActivity) (getContext())), null,
@@ -146,7 +147,7 @@ public class ProductListFragment extends Fragment {
 
             }
         });
-
+*/
         getItemsInEachCatgeory();
         view.setFocusableInTouchMode(true);
         view.requestFocus();
@@ -193,8 +194,8 @@ public class ProductListFragment extends Fragment {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     Product productModel = new Product();
-
                                     productList.add(productModel);
+
                                 }
                                 //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
                                 adapter.notifyDataSetChanged();

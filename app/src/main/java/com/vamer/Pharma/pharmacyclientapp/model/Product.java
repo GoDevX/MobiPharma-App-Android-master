@@ -21,8 +21,14 @@ import android.os.Parcelable;
  */
 public class Product implements Parcelable {
 
+    public Product() {
 
-public Product(){}
+    }
+
+
+    private String CategoryID = "";
+    private String ProductImagePath = "";
+
 
     public void setOrderItemType(String orderItemType) {
         OrderItemType = orderItemType;
@@ -58,7 +64,7 @@ public Product(){}
     /**
      * The sell mrp.
      */
-    private String salePrice;
+    private String Price;
 
     /**
      * The quantity.
@@ -73,7 +79,17 @@ public Product(){}
     /**
      * The item name.
      */
-    private String productName = "";
+    private String ProductName_EN = "";
+
+    public String getScientificName() {
+        return ScientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        ScientificName = scientificName;
+    }
+
+    private String ScientificName = "";
 
     private String ProductID = "";
 
@@ -93,23 +109,23 @@ public Product(){}
                    String MRP, String discount, String sellMRP, String quantity,
                    String imageURL, String orderId) {
         this.OrderItemType = OrderItemType;
-        this.productName = itemName;
+        this.ProductName_EN = itemName;
         this.description = itemShortDesc;
         this.longDescription = itemDetail;
         this.mrp = MRP;
         this.discount = discount;
-        this.salePrice = sellMRP;
+        this.Price = sellMRP;
         this.ItemQuantity = quantity;
         this.FilePath = imageURL;
         this.ProductID = orderId;
     }
 
     public Product(Parcel in) {
-          //  mName = in.readString();
-          // mFilePath = in.readString();
-          //  mId = in.readInt();
-          // mLength = in.readInt();
-          // mTime = in.readLong();
+        //  mName = in.readString();
+        // mFilePath = in.readString();
+        //  mId = in.readInt();
+        // mLength = in.readInt();
+        // mTime = in.readLong();
     }
 
     public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
@@ -132,11 +148,11 @@ public Product(){}
     }
 
     public String getItemName() {
-        return productName;
+        return ProductName_EN;
     }
 
     public void setItemName(String itemName) {
-        this.productName = itemName;
+        this.ProductName_EN = itemName;
     }
 
     public String getItemShortDesc() {
@@ -176,11 +192,11 @@ public Product(){}
     }
 
     public String getSellMRP() {
-        return salePrice;
+        return Price;
     }
 
     public void setSellMRP(String sellMRP) {
-        this.salePrice = sellMRP;
+        this.Price = sellMRP;
     }
 
     public String getQuantity() {
