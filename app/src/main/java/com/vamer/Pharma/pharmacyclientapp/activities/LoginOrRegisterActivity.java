@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.vamer.Pharma.pharmacyclientapp.AppController;
 import com.vamer.Pharma.pharmacyclientapp.R;
 import com.lamudi.phonefield.PhoneInputLayout;
+import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
 import com.vamer.Pharma.pharmacyclientapp.util.PreferenceHelper;
 
 import org.json.JSONException;
@@ -106,7 +107,7 @@ public class LoginOrRegisterActivity extends AppCompatActivity {
         progressDialog.show();
         Map<String, String> postParam = new HashMap<String, String>();
         postParam.put("MobileNo", phone_number);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, "http://192.168.1.5:123/api/Customer/GenerateVRFCode", new JSONObject(postParam),
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL+"Customer/GenerateVRFCode", new JSONObject(postParam),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {

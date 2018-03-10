@@ -115,7 +115,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
          postParam.put(PreferenceHelper.CUSTOMER_BIRTH_DATE, birthdate);
         //TODO email
         postParam.put("Email", "email@gmail.com");
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, "http://192.168.1.5:123/api/Customer/UpdateCustomerProfile", new JSONObject(postParam),
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL+"Customer/UpdateCustomerProfile", new JSONObject(postParam),
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {

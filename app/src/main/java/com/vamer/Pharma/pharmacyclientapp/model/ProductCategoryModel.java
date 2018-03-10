@@ -67,7 +67,7 @@ public class ProductCategoryModel {
     }
 
     public void setCategoryImage(String categoryImage) {
-        CategoryImage = "http://192.168.1.5:123/_Media/Category_Products_Images/Category_Images/"+categoryImage;
+        CategoryImage = "http://mobile-api.godevx.com/_Media/Category_Products_Images/Category_Images/"+categoryImage;
         String a=CategoryImage;
     }
 

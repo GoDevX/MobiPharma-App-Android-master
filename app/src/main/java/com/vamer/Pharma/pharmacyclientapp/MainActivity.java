@@ -20,6 +20,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Log.e("ASITRACKAddMarketParams", postParam.toString());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
-                 "http://192.168.1.5:123/api/Customer/RegisterCustomer", getParams(),
+                AppConstants.API_BASE_URL+"Customer/RegisterCustomer", getParams(),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {

@@ -153,7 +153,7 @@ public class ActivationCodeActivity extends AppCompatActivity {
         progressDialog.show();
         Map<String, String> postParam = new HashMap<String, String>();
         postParam.put("MobileNo", phone_number);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, "http://192.168.1.5:123/api/Customer/RegisterCustomer", new JSONObject(postParam),
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL+"Customer/RegisterCustomer", new JSONObject(postParam),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
