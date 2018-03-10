@@ -177,7 +177,8 @@ public class ProductListFragment extends Fragment {
             ((HomeActivity) getActivity()).getProgressBar().setVisibility(
                     View.VISIBLE);
         Map<String, String> postParam = new HashMap<String, String>();
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategories",null,
+        postParam.put("Cat_ID",subcategoryKey);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategoryItems",new JSONObject(postParam),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -186,14 +187,19 @@ public class ProductListFragment extends Fragment {
                                     View.GONE);
                         try {
                             String Status = response.getString("Status");
+                            JSONArray mJsonArray = response.getJSONArray("Result");
                             if (Status.equals(AppConstants.success)) {
 
-                                JSONObject mjsonObject = response.getJSONObject("Result");
-                                JSONArray jsonArray = mjsonObject.getJSONArray("dtCategories");
                                 productList.clear();
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                for (int i = 0; i < mJsonArray.length(); i++) {
+                                    JSONObject jsonObject = mJsonArray.getJSONObject(i);
                                     Product productModel = new Product();
+                                    productModel.setProductId(jsonObject.getString("ProductID"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    productModel.setQuantity("0");
+                                    productModel.setSellMRP(jsonObject.getString("Price"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+
                                     productList.add(productModel);
 
                                 }

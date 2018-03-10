@@ -282,7 +282,6 @@ public class CategoryFragment extends Fragment {
         AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
