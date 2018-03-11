@@ -506,8 +506,7 @@ public class HomeActivity extends AppCompatActivity {
                         CenterRepository.getCenterRepository().getListOfProductsInShoppingList().clear();
 
                        */
-/* toggleBannerVisibility();
-
+                        /* toggleBannerVisibility();
                         itemCount = 0;
                         itemCountTextView.setText(String.valueOf(0));
                         checkoutAmount = new BigDecimal(BigInteger.ZERO);

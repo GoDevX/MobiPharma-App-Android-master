@@ -87,25 +87,7 @@ public class ProductDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-   /*     Product tempObj = *//*CenterRepository
-                .getCenterRepository().getMapOfProductsInCategory()
-                .get(subcategoryKey).get(productListNumber);*//*
-        CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(productListNumber);
-        if (tempObj.getItemName().equals("Record")) {
 
-
-            PlaybackFragment playbackFragment =
-                    new PlaybackFragment().newInstance(tempObj);
-
-            FragmentTransaction transaction = ((FragmentActivity) getActivity())
-                    .getSupportFragmentManager()
-                    .beginTransaction();
-
-            playbackFragment.show(transaction, "dialog_playback");
-
-      return null;
-
-        } else {*/
         View rootView = inflater.inflate(R.layout.frag_product_detail,
                 container, false);
 
@@ -338,7 +320,7 @@ public class ProductDetailsFragment extends Fragment {
                                         .remove(productListNumber);
 
                                 if (Integer.valueOf(((HomeActivity) getActivity())
-                                                .getItemCount()) == 0) {
+                                        .getItemCount()) == 0) {
                                     MyCartFragment.updateMyCartFragment(false);
                                 }
                                 Utils.vibrate(getActivity());
@@ -415,9 +397,10 @@ public class ProductDetailsFragment extends Fragment {
                                 ((HomeActivity) (getActivity())),
                                 AnimationType.SLIDE_UP);*/
 
-                        Utils.switchFragmentWithAnimation(R.id.frag_container,
-                                new MyCartFragment(), getActivity(), Utils.SHOPPING_LIST_TAG,
-                                Utils.AnimationType.SLIDE_UP);
+                 /*       Utils.switchFragmentWithAnimation(R.id.frag_container,
+                                new MyCartFragment(), getActivity(), null,
+                                Utils.AnimationType.SLIDE_UP);*/
+                        getActivity().onBackPressed();
 
                     } else {
 
@@ -425,9 +408,11 @@ public class ProductDetailsFragment extends Fragment {
                                 Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG,
                                 ((HomeActivity) (getActivity())),
                                 AnimationType.SLIDE_RIGHT);*/
-                        Utils.switchFragmentWithAnimation(R.id.frag_container,
-                                /*new ProductOverviewFragment()*/ null, getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG,
-                                Utils.AnimationType.SLIDE_RIGHT);
+                       /* Utils.switchFragmentWithAnimation(R.id.frag_container,
+                                new ProductOverviewFragment(subcategoryKey) , getActivity(), null,
+                                Utils.AnimationType.SLIDE_RIGHT);*/
+                        getActivity().onBackPressed();
+
                     }
 
                 }
@@ -597,7 +582,7 @@ public class ProductDetailsFragment extends Fragment {
                         BigDecimal.valueOf(Double.valueOf(CenterRepository
                                 .getCenterRepository().getListOfProductsInShoppingList()
                                 .get(productListNumber).getSellMRP())).toString()
-                        + "  ";
+                                + "  ";
 
            /*     String buyMRP =
                         BigDecimal.valueOf(Long.valueOf(CenterRepository

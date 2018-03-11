@@ -225,7 +225,7 @@ public class GetNearPharmacies extends AppCompatActivity {
 
             } else
                 OrderItemJSON.put("FileData", "");
-            OrderItemsArray.put(OrderItemJSON);
+                 OrderItemsArray.put(OrderItemJSON);
         }
 
         JSONObject SubmitOrder = new JSONObject();

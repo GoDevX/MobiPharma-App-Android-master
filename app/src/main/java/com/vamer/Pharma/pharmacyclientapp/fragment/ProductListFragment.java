@@ -80,6 +80,7 @@ public class ProductListFragment extends Fragment {
     View view;
     ProductListAdapter adapter;
     AVLoadingIndicatorView progressBar;
+
     public ProductListFragment() {
         isShoppingList = true;
     }
@@ -107,7 +108,7 @@ public class ProductListFragment extends Fragment {
         DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         initateBoomMenu(view);
-        progressBar= view.findViewById(R.id.loading_bar);
+        progressBar = view.findViewById(R.id.loading_bar);
 
 
         /*productList
@@ -264,7 +265,7 @@ public class ProductListFragment extends Fragment {
             public void onItemClick(View view, int position) {
 
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
-                        new ProductDetailsFragment(productList.get(position),subcategoryKey, position, false),
+                        new ProductDetailsFragment(productList.get(position), subcategoryKey, position, false),
                         ((HomeActivity) (getContext())), null,
                         AnimationType.SLIDE_LEFT);
 
@@ -272,7 +273,7 @@ public class ProductListFragment extends Fragment {
         });
 
         getItemsInEachCatgeory();
-        view.setFocusableInTouchMode(true);
+       /* view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
 
@@ -290,7 +291,7 @@ public class ProductListFragment extends Fragment {
                 }
                 return true;
             }
-        });
+        });*/
 
         return view;
     }
@@ -317,11 +318,11 @@ public class ProductListFragment extends Fragment {
                                 for (int i = 0; i < mJsonArray.length(); i++) {
                                     JSONObject jsonObject = mJsonArray.getJSONObject(i);
                                     Product productModel = new Product();
+                                    productModel.setOrderItemType("1");
                                     productModel.setProductId(jsonObject.getString("ProductID"));
                                     productModel.setItemName(jsonObject.getString("ProductName_EN"));
                                     productModel.setItemDetail(jsonObject.getString("ProductName_EN"));
                                     productModel.setScientificName(jsonObject.getString("ScientificName"));
-
                                     productModel.setQuantity("0");
                                     productModel.setSellMRP(jsonObject.getString("Price"));
                                     productModel.setItemName(jsonObject.getString("ProductName_EN"));
@@ -534,7 +535,7 @@ public class ProductListFragment extends Fragment {
 										AppLog.logString("stop Recording");
 										stopRecording();
 										break;*//*
-								}
+                                }
 								return false;
 							}
 						});

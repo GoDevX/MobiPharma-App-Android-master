@@ -27,6 +27,7 @@ import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,7 +115,33 @@ public class CategoryFragment extends Fragment {
         DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
+
         searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true));
+        searchViewLayout.setSearchListener(new SearchViewLayout.SearchListener() {
+            @Override
+            public void onFinished(String searchKeyword) {
+
+                searchViewLayout.collapse();
+            }
+        });
+
+        searchViewLayout.setSearchBoxListener(new SearchViewLayout.SearchBoxListener() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         int paddingDp = 25;
         float density = getActivity().getResources().getDisplayMetrics().density;
         int paddingPixel = (int) (paddingDp * density);
@@ -184,11 +211,7 @@ public class CategoryFragment extends Fragment {
         simpleRecyclerAdapter.SetOnItemClickListener(new CategoryListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-
-
-                Utils.switchFragmentWithAnimation(R.id.frag_container,
-                        new ProductOverviewFragment(dataObjects.get(position).getCategoryID()), getActivity(),null,
-                        AnimationType.SLIDE_UP);
+                Utils.switchFragmentWithAnimation(R.id.frag_container, new ProductOverviewFragment(dataObjects.get(position).getCategoryID()), getActivity(),Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG, AnimationType.SLIDE_UP);
             }
         });
         view.setFocusableInTouchMode(true);
@@ -200,8 +223,14 @@ public class CategoryFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                getActivity().onBackPressed();
-
+                if (event.getAction() == KeyEvent.ACTION_UP
+                        && keyCode == KeyEvent.KEYCODE_BACK) {/*
+                    Utils.switchContent(R.id.frag_container,
+                            Utils.HOME_FRAGMENT,
+                            ((HomeActivity) (getContext())),
+                            AnimationType.SLIDE_RIGHT);*/
+                    getActivity().onBackPressed();
+                }
                 return true;
             }
         });

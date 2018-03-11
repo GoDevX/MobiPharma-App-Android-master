@@ -42,9 +42,9 @@ public class CategoryListAdapter extends
     private String ImageUrl;
     private Context context;
 
-    public CategoryListAdapter(Context context,List<ProductCategoryModel> categoryList) {
-         this.categoryList=categoryList;
-     //  categoryList = CenterRepository.getCenterRepository().getListOfCategory();
+    public CategoryListAdapter(Context context, List<ProductCategoryModel> categoryList) {
+        this.categoryList = categoryList;
+        //  categoryList = CenterRepository.getCenterRepository().getListOfCategory();
 
         this.context = context;
     }
@@ -109,6 +109,7 @@ public class CategoryListAdapter extends
         TextView itemName, itemDesc, itemCost, availability, quanitity,
                 addItem, removeItem;
         ImageView imagView;
+
         public VersionViewHolder(View itemView) {
             super(itemView);
             itemName = (TextView) itemView.findViewById(R.id.item_name);

@@ -164,8 +164,6 @@ public class ProductOverviewFragment extends Fragment {
                             ((HomeActivity) (getContext())),
                             AnimationType.SLIDE_RIGHT);*/
                     getActivity().onBackPressed();
-
-
                 }
                 return true;
             }
@@ -305,6 +303,7 @@ public class ProductOverviewFragment extends Fragment {
 
     }
 
+/*
     private void setupViewPager(ViewPager viewPager) {
         ProductsInCategoryPagerAdapter adapter = new ProductsInCategoryPagerAdapter(
                 getActivity().getSupportFragmentManager());
@@ -319,6 +318,7 @@ public class ProductOverviewFragment extends Fragment {
 //		viewPager.setPageTransformer(true,
 //				Utils.currentPageTransformer(getActivity()));
     }
+*/
 
 
     // TODO
@@ -441,8 +441,14 @@ public class ProductOverviewFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Fragment childFragment = new ProductListFragment(categoryID);
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.addToBackStack(null);
         transaction.replace(R.id.list_fragment_container, childFragment).commit();
 
+
+       /* Utils.switchFragmentWithAnimation(R.id.list_fragment_container,
+                new ProductListFragment(categoryID),
+                ((HomeActivity) getActivity()), null,
+                Utils.AnimationType.SLIDE_UP);*/
     }
 
     @Override
