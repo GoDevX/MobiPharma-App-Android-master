@@ -8,6 +8,7 @@
 
 package com.vamer.Pharma.pharmacyclientapp.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -76,6 +77,12 @@ public class ProductOverviewFragment extends Fragment {
     private Uri mCapturedImageURI;
     FrameLayout list_fragment_container;
     View view;
+    String categoryID;
+    @SuppressLint("ValidFragment")
+    public ProductOverviewFragment(String categoryID) {
+        this.categoryID=categoryID;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -432,7 +439,7 @@ public class ProductOverviewFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Fragment childFragment = new ProductListFragment("Almirah");
+        Fragment childFragment = new ProductListFragment(categoryID);
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.replace(R.id.list_fragment_container, childFragment).commit();
 

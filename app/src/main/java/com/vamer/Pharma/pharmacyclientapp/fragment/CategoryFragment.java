@@ -65,6 +65,7 @@ import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -104,6 +105,7 @@ public class CategoryFragment extends Fragment {
         }
     };
     private Handler mHandler = new Handler();
+    AVLoadingIndicatorView progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -116,6 +118,7 @@ public class CategoryFragment extends Fragment {
         int paddingDp = 25;
         float density = getActivity().getResources().getDisplayMetrics().density;
         int paddingPixel = (int) (paddingDp * density);
+        progressBar= view.findViewById(R.id.loading_bar);
 
         // searchViewLayout.setPadding(10,10,10,10);
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
@@ -184,7 +187,7 @@ public class CategoryFragment extends Fragment {
 
 
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
-                        new ProductOverviewFragment(), getActivity(),null,
+                        new ProductOverviewFragment(dataObjects.get(position).getCategoryID()), getActivity(),null,
                         AnimationType.SLIDE_UP);
             }
         });
@@ -208,17 +211,21 @@ public class CategoryFragment extends Fragment {
 
 
     public void getCatgeories() {
-        if (null != ((HomeActivity) getActivity()).getProgressBar())
+       /* if (null != ((HomeActivity) getActivity()).getProgressBar())
             ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                    View.VISIBLE);
+                    View.VISIBLE);*/
+        progressBar.setVisibility(View.VISIBLE);
+
         Map<String, String> postParam = new HashMap<String, String>();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategories",null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        if (null != ((HomeActivity) getActivity()).getProgressBar())
+                       /* if (null != ((HomeActivity) getActivity()).getProgressBar())
                             ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                                    View.GONE);
+                                    View.GONE);*/
+                        progressBar.setVisibility(View.GONE);
+
                         try {
                             String Status = response.getString("Status");
                             if (Status.equals(AppConstants.success)) {
@@ -261,9 +268,11 @@ public class CategoryFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (null != ((HomeActivity) getActivity()).getProgressBar())
+             /*   if (null != ((HomeActivity) getActivity()).getProgressBar())
                     ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                            View.GONE);
+                            View.GONE);*/
+                progressBar.setVisibility(View.GONE);
+
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         }) {

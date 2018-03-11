@@ -55,6 +55,7 @@ import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils.AnimationType;
 import com.vamer.Pharma.pharmacyclientapp.adapter.ProductListAdapter;
 import com.vamer.Pharma.pharmacyclientapp.adapter.ProductListAdapter.OnItemClickListener;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,10 +75,11 @@ public class ProductListFragment extends Fragment {
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
-    private boolean isSearchList=false;
+    private boolean isSearchList = false;
     private List<Product> productList = new ArrayList<Product>();
     View view;
     ProductListAdapter adapter;
+    AVLoadingIndicatorView progressBar;
     public ProductListFragment() {
         isShoppingList = true;
     }
@@ -91,7 +93,7 @@ public class ProductListFragment extends Fragment {
 
     @SuppressLint("ValidFragment")
     public ProductListFragment(String subcategoryKey, boolean Search) {
-        isSearchList=true;
+        isSearchList = true;
         isShoppingList = false;
         this.subcategoryKey = subcategoryKey;
     }
@@ -100,15 +102,15 @@ public class ProductListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         view = inflater.inflate(R.layout.frag_product_list_fragment, container,
+        view = inflater.inflate(R.layout.frag_product_list_fragment, container,
                 false);
         DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         initateBoomMenu(view);
+        progressBar= view.findViewById(R.id.loading_bar);
 
 
-
-        productList
+        /*productList
                 .add(new Product(
                         "1",
                         "Panadol",
@@ -224,8 +226,7 @@ public class ProductListFragment extends Fragment {
                         "1200",
                         "0",
                         "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                        "2"));
-
+                        "2"));*/
 
 
         if (isShoppingList) {
@@ -246,7 +247,6 @@ public class ProductListFragment extends Fragment {
         }
 
 
-
         RecyclerView recyclerView = (RecyclerView) view
                 .findViewById(R.id.product_list_recycler_view);
 
@@ -255,23 +255,23 @@ public class ProductListFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
 
-         adapter = new ProductListAdapter(
-                getActivity(), isShoppingList,productList);
+        adapter = new ProductListAdapter(
+                getActivity(), isShoppingList, productList);
         recyclerView.setAdapter(adapter);
 
-       /* adapter.SetOnItemClickListener(new OnItemClickListener() {
+        adapter.SetOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
 
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
-                        new ProductDetailsFragment(subcategoryKey, position, false),
+                        new ProductDetailsFragment(productList.get(position),subcategoryKey, position, false),
                         ((HomeActivity) (getContext())), null,
                         AnimationType.SLIDE_LEFT);
 
             }
         });
-*/
-       // getItemsInEachCatgeory();
+
+        getItemsInEachCatgeory();
         view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
@@ -296,18 +296,18 @@ public class ProductListFragment extends Fragment {
     }
 
     private void getItemsInEachCatgeory() {
-        if (null != ((HomeActivity) getActivity()).getProgressBar())
+        /*f (null != ((HomeActivity) getActivity()).getProgressBar())
             ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                    View.VISIBLE);
+                    View.VISIBLE);*/
+        progressBar.setVisibility(View.VISIBLE);
         Map<String, String> postParam = new HashMap<String, String>();
-        postParam.put("Cat_ID",subcategoryKey);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategoryItems",new JSONObject(postParam),
+        postParam.put("Cat_ID", subcategoryKey);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategoryItems", new JSONObject(postParam),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        if (null != ((HomeActivity) getActivity()).getProgressBar())
-                            ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                                    View.GONE);
+
+                        progressBar.setVisibility(View.GONE);
                         try {
                             String Status = response.getString("Status");
                             JSONArray mJsonArray = response.getJSONArray("Result");
@@ -319,11 +319,28 @@ public class ProductListFragment extends Fragment {
                                     Product productModel = new Product();
                                     productModel.setProductId(jsonObject.getString("ProductID"));
                                     productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    productModel.setItemDetail(jsonObject.getString("ProductName_EN"));
+                                    productModel.setScientificName(jsonObject.getString("ScientificName"));
+
                                     productModel.setQuantity("0");
                                     productModel.setSellMRP(jsonObject.getString("Price"));
                                     productModel.setItemName(jsonObject.getString("ProductName_EN"));
-
+                                    //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
                                     productList.add(productModel);
+
+                                   /* productList
+                                            .add(new Product(
+                                                    "1",
+                                                    "Comtrex",
+                                                    "Comtrex",
+                                                    "Comtrex.",
+                                                    "36500",
+                                                    "20",
+                                                    "1200",
+                                                    "0",
+                                                    "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                                                    "2"));*/
+
 
                                 }
                                 //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
@@ -347,9 +364,8 @@ public class ProductListFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (null != ((HomeActivity) getActivity()).getProgressBar())
-                    ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                            View.GONE);
+                progressBar.setVisibility(View.GONE);
+
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         }) {
@@ -454,7 +470,7 @@ public class ProductListFragment extends Fragment {
                 bmb.addBuilder(builder);
             }
         }
-bmb.setVisibility(View.GONE);
+        bmb.setVisibility(View.GONE);
 
     }
 
@@ -511,7 +527,7 @@ bmb.setVisibility(View.GONE);
 								// TODO Auto-generated method stub
 								switch(event.getAction()){
 									*//*case MotionEvent.ACTION_DOWN:
-										AppLog.logString("Start Recording");
+                                        AppLog.logString("Start Recording");
 										startRecording();
 										break;
 									case MotionEvent.ACTION_UP:

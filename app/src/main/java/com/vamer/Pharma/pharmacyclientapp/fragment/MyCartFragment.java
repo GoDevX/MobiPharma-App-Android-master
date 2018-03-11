@@ -248,7 +248,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
                             } else
                                 Utils.switchFragmentWithAnimation(
                                         R.id.frag_container,
-                                        new ProductDetailsFragment("", position,
+                                        new ProductDetailsFragment(null, null,position,
                                                 true),
                                         ((HomeActivity) (getContext())), null,
                                         AnimationType.SLIDE_LEFT);

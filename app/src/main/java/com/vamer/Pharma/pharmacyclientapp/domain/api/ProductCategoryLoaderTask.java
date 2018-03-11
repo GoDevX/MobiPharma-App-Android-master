@@ -72,8 +72,8 @@ public class ProductCategoryLoaderTask extends AsyncTask<String, Void, Void> {
                             AppConstants.CURRENT_CATEGORY = position;
 
                             Utils.switchFragmentWithAnimation(
-                                    R.id.frag_container,
-                                    new ProductOverviewFragment(),
+                                    R.id.frag_container,null
+                                  /*  new ProductOverviewFragment()*/,
                                     ((HomeActivity) context), null,
                                     AnimationType.SLIDE_LEFT);
 

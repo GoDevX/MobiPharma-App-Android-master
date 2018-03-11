@@ -121,7 +121,6 @@ public class PlaceOrderFragment extends Fragment {
         searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
         searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true));
         initPlaceOrder(view);
-
         return view;
     }
 

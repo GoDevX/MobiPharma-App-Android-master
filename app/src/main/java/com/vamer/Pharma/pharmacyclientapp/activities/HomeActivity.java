@@ -160,7 +160,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         checkOutAmount.setSelected(true);
-        checkOutAmount.setText(Money.rupees(checkoutAmount).toString());
+        checkOutAmount.setText((checkoutAmount).toString());
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         progressBar = (AVLoadingIndicatorView) findViewById(R.id.loading_bar);
@@ -172,7 +172,7 @@ public class HomeActivity extends AppCompatActivity {
                     .getListOfProductsInShoppingList()) {
                 if (!product.getQuantity().equals(""))
                     updateCheckOutAmount(
-                            BigDecimal.valueOf(Long.valueOf(product.getSellMRP()) * Long.valueOf(product.getQuantity())),
+                            BigDecimal.valueOf(Double.valueOf(product.getSellMRP()) * Double.valueOf(product.getQuantity())),
                             true);
             }
         }

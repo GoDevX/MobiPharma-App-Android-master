@@ -90,18 +90,18 @@ public class ProductListAdapter extends
                 .getItemName());
 
         holder.itemDesc.setText(productList.get(position)
-                .getItemShortDesc());
+                .getScientificName());
 
-        String sellCostString = Money.rupees(
-                BigDecimal.valueOf(Long.valueOf(productList.get(position)
-                        .getSellMRP()))).toString()
+        String sellCostString =
+                BigDecimal.valueOf(Double.valueOf(productList.get(position)
+                        .getSellMRP())).toString()
                 + "  ";
 
-        String buyMRP = Money.rupees(
-                BigDecimal.valueOf(Long.valueOf(productList.get(position)
-                        .getMRP()))).toString();
+       /* String buyMRP =
+                BigDecimal.valueOf(Double.valueOf(productList.get(position)
+                        .getMRP())).toString();*/
 
-        String costString = sellCostString + buyMRP;
+        String costString = sellCostString /*+ buyMRP*/;
 
         holder.itemCost.setText(costString, BufferType.SPANNABLE);
 
@@ -120,9 +120,9 @@ public class ProductListAdapter extends
         ImageUrl = productList.get(position).getFilePath();
 
 
-        Glide.with(context).load(ImageUrl).placeholder(drawable)
+     /*   Glide.with(context).load(ImageUrl).placeholder(drawable)
                 .error(drawable).animate(R.anim.base_slide_right_in)
-                .centerCrop().into(holder.imagView);
+                .centerCrop().into(holder.imagView);*/
 
 
         holder.addItem.findViewById(R.id.add_item).setOnClickListener(
@@ -169,7 +169,7 @@ public class ProductListAdapter extends
                             //update checkout amount
                             ((HomeActivity) getContext()).updateCheckOutAmount(
                                     BigDecimal
-                                            .valueOf(Long
+                                            .valueOf(Double
                                                     .valueOf(productList
                                                             .get(position)
                                                             .getSellMRP())),
@@ -191,7 +191,7 @@ public class ProductListAdapter extends
 
                             ((HomeActivity) getContext()).updateCheckOutAmount(
                                     BigDecimal
-                                            .valueOf(Long
+                                            .valueOf(Double
                                                     .valueOf(productList
                                                             .get(position)
                                                             .getSellMRP())),
@@ -229,7 +229,7 @@ public class ProductListAdapter extends
                                                 .getQuantity()) - 1));
 
                         ((HomeActivity) getContext()).updateCheckOutAmount(
-                                BigDecimal.valueOf(Long.valueOf(productList
+                                BigDecimal.valueOf(Double.valueOf(productList
                                         .get(position).getSellMRP())),
                                 false);
 

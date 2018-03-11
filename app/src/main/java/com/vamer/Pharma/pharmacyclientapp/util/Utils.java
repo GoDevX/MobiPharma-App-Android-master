@@ -269,7 +269,7 @@ public class Utils {
                 } else if (TAG.equals(CONTACT_US_FRAGMENT)) {
                     fragmentToReplace = new ContactUsFragment();
                 } else if (TAG.equals(PRODUCT_OVERVIEW_FRAGMENT_TAG)) {
-                    fragmentToReplace = new ProductOverviewFragment();
+                    //fragmentToReplace = new ProductOverviewFragment();
                 } else if (TAG.equals(SHOPPING_LIST_TAG)) {
                     fragmentToReplace = new MyCartFragment();
                 }

@@ -54,6 +54,7 @@ import java.math.BigDecimal;
 /**
  * Fragment that appears in the "content_frame", shows a animal.
  */
+@SuppressLint("ValidFragment")
 public class ProductDetailsFragment extends Fragment {
 
     private int productListNumber;
@@ -71,20 +72,16 @@ public class ProductDetailsFragment extends Fragment {
     private ClickableViewPager topSellingPager;
     private Toolbar mToolbar;
     LinearLayout linearPlus_Minus;
+    Product p;
 
-    /**
-     * Instantiates a new product details fragment.
-     */
 
-    public ProductDetailsFragment() {
-    }
-
-    public ProductDetailsFragment(String subcategoryKey, int productNumber,
+    public ProductDetailsFragment(Product m, String subcategoryKey, int productNumber,
                                   boolean isFromCart) {
-
+        p = new Product();
         this.subcategoryKey = subcategoryKey;
         this.productListNumber = productNumber;
         this.isFromCart = isFromCart;
+        this.p = m;
     }
 
     @Override
@@ -197,7 +194,6 @@ public class ProductDetailsFragment extends Fragment {
                                     .get(productListNumber)
                                     .setQuantity(
                                             String.valueOf(
-
                                                     Integer.valueOf(CenterRepository
                                                             .getCenterRepository()
                                                             .getListOfProductsInShoppingList()
@@ -214,7 +210,7 @@ public class ProductDetailsFragment extends Fragment {
 
                             //Update checkout amount on screen
                             ((HomeActivity) getActivity()).updateCheckOutAmount(
-                                    BigDecimal.valueOf(Long
+                                    BigDecimal.valueOf(Double
                                             .valueOf(CenterRepository
                                                     .getCenterRepository()
                                                     .getListOfProductsInShoppingList()
@@ -224,17 +220,12 @@ public class ProductDetailsFragment extends Fragment {
                         } else {
 
                             // current object
-                            Product tempObj = CenterRepository
-                                    .getCenterRepository().getMapOfProductsInCategory()
-                                    .get(subcategoryKey).get(productListNumber);
+                            Product tempObj = p;
 
-                            if (CenterRepository.getCenterRepository()
-                                    .getListOfProductsInShoppingList().contains(tempObj)) {
+                            if (CenterRepository.getCenterRepository().getListOfProductsInShoppingList().contains(tempObj)) {
 
                                 // get position of current item in shopping list
-                                int indexOfTempInShopingList = CenterRepository
-                                        .getCenterRepository().getListOfProductsInShoppingList()
-                                        .indexOf(tempObj);
+                                int indexOfTempInShopingList = CenterRepository.getCenterRepository().getListOfProductsInShoppingList().indexOf(tempObj);
 
                                 // increase quantity of current item in shopping
                                 // list
@@ -257,13 +248,7 @@ public class ProductDetailsFragment extends Fragment {
 
                                 // update checkout amount
                                 ((HomeActivity) getContext()).updateCheckOutAmount(
-                                        BigDecimal.valueOf(Long
-                                                .valueOf(CenterRepository
-                                                        .getCenterRepository()
-                                                        .getMapOfProductsInCategory()
-                                                        .get(subcategoryKey)
-                                                        .get(productListNumber)
-                                                        .getSellMRP())), true);
+                                        BigDecimal.valueOf(Double.valueOf(tempObj.getSellMRP())), true);
 
                                 // update current item quanitity
                                 quanitity.setText(tempObj.getQuantity());
@@ -281,12 +266,8 @@ public class ProductDetailsFragment extends Fragment {
                                         .getListOfProductsInShoppingList().add(tempObj);
 
                                 ((HomeActivity) getContext()).updateCheckOutAmount(
-                                        BigDecimal.valueOf(Long
-                                                .valueOf(CenterRepository
-                                                        .getCenterRepository()
-                                                        .getMapOfProductsInCategory()
-                                                        .get(subcategoryKey)
-                                                        .get(productListNumber)
+                                        BigDecimal.valueOf(Double
+                                                .valueOf(tempObj
                                                         .getSellMRP())), true);
 
                             }
@@ -330,7 +311,7 @@ public class ProductDetailsFragment extends Fragment {
                                         .get(productListNumber).getQuantity());
 
                                 ((HomeActivity) getActivity()).updateCheckOutAmount(
-                                        BigDecimal.valueOf(Long
+                                        BigDecimal.valueOf(Double
                                                 .valueOf(CenterRepository
                                                         .getCenterRepository()
                                                         .getListOfProductsInShoppingList()
@@ -345,7 +326,7 @@ public class ProductDetailsFragment extends Fragment {
                                         .updateItemCount(false);
 
                                 ((HomeActivity) getActivity()).updateCheckOutAmount(
-                                        BigDecimal.valueOf(Long
+                                        BigDecimal.valueOf(Double
                                                 .valueOf(CenterRepository
                                                         .getCenterRepository()
                                                         .getListOfProductsInShoppingList()
@@ -356,33 +337,20 @@ public class ProductDetailsFragment extends Fragment {
                                         .getListOfProductsInShoppingList()
                                         .remove(productListNumber);
 
-                                if (Integer
-                                        .valueOf(((HomeActivity) getActivity())
+                                if (Integer.valueOf(((HomeActivity) getActivity())
                                                 .getItemCount()) == 0) {
-
                                     MyCartFragment.updateMyCartFragment(false);
-
                                 }
-
                                 Utils.vibrate(getActivity());
-
                             }
-
                         } else {
-
-                            Product tempObj = CenterRepository
-                                    .getCenterRepository().getMapOfProductsInCategory()
-                                    .get(subcategoryKey).get(productListNumber);
-
+                            Product tempObj = p;
                             if (CenterRepository.getCenterRepository()
                                     .getListOfProductsInShoppingList().contains(tempObj)) {
-
                                 int indexOfTempInShopingList = CenterRepository
                                         .getCenterRepository().getListOfProductsInShoppingList()
                                         .indexOf(tempObj);
-
                                 if (Integer.valueOf(tempObj.getQuantity()) != 0) {
-
                                     CenterRepository
                                             .getCenterRepository()
                                             .getListOfProductsInShoppingList()
@@ -392,13 +360,7 @@ public class ProductDetailsFragment extends Fragment {
                                                             .getQuantity()) - 1));
 
                                     ((HomeActivity) getContext()).updateCheckOutAmount(
-                                            BigDecimal.valueOf(Long
-                                                    .valueOf(CenterRepository
-                                                            .getCenterRepository()
-                                                            .getMapOfProductsInCategory()
-                                                            .get(subcategoryKey)
-                                                            .get(productListNumber)
-                                                            .getSellMRP())),
+                                            BigDecimal.valueOf(Double.valueOf(p.getSellMRP())),
                                             false);
 
                                     quanitity.setText(CenterRepository
@@ -420,8 +382,7 @@ public class ProductDetailsFragment extends Fragment {
                                                 .getListOfProductsInShoppingList()
                                                 .remove(indexOfTempInShopingList);
 
-                                        ((HomeActivity) getContext())
-                                                .updateItemCount(false);
+                                        ((HomeActivity) getContext()).updateItemCount(false);
 
                                     }
 
@@ -465,7 +426,7 @@ public class ProductDetailsFragment extends Fragment {
                                 ((HomeActivity) (getActivity())),
                                 AnimationType.SLIDE_RIGHT);*/
                         Utils.switchFragmentWithAnimation(R.id.frag_container,
-                                new ProductOverviewFragment(), getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG,
+                                /*new ProductOverviewFragment()*/ null, getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG,
                                 Utils.AnimationType.SLIDE_RIGHT);
                     }
 
@@ -532,33 +493,31 @@ public class ProductDetailsFragment extends Fragment {
 
 
             //Fetch and display item from Gloabl Data Model
-
-            itemName.setText(CenterRepository.getCenterRepository()
+            itemName.setText(p.getItemName());
+          /*  itemName.setText(CenterRepository.getCenterRepository()
                     .getMapOfProductsInCategory().get(subcategoryKey).get(productListNumber)
-                    .getItemName());
+                    .getItemName());*/
 
-            quanitity.setText(CenterRepository.getCenterRepository()
+        /*    quanitity.setText(CenterRepository.getCenterRepository()
                     .getMapOfProductsInCategory().get(subcategoryKey).get(productListNumber)
-                    .getQuantity());
+                    .getQuantity());*/
+            quanitity.setText(p.getQuantity());
 
-            itemdescription.setText(CenterRepository.getCenterRepository()
-                    .getMapOfProductsInCategory().get(subcategoryKey).get(productListNumber)
-                    .getItemDetail());
+            itemdescription.setText(p.getScientificName());
 
-            String sellCostString = Money.rupees(
+            String sellCostString =
+                    BigDecimal.valueOf(Double.valueOf(p.getSellMRP())).toString()
+                            + "  ";
+/*
+
+            String buyMRP =
                     BigDecimal.valueOf(Long.valueOf(CenterRepository
                             .getCenterRepository().getMapOfProductsInCategory()
                             .get(subcategoryKey).get(productListNumber)
-                            .getSellMRP()))).toString()
-                    + "  ";
+                            .getMRP())).toString();
+*/
 
-            String buyMRP = Money.rupees(
-                    BigDecimal.valueOf(Long.valueOf(CenterRepository
-                            .getCenterRepository().getMapOfProductsInCategory()
-                            .get(subcategoryKey).get(productListNumber)
-                            .getMRP()))).toString();
-
-            String costString = sellCostString + buyMRP;
+            String costString = sellCostString /*+ buyMRP*/;
 
             itemSellPrice.setText(costString, BufferType.SPANNABLE);
 
@@ -571,18 +530,11 @@ public class ProductDetailsFragment extends Fragment {
                     .withBorder(4).endConfig().roundRect(10);
 
             drawable = mDrawableBuilder.build(
-                    String.valueOf(CenterRepository.getCenterRepository()
-                            .getMapOfProductsInCategory().get(subcategoryKey)
-                            .get(productListNumber).getItemName().charAt(0)),
-                    mColorGenerator.getColor(CenterRepository
-                            .getCenterRepository().getMapOfProductsInCategory()
-                            .get(subcategoryKey).get(productListNumber)
-                            .getItemName()));
+                    String.valueOf(p.getItemName().charAt(0)),
+                    mColorGenerator.getColor(p.getItemName()));
 
-            Picasso.with(getActivity())
-                    .load(CenterRepository.getCenterRepository().getMapOfProductsInCategory()
-                            .get(subcategoryKey).get(productListNumber)
-                            .getFilePath()).placeholder(drawable)
+           /* Picasso.with(getActivity())
+                    .load(p.getFilePath()).placeholder(drawable)
                     .error(drawable).fit().centerCrop()
                     .networkPolicy(NetworkPolicy.OFFLINE)
                     .into(itemImage, new Callback() {
@@ -604,12 +556,12 @@ public class ProductDetailsFragment extends Fragment {
                                     .placeholder(drawable).error(drawable)
                                     .fit().centerCrop().into(itemImage);
                         }
-                    });
+                    });*/
 
             LabelView label = new LabelView(getActivity());
 
-            label.setText(CenterRepository.getCenterRepository().getMapOfProductsInCategory()
-                    .get(subcategoryKey).get(productListNumber).getDiscount());
+           /* label.setText(CenterRepository.getCenterRepository().getMapOfProductsInCategory()
+                    .get(subcategoryKey).get(productListNumber).getDiscount());*/
             label.setBackgroundColor(0xffE91E63);
 
             label.setTargetView(itemImage, 10, LabelView.Gravity.RIGHT_TOP);
@@ -641,18 +593,18 @@ public class ProductDetailsFragment extends Fragment {
                 itemdescription.setText(CenterRepository.getCenterRepository()
                         .getListOfProductsInShoppingList().get(productListNumber).getItemDetail());
 
-                String sellCostString = Money.rupees(
-                        BigDecimal.valueOf(Long.valueOf(CenterRepository
+                String sellCostString =
+                        BigDecimal.valueOf(Double.valueOf(CenterRepository
                                 .getCenterRepository().getListOfProductsInShoppingList()
-                                .get(productListNumber).getSellMRP()))).toString()
+                                .get(productListNumber).getSellMRP())).toString()
                         + "  ";
 
-                String buyMRP = Money.rupees(
+           /*     String buyMRP =
                         BigDecimal.valueOf(Long.valueOf(CenterRepository
                                 .getCenterRepository().getListOfProductsInShoppingList()
-                                .get(productListNumber).getMRP()))).toString();
+                                .get(productListNumber).getMRP())).toString();*/
 
-                String costString = sellCostString + buyMRP;
+                String costString = sellCostString /*+ buyMRP*/;
 
                 itemSellPrice.setText(costString, BufferType.SPANNABLE);
 
@@ -671,8 +623,8 @@ public class ProductDetailsFragment extends Fragment {
                         mColorGenerator.getColor(CenterRepository
                                 .getCenterRepository().getListOfProductsInShoppingList()
                                 .get(productListNumber).getItemName()));
-
-                Picasso.with(getActivity())
+//todO loading image in case of from cart fragment to details fragment
+               /* Picasso.with(getActivity())
                         .load(CenterRepository.getCenterRepository()
                                 .getListOfProductsInShoppingList().get(productListNumber)
                                 .getFilePath()).placeholder(drawable)
@@ -696,7 +648,7 @@ public class ProductDetailsFragment extends Fragment {
                                         .placeholder(drawable).error(drawable)
                                         .fit().centerCrop().into(itemImage);
                             }
-                        });
+                        });*/
 
                 LabelView label = new LabelView(getActivity());
 
