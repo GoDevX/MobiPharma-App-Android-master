@@ -11,7 +11,12 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     buildToolsVersion "27"
-
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
     defaultConfig {
         applicationId "com.vamer.Pharma.pharmacyclientapp"
         minSdkVersion 17

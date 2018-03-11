@@ -106,6 +106,128 @@ public class ProductListFragment extends Fragment {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         initateBoomMenu(view);
 
+
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+        productList
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        productList
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+
+
         if (isShoppingList) {
 
             view.findViewById(R.id.slide_down).setOnTouchListener(
@@ -120,6 +242,7 @@ public class ProductListFragment extends Fragment {
                             return false;
                         }
                     });
+            bmb.setVisibility(View.VISIBLE);
         }
 
 
@@ -148,7 +271,7 @@ public class ProductListFragment extends Fragment {
             }
         });
 */
-        getItemsInEachCatgeory();
+       // getItemsInEachCatgeory();
         view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
@@ -331,7 +454,7 @@ public class ProductListFragment extends Fragment {
                 bmb.addBuilder(builder);
             }
         }
-
+bmb.setVisibility(View.GONE);
 
     }
 

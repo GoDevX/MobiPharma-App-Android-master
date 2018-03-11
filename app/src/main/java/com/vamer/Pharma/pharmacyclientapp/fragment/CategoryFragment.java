@@ -184,8 +184,7 @@ public class CategoryFragment extends Fragment {
 
 
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
-                        new ProductListFragment(  dataObjects.get(position).getCategoryID()),
-                        ((HomeActivity) getActivity()), null,
+                        new ProductOverviewFragment(), getActivity(),null,
                         AnimationType.SLIDE_UP);
             }
         });
