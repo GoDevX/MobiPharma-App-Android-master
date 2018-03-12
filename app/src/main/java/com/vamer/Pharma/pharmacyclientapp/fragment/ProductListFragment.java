@@ -272,6 +272,7 @@ public class ProductListFragment extends Fragment {
             }
         });
 
+
         getItemsInEachCatgeory();
        /* view.setFocusableInTouchMode(true);
         view.requestFocus();

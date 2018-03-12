@@ -116,7 +116,8 @@ public class CategoryFragment extends Fragment {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
 
-        searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true));
+
+
         searchViewLayout.setSearchListener(new SearchViewLayout.SearchListener() {
             @Override
             public void onFinished(String searchKeyword) {
@@ -133,11 +134,15 @@ public class CategoryFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+               String searchKeyWord =s.toString();
+               if(searchKeyWord.length()>1)
+               {
+               }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+                searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("ddd", true));
 
             }
         });
@@ -145,7 +150,7 @@ public class CategoryFragment extends Fragment {
         int paddingDp = 25;
         float density = getActivity().getResources().getDisplayMetrics().density;
         int paddingPixel = (int) (paddingDp * density);
-        progressBar= view.findViewById(R.id.loading_bar);
+        progressBar = view.findViewById(R.id.loading_bar);
 
         // searchViewLayout.setPadding(10,10,10,10);
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
@@ -211,7 +216,7 @@ public class CategoryFragment extends Fragment {
         simpleRecyclerAdapter.SetOnItemClickListener(new CategoryListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Utils.switchFragmentWithAnimation(R.id.frag_container, new ProductOverviewFragment(dataObjects.get(position).getCategoryID()), getActivity(),Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG, AnimationType.SLIDE_UP);
+                Utils.switchFragmentWithAnimation(R.id.frag_container, new ProductOverviewFragment(dataObjects.get(position).getCategoryID()), getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG, AnimationType.SLIDE_UP);
             }
         });
         view.setFocusableInTouchMode(true);
@@ -246,7 +251,7 @@ public class CategoryFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
         Map<String, String> postParam = new HashMap<String, String>();
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategories",null,
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/GetCategories", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
