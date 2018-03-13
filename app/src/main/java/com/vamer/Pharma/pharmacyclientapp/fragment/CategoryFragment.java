@@ -9,8 +9,8 @@
 package com.vamer.Pharma.pharmacyclientapp.fragment;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -28,11 +28,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -44,15 +46,13 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.google.gson.JsonObject;
+import com.cielyang.android.clearableedittext.ClearableEditText;
 import com.vamer.Pharma.pharmacyclientapp.AppController;
 import com.vamer.Pharma.pharmacyclientapp.R;
-import com.vamer.Pharma.pharmacyclientapp.activities.GetNearPharmacies;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
 import com.vamer.Pharma.pharmacyclientapp.adapter.CategoryListAdapter;
-import com.vamer.Pharma.pharmacyclientapp.domain.api.ProductCategoryLoaderTask;
+import com.vamer.Pharma.pharmacyclientapp.adapter.ProductListAdapter;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
-import com.vamer.Pharma.pharmacyclientapp.model.Pharmacy;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
 import com.vamer.Pharma.pharmacyclientapp.model.ProductCategoryModel;
 import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
@@ -76,20 +76,22 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import xyz.sahildave.widget.SearchViewLayout;
 
 public class CategoryFragment extends Fragment {
     int mutedColor = R.attr.colorPrimary;
     private CollapsingToolbarLayout collapsingToolbar;
+    private RecyclerView scrollablesearch;
     private RecyclerView recyclerView;
+    boolean SearchEnabled;
     private TextInputEditText txtSearchCategories;
     private BoomMenuButton bmb;
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
     FrameLayout rootlayout;
+    TextWatcher m;
     private ArrayList<ProductCategoryModel> dataObjects = new ArrayList<>();
     CategoryListAdapter simpleRecyclerAdapter;
 
@@ -107,6 +109,11 @@ public class CategoryFragment extends Fragment {
     };
     private Handler mHandler = new Handler();
     AVLoadingIndicatorView progressBar;
+    List<Product> productList = new ArrayList<>();
+    //ProductSearchAdapter customSuggestionsAdapter;
+    ProductListAdapter customSuggestionsAdapter;
+    //  EditText txtSearch;
+    ClearableEditText txtSearch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -114,19 +121,23 @@ public class CategoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.frag_product_category, container, false);
         DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
+
+        scrollablesearch = view.findViewById(R.id.scrollablesearch);
+        txtSearch = view.findViewById(R.id.searchtxt);
+
+        scrollablesearch.setHasFixedSize(true);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
+                getActivity());
+        scrollablesearch.setLayoutManager(linearLayoutManager);
 
 
+        //searchBar =  view.findViewById(R.id.searchBar);
+        // LayoutInflater minflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
 
-        searchViewLayout.setSearchListener(new SearchViewLayout.SearchListener() {
-            @Override
-            public void onFinished(String searchKeyword) {
-
-                searchViewLayout.collapse();
-            }
-        });
-
-        searchViewLayout.setSearchBoxListener(new SearchViewLayout.SearchBoxListener() {
+        customSuggestionsAdapter = new ProductListAdapter(getActivity(), false, productList);
+        scrollablesearch.setAdapter(customSuggestionsAdapter);
+        txtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -134,19 +145,40 @@ public class CategoryFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-               String searchKeyWord =s.toString();
-               if(searchKeyWord.length()>1)
-               {
-               }
+                productList.clear();
+                if (!s.toString().equals("")){
+                if (s.toString().length() > 1) {
+                    scrollablesearch.setVisibility(View.VISIBLE);
+                    bmb.setVisibility(View.GONE);
+                    getProducts(s.toString().trim());
+
+
+                }  } else {
+                    hideSoftKebad();
+                    txtSearch.clearFocus();
+                    scrollablesearch.setVisibility(View.GONE);
+                    bmb.setVisibility(View.VISIBLE);
+
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("ddd", true));
 
             }
         });
 
+        customSuggestionsAdapter.SetOnItemClickListener(new ProductListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                Utils.switchFragmentWithAnimation(R.id.frag_container,
+                        new ProductDetailsFragment(productList.get(position), "", position, false),
+                        ((HomeActivity) (getContext())), null,
+                        AnimationType.SLIDE_LEFT);
+
+            }
+        });
         int paddingDp = 25;
         float density = getActivity().getResources().getDisplayMetrics().density;
         int paddingPixel = (int) (paddingDp * density);
@@ -158,9 +190,7 @@ public class CategoryFragment extends Fragment {
         ((HomeActivity) getActivity()).setSupportActionBar(toolbar);
         ((HomeActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
-        searchViewLayout.handleToolbarAnimation(toolbar);
-        searchViewLayout.setCollapsedHint("Search For Item");
-        searchViewLayout.setExpandedHint("Search For Item");
+
         initateBoomMenu(view);
         txtSearchCategories = view.findViewById(R.id.txtSearchCategories);
         txtSearchCategories.setOnClickListener(new OnClickListener() {
@@ -201,7 +231,7 @@ public class CategoryFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.scrollableview);
 
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
+        linearLayoutManager = new LinearLayoutManager(
                 getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
@@ -229,18 +259,246 @@ public class CategoryFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if (event.getAction() == KeyEvent.ACTION_UP
-                        && keyCode == KeyEvent.KEYCODE_BACK) {/*
-                    Utils.switchContent(R.id.frag_container,
-                            Utils.HOME_FRAGMENT,
-                            ((HomeActivity) (getContext())),
-                            AnimationType.SLIDE_RIGHT);*/
-                    getActivity().onBackPressed();
+                        && keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (scrollablesearch.getVisibility() == View.VISIBLE) {
+                        scrollablesearch.setVisibility(View.GONE);
+                        bmb.setVisibility(View.VISIBLE);
+                    } else {
+                        getActivity().onBackPressed();
+                    }
                 }
                 return true;
             }
         });
         return view;
 
+    }
+
+
+    void hideSoftKebad() {
+        InputMethodManager inputManager = (InputMethodManager)
+                getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    private void getProducts(String search) {
+        progressBar.setVisibility(View.VISIBLE);
+        Map<String, String> postParam = new HashMap<String, String>();
+        postParam.put("Lang", "EN");
+        postParam.put("SearchString", search);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/SearchInProducts", new JSONObject(postParam),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                       /* if (null != ((HomeActivity) getActivity()).getProgressBar())
+                            ((HomeActivity) getActivity()).getProgressBar().setVisibility(
+                                    View.GONE);*/
+                        progressBar.setVisibility(View.GONE);
+
+                        try {
+                            String Status = response.getString("Status");
+                            JSONArray mJsonArray = response.getJSONArray("Result");
+                            if (Status.equals(AppConstants.success)) {
+
+                                productList.clear();
+                                for (int i = 0; i < mJsonArray.length(); i++) {
+                                    JSONObject jsonObject = mJsonArray.getJSONObject(i);
+                                    Product productModel = new Product();
+                                    productModel.setOrderItemType("1");
+                                    productModel.setProductId(jsonObject.getString("ProductID"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    productModel.setItemDetail(jsonObject.getString("ProductName_EN"));
+                                    productModel.setScientificName(jsonObject.getString("ScientificName"));
+                                    productModel.setQuantity("0");
+                                    productModel.setSellMRP(jsonObject.getString("Price"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
+                                    productList.add(productModel);
+
+                                   /* productList
+                                            .add(new Product(
+                                                    "1",
+                                                    "Comtrex",
+                                                    "Comtrex",
+                                                    "Comtrex.",
+                                                    "36500",
+                                                    "20",
+                                                    "1200",
+                                                    "0",
+                                                    "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                                                    "2"));*/
+
+
+                                }
+                                if (productList.size() == 0) {
+                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
+                                } else getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);
+
+                                //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
+                                customSuggestionsAdapter.notifyDataSetChanged();
+                                //  LocationsRecylcerview.setAdapter(locationAdapter);
+
+                            } else {
+                                // Toast.makeText(GetNearPharmacies.this, "There is an error try again later ", Toast.LENGTH_SHORT).show();
+                            }
+                            //Todo
+                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
+
+                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+             /*   if (null != ((HomeActivity) getActivity()).getProgressBar())
+                    ((HomeActivity) getActivity()).getProgressBar().setVisibility(
+                            View.GONE);*/
+                progressBar.setVisibility(View.GONE);
+               /* if (productList.size() == 0) {
+                    getActivity().findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
+                } else getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);
+                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();*/
+            }
+        }) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Basic YWhtZWQ6YWhtZWQ=");
+                return headers;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
+
+
+
+       /* suggestions
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+
+
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+
+
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Panadol",
+                        "Panadol",
+                        "Panadol Description",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
+                        "2"));
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));
+
+        suggestions
+                .add(new Product(
+                        "1",
+                        "Comtrex",
+                        "Comtrex",
+                        "Comtrex.",
+                        "36500",
+                        "20",
+                        "1200",
+                        "0",
+                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                        "2"));*/
     }
 
 
@@ -385,39 +643,7 @@ public class CategoryFragment extends Fragment {
             }
         });
 
-   /*BoomButton b= bmb.getBoomButton(0);
 
-   b.setOnTouchListener(new View.OnTouchListener() {
-       @Override
-       public boolean onTouch(View view, MotionEvent event) {
-           final int X = (int) event.getRawX();
-           final int Y = (int) event.getRawY();
-           switch (event.getAction() & MotionEvent.ACTION_MASK) {
-               case MotionEvent.ACTION_DOWN:
-                   FrameLayout.LayoutParams lParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-                   _xDelta = X - lParams.leftMargin;
-                   _yDelta = Y - lParams.topMargin;
-                   break;
-               case MotionEvent.ACTION_UP:
-                   break;
-               case MotionEvent.ACTION_POINTER_DOWN:
-                   break;
-               case MotionEvent.ACTION_POINTER_UP:
-                   break;
-               case MotionEvent.ACTION_MOVE:
-                   FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view
-                           .getLayoutParams();
-                   layoutParams.leftMargin = X - _xDelta;
-                   layoutParams.topMargin = Y - _yDelta;
-                   layoutParams.rightMargin = -250;
-                   layoutParams.bottomMargin = -250;
-                   view.setLayoutParams(layoutParams);
-                   break;
-           }
-           rootlayout.invalidate();
-           return true;
-       }
-   });*/
         for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
             if (i == 0) {
                 HamButton.Builder builder = new HamButton.Builder()
@@ -541,4 +767,5 @@ public class CategoryFragment extends Fragment {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
+
 }

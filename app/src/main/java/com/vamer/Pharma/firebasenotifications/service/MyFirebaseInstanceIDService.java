@@ -8,6 +8,7 @@ import android.util.Log;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 import com.vamer.Pharma.firebasenotifications.app.Config;
+import com.vamer.Pharma.pharmacyclientapp.util.PreferenceHelper;
 
 
 /**
@@ -26,6 +27,11 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
         storeRegIdInPref(refreshedToken);
 
         // sending reg id to your server
+
+        PreferenceHelper preferenceHelper=PreferenceHelper.getPrefernceHelperInstace();
+
+        preferenceHelper.setString(this,PreferenceHelper.CUSTOMER_FIRE_BASE_TOKEN,refreshedToken);
+
         sendRegistrationToServer(refreshedToken);
 
         // Notify UI that registration has completed, so the progress indicator can be hidden.

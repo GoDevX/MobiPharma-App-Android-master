@@ -80,7 +80,7 @@ public class ProductListFragment extends Fragment {
     View view;
     ProductListAdapter adapter;
     AVLoadingIndicatorView progressBar;
-
+    String SearchKeyword;
     public ProductListFragment() {
         isShoppingList = true;
     }
@@ -93,10 +93,11 @@ public class ProductListFragment extends Fragment {
     }
 
     @SuppressLint("ValidFragment")
-    public ProductListFragment(String subcategoryKey, boolean Search) {
+    public ProductListFragment(String subcategoryKey, boolean Search,String SearchKeyword) {
         isSearchList = true;
         isShoppingList = false;
         this.subcategoryKey = subcategoryKey;
+        this.SearchKeyword=SearchKeyword;
     }
 
 
@@ -272,8 +273,13 @@ public class ProductListFragment extends Fragment {
             }
         });
 
-
+        if(!isSearchList)
         getItemsInEachCatgeory();
+        else SearchInProducts();
+
+
+
+
        /* view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
@@ -295,6 +301,95 @@ public class ProductListFragment extends Fragment {
         });*/
 
         return view;
+    }
+
+    private void SearchInProducts() {
+        progressBar.setVisibility(View.VISIBLE);
+        Map<String, String> postParam = new HashMap<String, String>();
+        postParam.put("Cat_ID", subcategoryKey);
+        postParam.put("Lang", "EN");
+        postParam.put("SearchString",SearchKeyword );
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/SearchInProducts", new JSONObject(postParam),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        progressBar.setVisibility(View.GONE);
+                        try {
+                            String Status = response.getString("Status");
+                            JSONArray mJsonArray = response.getJSONArray("Result");
+                            if (Status.equals(AppConstants.success)) {
+
+                                productList.clear();
+                                for (int i = 0; i < mJsonArray.length(); i++) {
+                                    JSONObject jsonObject = mJsonArray.getJSONObject(i);
+                                    Product productModel = new Product();
+                                    productModel.setOrderItemType("1");
+                                    productModel.setProductId(jsonObject.getString("ProductID"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    productModel.setItemDetail(jsonObject.getString("ProductName_EN"));
+                                    productModel.setScientificName(jsonObject.getString("ScientificName"));
+                                    productModel.setQuantity("0");
+                                    productModel.setSellMRP(jsonObject.getString("Price"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
+                                    productList.add(productModel);
+
+                                   /* productList
+                                            .add(new Product(
+                                                    "1",
+                                                    "Comtrex",
+                                                    "Comtrex",
+                                                    "Comtrex.",
+                                                    "36500",
+                                                    "20",
+                                                    "1200",
+                                                    "0",
+                                                    "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
+                                                    "2"));*/
+
+
+                                }
+                                //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
+                                adapter.notifyDataSetChanged();
+                                //  LocationsRecylcerview.setAdapter(locationAdapter);
+
+                            } else {
+                                // Toast.makeText(GetNearPharmacies.this, "There is an error try again later ", Toast.LENGTH_SHORT).show();
+                            }
+                            //Todo
+                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
+
+                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressBar.setVisibility(View.GONE);
+
+                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Basic YWhtZWQ6YWhtZWQ=");
+                return headers;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
+
     }
 
     private void getItemsInEachCatgeory() {

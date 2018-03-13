@@ -36,6 +36,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author Hitesh Sahu (hiteshsahu.com)
@@ -43,7 +44,7 @@ import java.util.List;
 public class ProductListAdapter extends
         RecyclerView.Adapter<ProductListAdapter.VersionViewHolder> implements
         ItemTouchHelperAdapter {
-
+    private List<Product> newproductList = null;
     private ColorGenerator mColorGenerator = ColorGenerator.MATERIAL;
 
     private IBuilder mDrawableBuilder;
@@ -344,5 +345,23 @@ public class ProductListAdapter extends
             clickListener.onItemClick(v, getPosition());
         }
     }
+
+
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        newproductList.clear();
+        if (charText.length() == 0) {
+            newproductList.addAll(productList);
+        } else {
+            for (Product wp : productList) {
+                if (wp.getItemName().toLowerCase(Locale.getDefault())
+                        .contains(charText)) {
+                    newproductList.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
 
 }

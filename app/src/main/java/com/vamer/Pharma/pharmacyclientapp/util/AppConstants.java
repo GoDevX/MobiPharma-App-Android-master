@@ -15,7 +15,7 @@ public class AppConstants {
     public static final String WHATS_NEW_LAST_SHOWN = "whats_new_last_shown";
     // Audio prefernces
     public static final String VIEW_PAGER_ANIME = "PagerAnime";
-    public static final String API_BASE_URL = "http://192.168.1.5:123/api/";
+    public static final String API_BASE_URL = "http://mobile-api.godevx.com/api/";
 
     // Help Preference
     public static final String SUBMIT_LOGS = "CrashLogs";

@@ -2,6 +2,7 @@ package com.vamer.Pharma.pharmacyclientapp.fragment;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,6 +25,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -39,6 +42,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.cielyang.android.clearableedittext.ClearableEditText;
 import com.vamer.Pharma.pharmacyclientapp.R;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
@@ -82,11 +86,13 @@ public class PlaceOrderFragment extends Fragment {
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
-    SearchViewLayout searchViewLayout;
+   // SearchViewLayout searchViewLayout;
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
+
     /**
      * Create a new instance of the fragment
      */
-
+    ClearableEditText txtSearch;
     int mutedColor = R.attr.colorPrimary;
     private CollapsingToolbarLayout collapsingToolbar;
     private RecyclerView recyclerView;
@@ -118,8 +124,42 @@ public class PlaceOrderFragment extends Fragment {
         //	initMenuFragment();
         fragmentManager = getActivity().getSupportFragmentManager();
         View view = inflater.inflate(R.layout.fragment_place_order, container, false);
-        searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
-        searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true));
+
+        txtSearch = view.findViewById(R.id.searchtxt);
+        txtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+               /* productList.clear();
+                if (!s.toString().equals("")){
+                    if (s.toString().length() > 1) {
+                        scrollablesearch.setVisibility(View.VISIBLE);
+                        bmb.setVisibility(View.GONE);
+                        getProducts(s.toString().trim());
+
+
+                    }  } else {
+                    hideSoftKebad();
+                    txtSearch.clearFocus();
+                    scrollablesearch.setVisibility(View.GONE);
+                    bmb.setVisibility(View.VISIBLE);
+
+                }*/
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        //  searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
+       // searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true,""));
         initPlaceOrder(view);
         return view;
     }
@@ -190,9 +230,7 @@ public class PlaceOrderFragment extends Fragment {
                         .openDrawer(GravityCompat.START);
             }
         });
-        searchViewLayout.handleToolbarAnimation(toolbar);
-        searchViewLayout.setCollapsedHint("Search For Item");
-        searchViewLayout.setExpandedHint("Search For Item");
+
         view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {

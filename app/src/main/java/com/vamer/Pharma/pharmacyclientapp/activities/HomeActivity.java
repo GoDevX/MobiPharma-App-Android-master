@@ -35,6 +35,8 @@ import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.vamer.Pharma.firebasenotifications.app.Config;
 import com.vamer.Pharma.pharmacyclientapp.R;
 import com.vamer.Pharma.pharmacyclientapp.domain.mock.FakeWebServer;
 import com.vamer.Pharma.pharmacyclientapp.fragment.MyCartFragment;
@@ -70,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
     int[] tabColors;
     Handler handler = new Handler();
     Button checkout;
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
 
     public static final double MINIMUM_SUPPORT = 0.1;
     private static final String TAG = HomeActivity.class.getSimpleName();
@@ -95,6 +98,24 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecart);
+        mRegistrationBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                // checking for type intent filter
+                if (intent.getAction().equals(Config.REGISTRATION_COMPLETE)) {
+                    // gcm successfully registered
+                    // now subscribe to `global` topic to receive app wide notifications
+                    FirebaseMessaging.getInstance().subscribeToTopic(Config.TOPIC_GLOBAL);
+                   // displayFirebaseRegId();
+                } /*else if (intent.getAction().equals(Config.PUSH_NOTIFICATION)) {
+                    // new push notification is received
+                    String message = intent.getStringExtra("message");
+                    Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
+                    txtMessage.setText(message);
+                }*/
+            }
+        };
+
         /*if(getIntent()!=null)
         {
             if(getIntent().getStringExtra("new_cart").equals("new_cart"))
@@ -350,6 +371,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // Show Offline Error Message
         if (!Connectivity.isConnected(getApplicationContext())) {
+
             final Dialog dialog = new Dialog(HomeActivity.this);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.connection_dialog);
@@ -368,7 +390,9 @@ public class HomeActivity extends AppCompatActivity {
 
             dialog.show();
         }
-
+        // register GCM registration complete receiver
+        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
+                new IntentFilter(Config.REGISTRATION_COMPLETE));
         // Show Whats New Features If Requires
         //   new WhatsNewDialog(this);
     }

@@ -34,6 +34,7 @@ public class PreferenceHelper {
     public static final String CUSTOMER_TOKEN = "CustomerToken";
     public static final String CUSTOMER_GENDER = "Gender";
     public static final String CUSTOMER_BIRTH_DATE = "BirthDate";
+    public static final String CUSTOMER_FIRE_BASE_TOKEN = "FireBaseToken";
 
 
     //private static final String USER_TOKEN = "userCodeVerification";

@@ -41,20 +41,21 @@ import es.dmoral.toasty.Toasty;
 public class ActivationCodeActivity extends AppCompatActivity {
     Button btnResend;
     Button btnVerify;
-    Chronometer chronometer_timer=null;
+    Chronometer chronometer_timer = null;
     private int mPromptCount = 0;
     long elapsedMillis;
     OtpView otpView;
     String Code;
     PreferenceHelper pr;
     String phone;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Button btnVerify;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.code_confirmation);
-         pr=PreferenceHelper.getPrefernceHelperInstace();
-        phone  = getIntent().getStringExtra("MobileNo");
+        pr = PreferenceHelper.getPrefernceHelperInstace();
+        phone = getIntent().getStringExtra("MobileNo");
         ((Toolbar) findViewById(R.id.toolbar)).setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,22 +63,22 @@ public class ActivationCodeActivity extends AppCompatActivity {
             }
         });
         //  setupWindowAnimations();
-        btnResend=findViewById(R.id.resend_button);
+        btnResend = findViewById(R.id.resend_button);
 
-        otpView=findViewById(R.id.otp_view);
+        otpView = findViewById(R.id.otp_view);
         btnResend.setEnabled(false);
         btnResend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chronometer_timer.setBase(SystemClock.elapsedRealtime());
                 chronometer_timer.start();
-               // String s = getIntent().getStringExtra("EXTRA_SESSION_ID");
-               // getIntent().getBundleExtra("MobileNo");
+                // String s = getIntent().getStringExtra("EXTRA_SESSION_ID");
+                // getIntent().getBundleExtra("MobileNo");
                 verifyMyMobile(phone);
 
             }
         });
-        chronometer_timer=findViewById(R.id.chronometer_timer);
+        chronometer_timer = findViewById(R.id.chronometer_timer);
         chronometer_timer.setBase(SystemClock.elapsedRealtime());
         chronometer_timer.start();
         chronometer_timer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
@@ -87,48 +88,46 @@ public class ActivationCodeActivity extends AppCompatActivity {
             }
         });
 
-        btnVerify=findViewById(R.id.btn_verify);
+        btnVerify = findViewById(R.id.btn_verify);
         btnVerify.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        if(otpView.getOTP().length()==4){
-         if(
+            @Override
+            public void onClick(View v) {
+                if (otpView.getOTP().length() == 4) {
+                    if (
 
-                 otpView.getOTP().equals(pr.getString(ActivationCodeActivity.this,PreferenceHelper.USER_CODE_VERIFCATION,""))) {
+                            otpView.getOTP().equals(pr.getString(ActivationCodeActivity.this, PreferenceHelper.USER_CODE_VERIFCATION, ""))) {
 
-             verifyMyMobile(phone);
-         }
-           //  startActivity(new Intent(ActivationCodeActivity.this,CompleteProfileActivity.class));}
-         else{
-             Toasty.error(ActivationCodeActivity.this, "Code Is In Correct.", Toast.LENGTH_SHORT, true).show();
-         }
+                        verifyMyMobile(phone);
+                    }
+                    //  startActivity(new Intent(ActivationCodeActivity.this,CompleteProfileActivity.class));}
+                    else {
+                        Toasty.error(ActivationCodeActivity.this, "Code Is In Correct.", Toast.LENGTH_SHORT, true).show();
+                    }
 
-        }
-    else
-        {
-            Toasty.info(ActivationCodeActivity.this, "You have to enter 4 digits code.", Toast.LENGTH_SHORT, true).show();
+                } else {
+                    Toasty.info(ActivationCodeActivity.this, "You have to enter 4 digits code.", Toast.LENGTH_SHORT, true).show();
 
-        }
+                }
 
 
-    }
-});
+            }
+        });
     }
 
     private void calcualteElapsedTime() {
-        int seconds=0;
+        int seconds = 0;
         elapsedMillis = SystemClock.elapsedRealtime() - chronometer_timer.getBase();
-         seconds = (int) (elapsedMillis / 1000) % 60 ;
-        if(seconds==59) {
+        seconds = (int) (elapsedMillis / 1000) % 60;
+        if (seconds == 59) {
             btnResend.setEnabled(true);
-           // mPauseButton.setVisibility(View.GONE);
+            // mPauseButton.setVisibility(View.GONE);
             chronometer_timer.stop();
             chronometer_timer.setBase(SystemClock.elapsedRealtime());
 
             //timeWhenPaused = 0;
-         //   mRecordingPrompt.setText(getString(R.string.record_prompt));
+            //   mRecordingPrompt.setText(getString(R.string.record_prompt));
             // getActivity().stopService(intent);
-          //  getActivity().stopService(intent);
+            //  getActivity().stopService(intent);
             /*Toast.makeText(getActivity(), "Only 60 seconds Per record permitted " + elapsedMillis,
                     Toast.LENGTH_SHORT).show();*/
         }
@@ -146,6 +145,7 @@ public class ActivationCodeActivity extends AppCompatActivity {
         slide.setDuration(1000);
         getWindow().setReturnTransition(slide);
     }
+
     public void verifyMyMobile(String phone_number) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getResources().getString(R.string.pleasewait));
@@ -153,7 +153,9 @@ public class ActivationCodeActivity extends AppCompatActivity {
         progressDialog.show();
         Map<String, String> postParam = new HashMap<String, String>();
         postParam.put("MobileNo", phone_number);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL+"Customer/RegisterCustomer", new JSONObject(postParam),
+        postParam.put(PreferenceHelper.CUSTOMER_FIRE_BASE_TOKEN,pr.getString(ActivationCodeActivity.this,PreferenceHelper.CUSTOMER_FIRE_BASE_TOKEN,""));
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Customer/RegisterCustomer", new JSONObject(postParam),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -161,8 +163,8 @@ public class ActivationCodeActivity extends AppCompatActivity {
                         try {
 
                             String Status = response.getString("Status");
-                            JSONObject Result= response.getJSONObject("Result");
-                            if(Status .equals(AppConstants.success)||Status .equals(AppConstants.CUSTOMER_FOUND)) {
+                            JSONObject Result = response.getJSONObject("Result");
+                            if (Status.equals(AppConstants.success) || Status.equals(AppConstants.CUSTOMER_FOUND)) {
                                 //
                             /*if (Status .equals("411")) {
                                 Toasty.success(ActivationCodeActivity.this, getResources().getString(R.string.customer_found)+Result.getString("Name"), Toast.LENGTH_SHORT, true).show();
@@ -172,18 +174,18 @@ public class ActivationCodeActivity extends AppCompatActivity {
 
                                 Toasty.success(ActivationCodeActivity.this, getResources().getString(R.string.customer_created), Toast.LENGTH_SHORT, true).show();
                                 Intent i = new Intent(ActivationCodeActivity.this, CompleteProfileActivity.class);
-                              //  i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                              //  String s = Result.getString("BirthDate");
+                                //  i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                //  String s = Result.getString("BirthDate");
 
-                               pr.setCustomerData(ActivationCodeActivity.this, Result.getString("BirthDate"), phone, Result.getString("CustomerToken"), Result.getString("Gender"), Result.getString("Name"));
-                               pr.setUserLoggedIn(true,ActivationCodeActivity.this);
+                                pr.setCustomerData(ActivationCodeActivity.this, Result.getString("BirthDate"), phone, Result.getString("CustomerToken"), Result.getString("Gender"), Result.getString("Name"));
+                                pr.setUserLoggedIn(true, ActivationCodeActivity.this);
                                 startActivity(i);
                                 finish();
                             }
-                                //Todo
-                               // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
+                            //Todo
+                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
 
-                               // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
+                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -217,12 +219,12 @@ public class ActivationCodeActivity extends AppCompatActivity {
 
         AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
     }
-private void saveUserData(String Mobile,String Name, String Token,String Gender)
-{
-    pr.setString(ActivationCodeActivity.this,PreferenceHelper.CUSTOMER_MOBILE,Mobile);
-    pr.setString(ActivationCodeActivity.this,PreferenceHelper.CUSTOMER_NAME,Name);
-    pr.setString(ActivationCodeActivity.this,PreferenceHelper.CUSTOMER_TOKEN,Token);
-    pr.setString(ActivationCodeActivity.this,PreferenceHelper.CUSTOMER_GENDER,Gender);
 
-}
+    private void saveUserData(String Mobile, String Name, String Token, String Gender) {
+        pr.setString(ActivationCodeActivity.this, PreferenceHelper.CUSTOMER_MOBILE, Mobile);
+        pr.setString(ActivationCodeActivity.this, PreferenceHelper.CUSTOMER_NAME, Name);
+        pr.setString(ActivationCodeActivity.this, PreferenceHelper.CUSTOMER_TOKEN, Token);
+        pr.setString(ActivationCodeActivity.this, PreferenceHelper.CUSTOMER_GENDER, Gender);
+
+    }
 }

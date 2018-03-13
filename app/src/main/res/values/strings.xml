@@ -273,5 +273,6 @@
     <string name="Apartment_error">Please Enter Your Appartment Number.</string>
     <string name="Building_number_error">Please Enter Your Building Number.</string>
     <string name="Category">Categories</string>
+    <string name="no_data_available">No Results Found.</string>
 
 </resources>

@@ -148,7 +148,7 @@ public class ProductOverviewFragment extends Fragment {
 
         setUpUi();
         final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
-        searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs",true));
+        searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs",true,""));
         searchViewLayout.handleToolbarAnimation(mToolbar);
         searchViewLayout.setCollapsedHint("Search For Item");
         searchViewLayout.setExpandedHint("Search For Item");
