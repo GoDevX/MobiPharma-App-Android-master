@@ -19,16 +19,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d0633df-6711-4f46-b0c9-2f40c28f9592" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ru_alexbykov_nopaginate_0_4_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/EndlessRecyclerOnScrollListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/AppConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/AppConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main_category.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main_category.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/frag_category_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/frag_category_details.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/frag_product_list_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/frag_product_list_fragment.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,23 +87,20 @@
       <file leaf-file-name="CategoryFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="345" column="31" lean-forward="false" selection-start-line="345" selection-start-column="31" selection-end-line="345" selection-end-column="31" />
+            <state relative-caret-position="1885">
+              <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="class#6485:7762" expanded="false" />
-                <element signature="e#7822#8264#0" expanded="true" />
-                <element signature="e#8263#8264#0" expanded="true" />
-                <element signature="e#8390#8662#0" expanded="true" />
-                <element signature="e#8661#8662#0" expanded="true" />
-                <element signature="e#10236#10647#0" expanded="true" />
-                <element signature="e#10285#10318#0" expanded="false" />
-                <element signature="e#10646#10647#0" expanded="true" />
-                <element signature="e#11243#11841#0" expanded="true" />
-                <element signature="e#11840#11841#0" expanded="true" />
-                <element signature="e#12021#12642#0" expanded="true" />
-                <element signature="e#12641#12642#0" expanded="true" />
-                <element signature="method#hideSoftKebad#0;class#CategoryFragment#0" expanded="false" />
+                <element signature="e#7567#8009#0" expanded="true" />
+                <element signature="e#8008#8009#0" expanded="true" />
+                <element signature="e#8135#8412#0" expanded="true" />
+                <element signature="e#8411#8412#0" expanded="true" />
+                <element signature="e#9986#10397#0" expanded="true" />
+                <element signature="e#10396#10397#0" expanded="true" />
+                <element signature="e#10993#11591#0" expanded="true" />
+                <element signature="e#11590#11591#0" expanded="true" />
+                <element signature="e#11771#12392#0" expanded="true" />
+                <element signature="e#12391#12392#0" expanded="true" />
                 <element signature="method#getCatgeories#0;class#CategoryFragment#0" expanded="false" />
                 <element signature="method#onActivityResult#0;class#CategoryFragment#0" expanded="false" />
                 <element signature="method#initateBoomMenu#0;class#CategoryFragment#0" expanded="false" />
@@ -123,44 +114,78 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="content_main_category.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main_category.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+              <folding>
+                <element signature="e#566#944#0" expanded="false" />
+                <element signature="e#953#1231#0" expanded="false" />
+                <element signature="e#1240#1537#0" expanded="false" />
+                <element signature="e#1546#2306#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ProductListFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="275" column="18" lean-forward="false" selection-start-line="275" selection-start-column="18" selection-end-line="275" selection-end-column="18" />
+            <state relative-caret-position="271">
+              <caret line="134" column="37" lean-forward="false" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3301#3310#0" expanded="true" />
-                <element signature="e#3461#3462#0" expanded="true" />
-                <element signature="e#3498#3499#0" expanded="true" />
-                <element signature="e#4652#5208#0" expanded="true" />
-                <element signature="e#5207#5208#0" expanded="true" />
-                <element signature="e#5806#6240#0" expanded="true" />
-                <element signature="e#6239#6240#0" expanded="true" />
-                <element signature="e#6361#6676#0" expanded="true" />
-                <element signature="e#6675#6676#0" expanded="true" />
-                <element signature="method#SearchInProducts#0;class#ProductListFragment#0" expanded="false" />
-                <element signature="e#7015#7031#0" expanded="true" />
-                <element signature="e#11411#11427#0" expanded="true" />
-                <element signature="method#getItemsInEachCatgeory#0;class#ProductListFragment#0" expanded="false" />
-                <element signature="e#12008#12024#0" expanded="true" />
-                <element signature="e#16131#16147#0" expanded="true" />
-                <element signature="e#19689#19716#0" expanded="true" />
-                <element signature="e#19760#19787#0" expanded="true" />
-                <element signature="e#19967#20204#0" expanded="true" />
-                <element signature="e#20203#20204#0" expanded="true" />
-                <element signature="e#20322#20343#0" expanded="true" />
-                <element signature="e#20387#20408#0" expanded="true" />
-                <element signature="e#20576#20811#0" expanded="true" />
-                <element signature="e#20810#20811#0" expanded="true" />
-                <element signature="e#20919#20938#0" expanded="true" />
-                <element signature="e#20982#21001#0" expanded="true" />
-                <element signature="e#22032#22808#0" expanded="true" />
-                <element signature="e#22807#22808#0" expanded="true" />
-                <element signature="e#25328#25511#0" expanded="true" />
-                <element signature="e#25510#25511#0" expanded="true" />
-                <element signature="e#25633#25818#0" expanded="true" />
-                <element signature="e#25817#25818#0" expanded="true" />
+                <element signature="e#3555#3564#0" expanded="true" />
+                <element signature="e#3825#3826#0" expanded="true" />
+                <element signature="e#3862#3863#0" expanded="true" />
+                <element signature="e#7338#7502#0" expanded="true" />
+                <element signature="e#7501#7502#0" expanded="true" />
+                <element signature="e#7698#8254#0" expanded="true" />
+                <element signature="e#8253#8254#0" expanded="true" />
+                <element signature="e#8835#9269#0" expanded="true" />
+                <element signature="e#9268#9269#0" expanded="true" />
+                <element signature="e#9390#9846#0" expanded="true" />
+                <element signature="e#9845#9846#0" expanded="true" />
+                <element signature="e#10119#10484#0" expanded="true" />
+                <element signature="e#10483#10484#0" expanded="true" />
+                <element signature="e#11047#11063#0" expanded="true" />
+                <element signature="e#15414#15430#0" expanded="true" />
+                <element signature="method#onActivityResult#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="method#initateBoomMenu#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="e#18747#18748#0" expanded="false" />
+                <element signature="e#18831#18832#0" expanded="false" />
+                <element signature="e#18972#18999#0" expanded="true" />
+                <element signature="e#19043#19070#0" expanded="true" />
+                <element signature="e#19250#19487#0" expanded="true" />
+                <element signature="e#19383#19384#0" expanded="false" />
+                <element signature="e#19460#19461#0" expanded="false" />
+                <element signature="e#19486#19487#0" expanded="true" />
+                <element signature="e#19605#19626#0" expanded="true" />
+                <element signature="e#19670#19691#0" expanded="true" />
+                <element signature="e#19859#20094#0" expanded="true" />
+                <element signature="e#19992#19993#0" expanded="false" />
+                <element signature="e#20067#20068#0" expanded="false" />
+                <element signature="e#20093#20094#0" expanded="true" />
+                <element signature="e#20202#20221#0" expanded="true" />
+                <element signature="e#20265#20284#0" expanded="true" />
+                <element signature="method#onDestroy#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="method#WriteText#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="e#21422#22198#0" expanded="true" />
+                <element signature="e#22197#22198#0" expanded="true" />
+                <element signature="method#recordSound#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="method#uploadPrescription#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="e#24718#24901#0" expanded="true" />
+                <element signature="e#24900#24901#0" expanded="true" />
+                <element signature="e#25023#25208#0" expanded="true" />
+                <element signature="e#25207#25208#0" expanded="true" />
+                <element signature="method#activeGallery#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="method#activeTakePhoto#0;class#ProductListFragment#0" expanded="false" />
+                <element signature="e#26481#26497#0" expanded="true" />
+                <element signature="e#31093#31109#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,11 +197,25 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+            <state relative-caret-position="133">
+              <caret line="63" column="44" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="44" />
               <folding>
-                <element signature="e#4245#7647#0" expanded="false" />
+                <element signature="e#1320#1338#0" expanded="true" />
+                <element signature="e#4707#8109#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="frag_category_details.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_category_details.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="45" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -207,22 +246,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Categ</find>
-      <find>switchFragmentWithAnimation</find>
-      <find>mRegistrationBroadcastReceiver</find>
-      <find>onRes</find>
-      <find>ProductListAd</find>
-      <find>productList</find>
-      <find>searchBar</find>
-      <find>m</find>
-      <find>getItems</find>
-      <find>watcher</find>
-      <find>customSuggestionsAdapter</find>
-      <find>getPr</find>
-      <find>textWatc</find>
       <find>onClick</find>
       <find>sette</find>
-      <find>txtSearch</find>
       <find>linearLayoutManager</find>
       <find>listener</find>
       <find>scrollListener</find>
@@ -232,11 +257,25 @@
       <find>getProducts</find>
       <find>pagin</find>
       <find>subcategoryKey</find>
-      <find>progressBar</find>
-      <find>current_page</find>
-      <find>showError</find>
       <find>anim_toolbar</find>
       <find>back</find>
+      <find>t</find>
+      <find>scroll</find>
+      <find>txtSearch</find>
+      <find>initateBoomMenu</find>
+      <find>bmb</find>
+      <find>productList</find>
+      <find>current_page</find>
+      <find>hideSoftKebad</find>
+      <find>SearchInProducts</find>
+      <find>showError</find>
+      <find>setNoMoreItems</find>
+      <find>progressBar</find>
+      <find>AVLoadingIndicatorView</find>
+      <find>loading_bar</find>
+      <find>loading_bar_more</find>
+      <find>paginate.setNoMoreItems(true);</find>
+      <find>progress</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -2013,7 +2052,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/api/ProductCategoryLoaderTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_product_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/ShoppingListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/frag_product_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/GetNearPharmacies.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/pharmacy_item.xml" />
@@ -2037,9 +2075,10 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/frag_category_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/frag_product_list_fragment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java" />
       </list>
     </option>
   </component>
@@ -2198,6 +2237,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MobiPharma-App-Android-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vamer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pharma" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pharmacyclientapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -2206,7 +2279,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="0123456789ABCDEF" />
+    <property name="device.picker.selection" value="HC59GYFE0011" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -2322,7 +2395,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521020968006" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521030268592" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2370,7 +2443,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521020968007" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521030268592" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2553,7 +2626,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521020968007" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521030268593" />
       </method>
     </configuration>
     <list size="1">
@@ -2704,7 +2777,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520950737231</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Comitted by Khames">
+      <created>1521021002633</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1521021002633</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -2723,12 +2803,12 @@
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43948564" sideWeight="0.17184943" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20424837" sideWeight="0.5839637" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.073529415" sideWeight="0.57488656" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21568628" sideWeight="0.57488656" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20261438" sideWeight="0.52118003" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16830066" sideWeight="0.52420574" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3888889" sideWeight="0.4160363" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2740,8 +2820,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08660131" sideWeight="0.48260212" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22314675" sideWeight="0.8281506" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.47881997" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685326" sideWeight="0.8281506" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.47579426" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27836612" sideWeight="0.38134205" order="2" side_tool="true" content_ui="tabs" />
@@ -2907,14 +2987,6 @@
           <option name="timeStamp" value="668" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>291</line>
-          <properties method="onResponse">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="740" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
           <line>474</line>
           <properties class="com.vamer.Pharma.pharmacyclientapp.fragment.ProductDetailsFragment" method="fillProductData">
@@ -2932,7 +3004,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>308</line>
+          <line>301</line>
           <properties method="onKey">
             <option name="EMULATED" value="true" />
           </properties>
@@ -2940,7 +3012,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>172</line>
+          <line>165</line>
           <properties method="onTextChanged">
             <option name="EMULATED" value="true" />
           </properties>
@@ -2948,7 +3020,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>349</line>
+          <line>342</line>
           <properties method="onResponse">
             <option name="EMULATED" value="true" />
           </properties>
@@ -2956,15 +3028,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>195</line>
-          <properties method="onResponse">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1021" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>168</line>
+          <line>254</line>
           <properties method="onLoadMore">
             <option name="EMULATED" value="true" />
           </properties>
@@ -5246,57 +5310,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>294</line>
+          <line>287</line>
           <properties />
           <option name="timeStamp" value="725" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>300</line>
+          <line>293</line>
           <properties />
           <option name="timeStamp" value="728" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>288</line>
-          <properties />
-          <option name="timeStamp" value="736" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>282</line>
-          <properties />
-          <option name="timeStamp" value="737" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>289</line>
-          <properties />
-          <option name="timeStamp" value="739" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>297</line>
-          <properties />
-          <option name="timeStamp" value="744" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>298</line>
-          <properties />
-          <option name="timeStamp" value="745" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>299</line>
-          <properties />
-          <option name="timeStamp" value="746" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>300</line>
-          <properties />
-          <option name="timeStamp" value="747" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/ProductListAdapter.java</url>
@@ -5767,54 +5789,6 @@
           <option name="timeStamp" value="851" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>187</line>
-          <properties />
-          <option name="timeStamp" value="862" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>188</line>
-          <properties />
-          <option name="timeStamp" value="863" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>189</line>
-          <properties />
-          <option name="timeStamp" value="864" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>190</line>
-          <properties />
-          <option name="timeStamp" value="865" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>191</line>
-          <properties />
-          <option name="timeStamp" value="866" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>192</line>
-          <properties />
-          <option name="timeStamp" value="867" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>193</line>
-          <properties />
-          <option name="timeStamp" value="869" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>194</line>
-          <properties />
-          <option name="timeStamp" value="870" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/ActivationCodeActivity.java</url>
           <line>155</line>
           <properties />
@@ -5840,169 +5814,169 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>384</line>
+          <line>379</line>
           <properties />
           <option name="timeStamp" value="943" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>385</line>
+          <line>380</line>
           <properties />
           <option name="timeStamp" value="944" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>312</line>
+          <line>305</line>
           <properties />
           <option name="timeStamp" value="945" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>313</line>
+          <line>306</line>
           <properties />
           <option name="timeStamp" value="947" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>314</line>
+          <line>307</line>
           <properties />
           <option name="timeStamp" value="948" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>315</line>
+          <line>308</line>
           <properties />
           <option name="timeStamp" value="949" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>316</line>
+          <line>309</line>
           <properties />
           <option name="timeStamp" value="952" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>317</line>
+          <line>310</line>
           <properties />
           <option name="timeStamp" value="953" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>306</line>
+          <line>299</line>
           <properties />
           <option name="timeStamp" value="954" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>307</line>
+          <line>300</line>
           <properties />
           <option name="timeStamp" value="955" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>310</line>
+          <line>303</line>
           <properties />
           <option name="timeStamp" value="957" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>175</line>
+          <line>168</line>
           <properties />
           <option name="timeStamp" value="959" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>176</line>
+          <line>169</line>
           <properties />
           <option name="timeStamp" value="960" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>179</line>
+          <line>172</line>
           <properties />
           <option name="timeStamp" value="961" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>182</line>
+          <line>175</line>
           <properties />
           <option name="timeStamp" value="964" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>185</line>
+          <line>178</line>
           <properties />
           <option name="timeStamp" value="965" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>187</line>
+          <line>180</line>
           <properties />
           <option name="timeStamp" value="966" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>188</line>
+          <line>181</line>
           <properties />
           <option name="timeStamp" value="967" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>186</line>
+          <line>179</line>
           <properties />
           <option name="timeStamp" value="969" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>190</line>
+          <line>183</line>
           <properties />
           <option name="timeStamp" value="970" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>192</line>
+          <line>185</line>
           <properties />
           <option name="timeStamp" value="971" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>339</line>
+          <line>332</line>
           <properties />
           <option name="timeStamp" value="975" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>341</line>
+          <line>334</line>
           <properties />
           <option name="timeStamp" value="976" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>342</line>
+          <line>335</line>
           <properties />
           <option name="timeStamp" value="977" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>365</line>
+          <line>360</line>
           <properties />
           <option name="timeStamp" value="978" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>372</line>
+          <line>367</line>
           <properties />
           <option name="timeStamp" value="981" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>374</line>
+          <line>369</line>
           <properties />
           <option name="timeStamp" value="983" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>160</line>
+          <line>153</line>
           <properties />
           <option name="timeStamp" value="984" />
         </line-breakpoint>
@@ -6020,25 +5994,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>347</line>
+          <line>340</line>
           <properties />
           <option name="timeStamp" value="988" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>348</line>
+          <line>341</line>
           <properties />
           <option name="timeStamp" value="989" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>378</line>
+          <line>373</line>
           <properties />
           <option name="timeStamp" value="992" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>379</line>
+          <line>374</line>
           <properties />
           <option name="timeStamp" value="993" />
         </line-breakpoint>
@@ -6128,195 +6102,226 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>388</line>
+          <line>383</line>
           <properties />
           <option name="timeStamp" value="1011" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>396</line>
+          <line>391</line>
           <properties />
           <option name="timeStamp" value="1012" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>398</line>
+          <line>393</line>
           <properties />
           <option name="timeStamp" value="1013" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>337</line>
+          <line>330</line>
           <properties />
           <option name="timeStamp" value="1014" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>336</line>
+          <line>329</line>
           <properties />
           <option name="timeStamp" value="1015" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>353</line>
+          <line>346</line>
           <properties />
           <option name="timeStamp" value="1017" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>357</line>
+          <line>350</line>
           <properties />
           <option name="timeStamp" value="1018" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java</url>
-          <line>354</line>
+          <line>347</line>
           <properties />
           <option name="timeStamp" value="1019" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>197</line>
-          <properties />
-          <option name="timeStamp" value="1022" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>198</line>
-          <properties />
-          <option name="timeStamp" value="1023" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>200</line>
-          <properties />
-          <option name="timeStamp" value="1024" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>204</line>
-          <properties />
-          <option name="timeStamp" value="1025" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>201</line>
-          <properties />
-          <option name="timeStamp" value="1026" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>205</line>
-          <properties />
-          <option name="timeStamp" value="1027" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>208</line>
-          <properties />
-          <option name="timeStamp" value="1028" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>206</line>
-          <properties />
-          <option name="timeStamp" value="1029" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>236</line>
-          <properties />
-          <option name="timeStamp" value="1030" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>255</line>
-          <properties />
-          <option name="timeStamp" value="1031" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>301</line>
-          <properties />
-          <option name="timeStamp" value="1033" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>312</line>
-          <properties />
-          <option name="timeStamp" value="1035" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>308</line>
-          <properties />
-          <option name="timeStamp" value="1036" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>346</line>
+          <line>369</line>
           <properties />
           <option name="timeStamp" value="1039" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>164</line>
+          <line>250</line>
           <properties />
           <option name="timeStamp" value="1040" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>165</line>
+          <line>251</line>
           <properties />
           <option name="timeStamp" value="1041" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>166</line>
+          <line>252</line>
           <properties />
           <option name="timeStamp" value="1042" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>170</line>
+          <line>258</line>
           <properties />
           <option name="timeStamp" value="1044" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>314</line>
-          <properties />
-          <option name="timeStamp" value="1045" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>319</line>
-          <properties />
-          <option name="timeStamp" value="1046" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
-          <line>342</line>
+          <line>365</line>
           <properties />
           <option name="timeStamp" value="1047" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>148</line>
+          <properties />
+          <option name="timeStamp" value="1050" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>625</line>
+          <properties />
+          <option name="timeStamp" value="1051" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>627</line>
+          <properties />
+          <option name="timeStamp" value="1053" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>628</line>
+          <properties />
+          <option name="timeStamp" value="1055" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>629</line>
+          <properties />
+          <option name="timeStamp" value="1056" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>630</line>
+          <properties />
+          <option name="timeStamp" value="1057" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>631</line>
+          <properties />
+          <option name="timeStamp" value="1058" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>632</line>
+          <properties />
+          <option name="timeStamp" value="1059" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>633</line>
+          <properties />
+          <option name="timeStamp" value="1060" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>635</line>
+          <properties />
+          <option name="timeStamp" value="1061" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>642</line>
+          <properties />
+          <option name="timeStamp" value="1063" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>644</line>
+          <properties />
+          <option name="timeStamp" value="1064" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>646</line>
+          <properties />
+          <option name="timeStamp" value="1065" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>647</line>
+          <properties />
+          <option name="timeStamp" value="1066" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>653</line>
+          <properties />
+          <option name="timeStamp" value="1067" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>664</line>
+          <properties />
+          <option name="timeStamp" value="1068" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>669</line>
+          <properties />
+          <option name="timeStamp" value="1069" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>696</line>
+          <properties />
+          <option name="timeStamp" value="1070" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>697</line>
+          <properties />
+          <option name="timeStamp" value="1071" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>161</line>
+          <properties />
+          <option name="timeStamp" value="1072" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>162</line>
+          <properties />
+          <option name="timeStamp" value="1073" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java</url>
+          <line>179</line>
+          <properties />
+          <option name="timeStamp" value="1074" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1049" />
+      <option name="time" value="1075" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/RecordFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <folding>
-            <element signature="e#3459#3623#0" expanded="true" />
-            <element signature="e#3622#3623#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/mock/FakeWebServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4318">
@@ -6686,24 +6691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main_category.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-          <folding>
-            <element signature="e#566#944#0" expanded="false" />
-            <element signature="e#953#1231#0" expanded="false" />
-            <element signature="e#1240#1537#0" expanded="false" />
-            <element signature="e#1546#2306#0" expanded="false" />
-            <element signature="e#2307#3031#0" expanded="false" />
-            <element signature="e#2624#2664#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -6734,49 +6721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="137" column="61" lean-forward="false" selection-start-line="137" selection-start-column="61" selection-end-line="137" selection-end-column="61" />
-          <folding>
-            <element signature="method#updateMyCartFragment#0;class#MyCartFragment#0" expanded="false" />
-            <element signature="class#13275:13850" expanded="false" />
-            <element signature="class#13976:14528" expanded="false" />
-            <element signature="class#15589:16092" expanded="false" />
-            <element signature="method#onStartDrag#0;class#MyCartFragment#0" expanded="false" />
-            <element signature="method#recordSound#0;class#MyCartFragment#0" expanded="false" />
-            <element signature="method#initateBoomMenu#0;class#MyCartFragment#0" expanded="false" />
-            <element signature="method#uploadPrescription#0;class#MyCartFragment#0" expanded="false" />
-            <element signature="method#activeGallery#0;class#MyCartFragment#0" expanded="false" />
-            <element signature="method#activeTakePhoto#0;class#MyCartFragment#0" expanded="false" />
-            <element signature="method#showPurchaseDialog#0;class#MyCartFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="440" column="0" lean-forward="false" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
-          <folding>
-            <element signature="method#onTabSelected#0;class#7499:12411" expanded="false" />
-            <element signature="method#onResume#0;class#ProductOverviewFragment#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#ProductOverviewFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_category_details.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="32" column="41" lean-forward="true" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_product_category.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -6788,38 +6732,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_category_details.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="45" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="145" column="1" lean-forward="true" selection-start-line="145" selection-start-column="1" selection-end-line="150" selection-end-column="45" />
+          <folding>
+            <element signature="e#5258#5422#0" expanded="true" />
+            <element signature="e#5421#5422#0" expanded="true" />
+            <element signature="method#onTabSelected#0;class#7499:12411" expanded="false" />
+            <element signature="method#onResume#0;class#ProductOverviewFragment#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#ProductOverviewFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/OrdersFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="161" column="27" lean-forward="false" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="27" />
+          <folding>
+            <element signature="method#updateMyCartFragment#0;class#MyCartFragment#0" expanded="false" />
+            <element signature="e#5336#6325#0" expanded="false" />
+            <element signature="e#6324#6325#0" expanded="false" />
+            <element signature="class#13318:13893" expanded="false" />
+            <element signature="class#14019:14571" expanded="false" />
+            <element signature="class#15632:16135" expanded="false" />
+            <element signature="method#onStartDrag#0;class#MyCartFragment#0" expanded="false" />
+            <element signature="method#recordSound#0;class#MyCartFragment#0" expanded="false" />
+            <element signature="method#initateBoomMenu#0;class#MyCartFragment#0" expanded="false" />
+            <element signature="method#uploadPrescription#0;class#MyCartFragment#0" expanded="false" />
+            <element signature="method#activeGallery#0;class#MyCartFragment#0" expanded="false" />
+            <element signature="method#activeTakePhoto#0;class#MyCartFragment#0" expanded="false" />
+            <element signature="method#showPurchaseDialog#0;class#MyCartFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_product_list_fragment.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        <state relative-caret-position="133">
+          <caret line="63" column="44" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="44" />
           <folding>
-            <element signature="e#4245#7647#0" expanded="false" />
+            <element signature="e#1320#1338#0" expanded="true" />
+            <element signature="e#4707#8109#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main_category.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding>
+            <element signature="e#566#944#0" expanded="false" />
+            <element signature="e#953#1231#0" expanded="false" />
+            <element signature="e#1240#1537#0" expanded="false" />
+            <element signature="e#1546#2306#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="345" column="31" lean-forward="false" selection-start-line="345" selection-start-column="31" selection-end-line="345" selection-end-column="31" />
+        <state relative-caret-position="1885">
+          <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#6485:7762" expanded="false" />
-            <element signature="e#7822#8264#0" expanded="true" />
-            <element signature="e#8263#8264#0" expanded="true" />
-            <element signature="e#8390#8662#0" expanded="true" />
-            <element signature="e#8661#8662#0" expanded="true" />
-            <element signature="e#10236#10647#0" expanded="true" />
-            <element signature="e#10285#10318#0" expanded="false" />
-            <element signature="e#10646#10647#0" expanded="true" />
-            <element signature="e#11243#11841#0" expanded="true" />
-            <element signature="e#11840#11841#0" expanded="true" />
-            <element signature="e#12021#12642#0" expanded="true" />
-            <element signature="e#12641#12642#0" expanded="true" />
-            <element signature="method#hideSoftKebad#0;class#CategoryFragment#0" expanded="false" />
+            <element signature="e#7567#8009#0" expanded="true" />
+            <element signature="e#8008#8009#0" expanded="true" />
+            <element signature="e#8135#8412#0" expanded="true" />
+            <element signature="e#8411#8412#0" expanded="true" />
+            <element signature="e#9986#10397#0" expanded="true" />
+            <element signature="e#10396#10397#0" expanded="true" />
+            <element signature="e#10993#11591#0" expanded="true" />
+            <element signature="e#11590#11591#0" expanded="true" />
+            <element signature="e#11771#12392#0" expanded="true" />
+            <element signature="e#12391#12392#0" expanded="true" />
             <element signature="method#getCatgeories#0;class#CategoryFragment#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#CategoryFragment#0" expanded="false" />
             <element signature="method#initateBoomMenu#0;class#CategoryFragment#0" expanded="false" />
@@ -6834,41 +6847,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="275" column="18" lean-forward="false" selection-start-line="275" selection-start-column="18" selection-end-line="275" selection-end-column="18" />
+        <state relative-caret-position="271">
+          <caret line="134" column="37" lean-forward="false" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3301#3310#0" expanded="true" />
-            <element signature="e#3461#3462#0" expanded="true" />
-            <element signature="e#3498#3499#0" expanded="true" />
-            <element signature="e#4652#5208#0" expanded="true" />
-            <element signature="e#5207#5208#0" expanded="true" />
-            <element signature="e#5806#6240#0" expanded="true" />
-            <element signature="e#6239#6240#0" expanded="true" />
-            <element signature="e#6361#6676#0" expanded="true" />
-            <element signature="e#6675#6676#0" expanded="true" />
-            <element signature="method#SearchInProducts#0;class#ProductListFragment#0" expanded="false" />
-            <element signature="e#7015#7031#0" expanded="true" />
-            <element signature="e#11411#11427#0" expanded="true" />
-            <element signature="method#getItemsInEachCatgeory#0;class#ProductListFragment#0" expanded="false" />
-            <element signature="e#12008#12024#0" expanded="true" />
-            <element signature="e#16131#16147#0" expanded="true" />
-            <element signature="e#19689#19716#0" expanded="true" />
-            <element signature="e#19760#19787#0" expanded="true" />
-            <element signature="e#19967#20204#0" expanded="true" />
-            <element signature="e#20203#20204#0" expanded="true" />
-            <element signature="e#20322#20343#0" expanded="true" />
-            <element signature="e#20387#20408#0" expanded="true" />
-            <element signature="e#20576#20811#0" expanded="true" />
-            <element signature="e#20810#20811#0" expanded="true" />
-            <element signature="e#20919#20938#0" expanded="true" />
-            <element signature="e#20982#21001#0" expanded="true" />
-            <element signature="e#22032#22808#0" expanded="true" />
-            <element signature="e#22807#22808#0" expanded="true" />
-            <element signature="e#25328#25511#0" expanded="true" />
-            <element signature="e#25510#25511#0" expanded="true" />
-            <element signature="e#25633#25818#0" expanded="true" />
-            <element signature="e#25817#25818#0" expanded="true" />
+            <element signature="e#3555#3564#0" expanded="true" />
+            <element signature="e#3825#3826#0" expanded="true" />
+            <element signature="e#3862#3863#0" expanded="true" />
+            <element signature="e#7338#7502#0" expanded="true" />
+            <element signature="e#7501#7502#0" expanded="true" />
+            <element signature="e#7698#8254#0" expanded="true" />
+            <element signature="e#8253#8254#0" expanded="true" />
+            <element signature="e#8835#9269#0" expanded="true" />
+            <element signature="e#9268#9269#0" expanded="true" />
+            <element signature="e#9390#9846#0" expanded="true" />
+            <element signature="e#9845#9846#0" expanded="true" />
+            <element signature="e#10119#10484#0" expanded="true" />
+            <element signature="e#10483#10484#0" expanded="true" />
+            <element signature="e#11047#11063#0" expanded="true" />
+            <element signature="e#15414#15430#0" expanded="true" />
+            <element signature="method#onActivityResult#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="method#initateBoomMenu#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="e#18747#18748#0" expanded="false" />
+            <element signature="e#18831#18832#0" expanded="false" />
+            <element signature="e#18972#18999#0" expanded="true" />
+            <element signature="e#19043#19070#0" expanded="true" />
+            <element signature="e#19250#19487#0" expanded="true" />
+            <element signature="e#19383#19384#0" expanded="false" />
+            <element signature="e#19460#19461#0" expanded="false" />
+            <element signature="e#19486#19487#0" expanded="true" />
+            <element signature="e#19605#19626#0" expanded="true" />
+            <element signature="e#19670#19691#0" expanded="true" />
+            <element signature="e#19859#20094#0" expanded="true" />
+            <element signature="e#19992#19993#0" expanded="false" />
+            <element signature="e#20067#20068#0" expanded="false" />
+            <element signature="e#20093#20094#0" expanded="true" />
+            <element signature="e#20202#20221#0" expanded="true" />
+            <element signature="e#20265#20284#0" expanded="true" />
+            <element signature="method#onDestroy#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="method#WriteText#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="e#21422#22198#0" expanded="true" />
+            <element signature="e#22197#22198#0" expanded="true" />
+            <element signature="method#recordSound#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="method#uploadPrescription#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="e#24718#24901#0" expanded="true" />
+            <element signature="e#24900#24901#0" expanded="true" />
+            <element signature="e#25023#25208#0" expanded="true" />
+            <element signature="e#25207#25208#0" expanded="true" />
+            <element signature="method#activeGallery#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="method#activeTakePhoto#0;class#ProductListFragment#0" expanded="false" />
+            <element signature="e#26481#26497#0" expanded="true" />
+            <element signature="e#31093#31109#0" expanded="true" />
           </folding>
         </state>
       </provider>

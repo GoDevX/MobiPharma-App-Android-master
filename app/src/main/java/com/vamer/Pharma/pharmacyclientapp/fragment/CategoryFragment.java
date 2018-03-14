@@ -136,14 +136,7 @@ public class CategoryFragment extends Fragment  {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
 
-       /* scrollListener=new EndlessRecyclerOnScrollListener(linearLayoutManager) {
-            @Override
-            public void onLoadMore(int current_page) {
 
-                getProducts(SearchWord, String.valueOf(current_page));
-
-            }
-        };*/
         scrollablesearch = view.findViewById(R.id.scrollablesearch);
         txtSearch = view.findViewById(R.id.searchtxt);
 
@@ -180,7 +173,7 @@ public class CategoryFragment extends Fragment  {
                         bmb.setVisibility(View.GONE);
                         SearchWord = s.toString().trim();
                         current_page=1;
-                        getProducts(SearchWord, String.valueOf(current_page));
+                        SearchInProducts(SearchWord, String.valueOf(current_page));
                         current_page++;
                     }
                 } else {
@@ -218,7 +211,7 @@ public class CategoryFragment extends Fragment  {
                     @Override
                     public void onLoadMore() {
                         //http or db request here
-                        getProducts(SearchWord, String.valueOf(current_page));
+                        SearchInProducts(SearchWord, String.valueOf(current_page));
                     }
                 })
                 .build();
@@ -333,7 +326,7 @@ public class CategoryFragment extends Fragment  {
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-    private void getProducts(String search, String page) {
+    private void SearchInProducts(String search, String page) {
         if (!page.equals("1")) {
             loading_bar_more.setVisibility(View.VISIBLE);
         } else {
@@ -358,6 +351,8 @@ public class CategoryFragment extends Fragment  {
                         try {
                             String Status = response.getString("Status");
                             JSONArray mJsonArray = response.getJSONArray("Result");
+                            if(mJsonArray.length()==0)
+                                paginate.setNoMoreItems(true);
                             if (Status.equals(AppConstants.success)) {
                                 //productList.clear();
                                 for (int i = 0; i < mJsonArray.length(); i++) {
@@ -377,10 +372,10 @@ public class CategoryFragment extends Fragment  {
 
 
                                 }
-                                if (productList.size() == 0) {
+                              /*  if (productList.size() == 0) {
                                     getActivity().findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
                                 } else
-                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);
+                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);*/
 
                                 //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
                                 customSuggestionsAdapter.notifyDataSetChanged();
@@ -426,6 +421,11 @@ public class CategoryFragment extends Fragment  {
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        paginate.unbind();
+    }
 
     public void getCatgeories() {
        /* if (null != ((HomeActivity) getActivity()).getProgressBar())

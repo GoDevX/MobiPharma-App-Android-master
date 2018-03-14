@@ -160,6 +160,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
 
 
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
+        toolbar.setTitle("Shopping Cart");
         AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
         params.setScrollFlags(0);  // clear all scroll flags
         ((HomeActivity) getActivity()).setSupportActionBar(toolbar);

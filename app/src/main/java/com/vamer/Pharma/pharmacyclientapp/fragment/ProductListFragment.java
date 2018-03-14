@@ -11,6 +11,7 @@ package com.vamer.Pharma.pharmacyclientapp.fragment;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -20,12 +21,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -36,6 +41,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.cielyang.android.clearableedittext.ClearableEditText;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -82,9 +88,12 @@ public class ProductListFragment extends Fragment {
     private boolean isSearchList = false;
     private List<Product> productList = new ArrayList<Product>();
     View view;
+    private Toolbar mToolbar;
     ProductListAdapter adapter;
     AVLoadingIndicatorView progressBar;
     String SearchKeyword;
+    ClearableEditText txtSearch;
+    //AVLoadingIndicatorView loading_bar_more;
 
     public ProductListFragment() {
         isShoppingList = true;
@@ -118,10 +127,88 @@ public class ProductListFragment extends Fragment {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         initateBoomMenu(view);
         progressBar = view.findViewById(R.id.loading_bar);
+        txtSearch = view.findViewById(R.id.searchtxt);
+        txtSearch.setVisibility(View.VISIBLE);
 
+        txtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                productList.clear();
+                if (!s.toString().equals("")) {
+                    if (s.toString().length() > 1) {
+
+                        SearchKeyword = s.toString().trim();
+                        current_page = 1;
+                        isSearchList = true;
+                        productList.clear();
+                        SearchInProducts(SearchKeyword, String.valueOf(current_page));
+
+                        // current_page++;
+                    } else {
+                        isSearchList = false;
+                        current_page = 1;
+                        productList.clear();
+
+                        getItemsInEachCatgeory(String.valueOf(current_page));
+
+                    }
+                } else {
+
+                    hideSoftKebad();
+                    txtSearch.clearFocus();
+                    isSearchList = false;
+                    current_page = 1;
+                    productList.clear();
+
+                    getItemsInEachCatgeory(String.valueOf(current_page));
+
+                    // scrollablesearch.setVisibility(View.GONE);
+                    //scrollablesearch.removeOnScrollListener(scrollListener);
+                    //  bmb.setVisibility(View.VISIBLE);
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().equals("")) {
+                    txtSearch.clearFocus();
+                }
+
+            }
+        });
+
+
+        //  loading_bar_more = view.findViewById(R.id.loading_bar_more);
+
+        mToolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
+        if (mToolbar != null) {
+            ((HomeActivity) getActivity()).setSupportActionBar(mToolbar);
+        }
+
+        if (mToolbar != null) {
+            ((HomeActivity) getActivity()).getSupportActionBar()
+                    .setDisplayHomeAsUpEnabled(true);
+
+            // mToolbar.setNavigationIcon(R.drawable.ic_action_keyboard_backspace);
+
+        }
+
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getActivity().onBackPressed();
+            }
+        });
 
         if (isShoppingList) {
-
+            view.findViewById(R.id.anim_toolbar).setVisibility(View.GONE);
             view.findViewById(R.id.slide_down).setOnTouchListener(
                     new OnTouchListener() {
                         @Override
@@ -138,8 +225,7 @@ public class ProductListFragment extends Fragment {
         }
 
 
-        RecyclerView recyclerView = (RecyclerView) view
-                .findViewById(R.id.product_list_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.product_list_recycler_view);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
                 getActivity().getBaseContext());
@@ -167,118 +253,51 @@ public class ProductListFragment extends Fragment {
                 .setOnLoadMoreListener(new OnLoadMoreListener() {
                     @Override
                     public void onLoadMore() {
+
                         //http or db request here
-                        getItemsInEachCatgeory(String.valueOf(current_page));
+                        if (!isSearchList)
+                            getItemsInEachCatgeory(String.valueOf(current_page));
+                        else SearchInProducts(SearchKeyword, String.valueOf(current_page));
+
                         //  current_page++;
                     }
                 })
+                .setLoadingTriggerThreshold(0)
                 .build();
-
 
         if (!isSearchList) {
             getItemsInEachCatgeory(String.valueOf(current_page));
 
         } /*else// SearchInProducts();*/
 
-
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP
+                        && keyCode == KeyEvent.KEYCODE_BACK) {
+                    getActivity().onBackPressed();
+                }
+                return true;
+            }
+        });
         return view;
     }
 
-    private void SearchInProducts() {
-        //  progressBar.setVisibility(View.VISIBLE);
-        Map<String, String> postParam = new HashMap<String, String>();
-        postParam.put("Cat_ID", subcategoryKey);
-        postParam.put("Lang", "EN");
-        postParam.put("SearchString", SearchKeyword);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/SearchInProducts", new JSONObject(postParam),
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
+    void hideSoftKebad() {
+        InputMethodManager inputManager = (InputMethodManager)
+                getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 
-                        /// progressBar.setVisibility(View.GONE);
-                        try {
-                            String Status = response.getString("Status");
-                            JSONArray mJsonArray = response.getJSONArray("Result");
-                            if (Status.equals(AppConstants.success)) {
-
-                                productList.clear();
-                                for (int i = 0; i < mJsonArray.length(); i++) {
-                                    JSONObject jsonObject = mJsonArray.getJSONObject(i);
-                                    Product productModel = new Product();
-                                    productModel.setOrderItemType("1");
-                                    productModel.setProductId(jsonObject.getString("ProductID"));
-                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
-                                    productModel.setItemDetail(jsonObject.getString("ProductName_EN"));
-                                    productModel.setScientificName(jsonObject.getString("ScientificName"));
-                                    productModel.setQuantity("0");
-                                    productModel.setSellMRP(jsonObject.getString("Price"));
-                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
-                                    //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
-                                    productList.add(productModel);
-
-                                   /* productList
-                                            .add(new Product(
-                                                    "1",
-                                                    "Comtrex",
-                                                    "Comtrex",
-                                                    "Comtrex.",
-                                                    "36500",
-                                                    "20",
-                                                    "1200",
-                                                    "0",
-                                                    "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                                                    "2"));*/
-
-
-                                }
-                                //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
-                                adapter.notifyDataSetChanged();
-                                current_page++;
-                                //  LocationsRecylcerview.setAdapter(locationAdapter);
-
-                            } else {
-                                // Toast.makeText(GetNearPharmacies.this, "There is an error try again later ", Toast.LENGTH_SHORT).show();
-                            }
-                            //Todo
-                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
-
-                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressBar.setVisibility(View.GONE);
-
-                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }) {
-            /**
-             * Passing some request headers
-             */
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Authorization", "Basic YWhtZWQ6YWhtZWQ=");
-                return headers;
-            }
-        };
-        AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
-
+        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     private void getItemsInEachCatgeory(String page) {
-        if (page.trim().equals("1")) {
+
+        /*if (!page.equals("1")) {
             progressBar.setVisibility(View.VISIBLE);
-        }
-        // paginate.showError(false);
-        //  paginate.showLoading(true);
+        }*/
+
         Map<String, String> postParam = new HashMap<String, String>();
         postParam.put("Cat_ID", subcategoryKey);
         postParam.put("Lang", "EN");
@@ -292,12 +311,15 @@ public class ProductListFragment extends Fragment {
                     public void onResponse(JSONObject response) {
                         //paginate.showError(true);
                         paginate.showLoading(false);
-                        if (progressBar.getVisibility() == View.VISIBLE) {
+                       /* if (progressBar.getVisibility() == View.VISIBLE) {
                             progressBar.setVisibility(View.GONE);
-                        }
+                        }*/
+                      //  progressBar.setVisibility(View.GONE);
                         try {
                             String Status = response.getString("Status");
                             JSONArray mJsonArray = response.getJSONArray("Result");
+                            if (mJsonArray.length() == 0)
+                                paginate.setNoMoreItems(true);
                             if (Status.equals(AppConstants.success)) {
                                 // productList.clear();
                                 for (int i = 0; i < mJsonArray.length(); i++) {
@@ -340,10 +362,11 @@ public class ProductListFragment extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 // progressBar.setVisibility(View.GONE);
                 paginate.showLoading(false);
-                paginate.showError(true);
-                if (progressBar.getVisibility() == View.VISIBLE) {
+                paginate.setNoMoreItems(true);
+                //  paginate.showError(true);
+               /* if (progressBar.getVisibility() == View.VISIBLE) {
                     progressBar.setVisibility(View.GONE);
-                }
+                }*/
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         }) {
@@ -457,8 +480,14 @@ public class ProductListFragment extends Fragment {
         super.onResume();
         LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
         linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
-        view.findViewById(R.id.anim_toolbar).setVisibility(View.GONE);
+        //view.findViewById(R.id.anim_toolbar).setVisibility(View.GONE);
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        paginate.unbind();
     }
 
     public void WriteText() {
@@ -592,4 +621,101 @@ public class ProductListFragment extends Fragment {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
+
+    private void SearchInProducts(String search, String page) {
+       /* if (!page.equals("1")) {
+            progressBar.setVisibility(View.VISIBLE);
+        }*/
+        Map<String, String> postParam = new HashMap<String, String>();
+        postParam.put("Lang", "EN");
+        postParam.put("SearchString", search);
+        postParam.put("PageNumber", page);
+        postParam.put("RowspPage", "5");
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/SearchInProducts", new JSONObject(postParam),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                       /* if (null != ((HomeActivity) getActivity()).getProgressBar())
+                            ((HomeActivity) getActivity()).getProgressBar().setVisibility(
+                                    View.GONE);*/
+
+                       /* if (progressBar.getVisibility() == View.VISIBLE)
+                            progressBar.setVisibility(View.GONE);*/
+                        //paginate.showError(false);
+                        // paginate.showLoading(false);
+                        try {
+                            String Status = response.getString("Status");
+                            JSONArray mJsonArray = response.getJSONArray("Result");
+                            if (mJsonArray.length() == 0)
+                                paginate.setNoMoreItems(true);
+                            if (Status.equals(AppConstants.success)) {
+                                //productList.clear();
+                                for (int i = 0; i < mJsonArray.length(); i++) {
+                                    JSONObject jsonObject = mJsonArray.getJSONObject(i);
+                                    Product productModel = new Product();
+                                    productModel.setOrderItemType("1");
+                                    productModel.setProductId(jsonObject.getString("ProductID"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    productModel.setItemDetail(jsonObject.getString("ProductName_EN"));
+                                    productModel.setScientificName(jsonObject.getString("ScientificName"));
+                                    productModel.setQuantity("0");
+                                    productModel.setSellMRP(jsonObject.getString("Price"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
+                                    productList.add(productModel);
+
+
+                                }
+                                current_page++;
+                               /* if (productList.size() == 0) {
+                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
+                                } else
+                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);*/
+
+                                //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
+                                adapter.notifyDataSetChanged();
+                                //  LocationsRecylcerview.setAdapter(locationAdapter);
+
+                            } else {
+                                // Toast.makeText(GetNearPharmacies.this, "There is an error try again later ", Toast.LENGTH_SHORT).show();
+                            }
+                            //Todo
+                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
+
+                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                //paginate.showLoading(false);
+
+                paginate.showError(true);
+                paginate.setNoMoreItems(true);
+                /*if (progressBar.getVisibility() == View.VISIBLE)
+                    progressBar.setVisibility(View.GONE);*/
+            }
+        }) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Basic YWhtZWQ6YWhtZWQ=");
+                return headers;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
+
+
+    }
+
 }

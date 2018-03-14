@@ -23,10 +23,12 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/anim_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+            app:title="@string/Products"
+            app:titleTextColor="@android:color/white" />
         <com.cielyang.android.clearableedittext.ClearableEditText
             android:background="@color/white"
             android:padding="15dp"
@@ -34,6 +36,7 @@
             android:textColor="@color/black"
             android:inputType="text"
             android:maxLines="1"
+            android:visibility="gone"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:imeOptions="actionDone"
@@ -58,7 +61,14 @@
             android:clipToPadding="false"
             android:paddingTop="35dp"
             android:layout_below="@+id/slide_down" />
-
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loading_bar_more"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:indicator="LineScaleParty"
+            app:indicator_color="#F53700" />
         <RelativeLayout
             android:id="@+id/slide_down"
             android:layout_width="match_parent"
