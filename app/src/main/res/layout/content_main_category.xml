@@ -49,13 +49,23 @@
                 android:hint="Search for your product" />
 
         </android.support.design.widget.TextInputLayout>
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/scrollableview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loading_bar_more"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+           android:layout_gravity="bottom|center"
+            app:indicator="LineScaleParty"
+            app:indicator_color="#F53700" />
+</FrameLayout>
     </LinearLayout>
 
 </LinearLayout>

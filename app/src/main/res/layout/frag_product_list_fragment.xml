@@ -27,6 +27,17 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        <com.cielyang.android.clearableedittext.ClearableEditText
+            android:background="@color/white"
+            android:padding="15dp"
+            android:id="@+id/searchtxt"
+            android:textColor="@color/black"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:imeOptions="actionDone"
+            android:layout_height="wrap_content" />
         <!--
                 </android.support.design.widget.CollapsingToolbarLayout>
         -->

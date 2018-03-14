@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ru.alexbykov:nopaginate-0.4.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/nopaginate-0.4.4.aar/2cf64230e08a327eb75362f94b432b59/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/nopaginate-0.4.4.aar/2cf64230e08a327eb75362f94b432b59/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ru.alexbykov/nopaginate/0.4.4/c3447385f41d436d51ee4bd0c05f707117e5672/nopaginate-0.4.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

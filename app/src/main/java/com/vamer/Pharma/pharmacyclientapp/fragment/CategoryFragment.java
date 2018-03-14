@@ -16,9 +16,11 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
@@ -56,6 +58,7 @@ import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
 import com.vamer.Pharma.pharmacyclientapp.model.ProductCategoryModel;
 import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
+import com.vamer.Pharma.pharmacyclientapp.util.EndlessRecyclerOnScrollListener;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils.AnimationType;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
@@ -79,8 +82,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CategoryFragment extends Fragment {
+import ru.alexbykov.nopaginate.callback.OnLoadMoreListener;
+import ru.alexbykov.nopaginate.paginate.Paginate;
+import ru.alexbykov.nopaginate.paginate.PaginateBuilder;
+
+public class CategoryFragment extends Fragment  {
     int mutedColor = R.attr.colorPrimary;
+    LinearLayoutManager linearLayoutManager;
+    EndlessRecyclerOnScrollListener scrollListener;
     private CollapsingToolbarLayout collapsingToolbar;
     private RecyclerView scrollablesearch;
     private RecyclerView recyclerView;
@@ -92,10 +101,12 @@ public class CategoryFragment extends Fragment {
     private Uri mCapturedImageURI;
     FrameLayout rootlayout;
     TextWatcher m;
+    String SearchWord;
     private ArrayList<ProductCategoryModel> dataObjects = new ArrayList<>();
     CategoryListAdapter simpleRecyclerAdapter;
-
+    public static int current_page = 1;
     int _xDelta;
+     Paginate paginate;
     int _yDelta;
     /**
      * The double back to exit pressed once.
@@ -108,6 +119,7 @@ public class CategoryFragment extends Fragment {
         }
     };
     private Handler mHandler = new Handler();
+    AVLoadingIndicatorView loading_bar_more;
     AVLoadingIndicatorView progressBar;
     List<Product> productList = new ArrayList<>();
     //ProductSearchAdapter customSuggestionsAdapter;
@@ -115,6 +127,7 @@ public class CategoryFragment extends Fragment {
     //  EditText txtSearch;
     ClearableEditText txtSearch;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -122,12 +135,21 @@ public class CategoryFragment extends Fragment {
         DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
+
+       /* scrollListener=new EndlessRecyclerOnScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
+
+                getProducts(SearchWord, String.valueOf(current_page));
+
+            }
+        };*/
         scrollablesearch = view.findViewById(R.id.scrollablesearch);
         txtSearch = view.findViewById(R.id.searchtxt);
 
         scrollablesearch.setHasFixedSize(true);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
+         linearLayoutManager = new LinearLayoutManager(
                 getActivity());
         scrollablesearch.setLayoutManager(linearLayoutManager);
 
@@ -136,7 +158,11 @@ public class CategoryFragment extends Fragment {
         // LayoutInflater minflater = (LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE);
 
         customSuggestionsAdapter = new ProductListAdapter(getActivity(), false, productList);
+        //scrollablesearch.addOnScrollListener(scrollListener);
+
         scrollablesearch.setAdapter(customSuggestionsAdapter);
+
+
         txtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -146,17 +172,22 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 productList.clear();
-                if (!s.toString().equals("")){
-                if (s.toString().length() > 1) {
-                    scrollablesearch.setVisibility(View.VISIBLE);
-                    bmb.setVisibility(View.GONE);
-                    getProducts(s.toString().trim());
+                if (!s.toString().equals("")) {
+                    if (s.toString().length() > 1) {
+                        scrollablesearch.setVisibility(View.VISIBLE);
+                      //  scrollablesearch.addOnScrollListener(scrollListener);
 
-
-                }  } else {
+                        bmb.setVisibility(View.GONE);
+                        SearchWord = s.toString().trim();
+                        current_page=1;
+                        getProducts(SearchWord, String.valueOf(current_page));
+                        current_page++;
+                    }
+                } else {
                     hideSoftKebad();
                     txtSearch.clearFocus();
                     scrollablesearch.setVisibility(View.GONE);
+                    //scrollablesearch.removeOnScrollListener(scrollListener);
                     bmb.setVisibility(View.VISIBLE);
 
                 }
@@ -179,14 +210,28 @@ public class CategoryFragment extends Fragment {
 
             }
         });
+
+
+         paginate = new PaginateBuilder()
+                .with(scrollablesearch)
+                .setOnLoadMoreListener(new OnLoadMoreListener() {
+                    @Override
+                    public void onLoadMore() {
+                        //http or db request here
+                        getProducts(SearchWord, String.valueOf(current_page));
+                    }
+                })
+                .build();
+       // paginate.showError(true);
+       // paginate.showLoading(true);
+
         int paddingDp = 25;
         float density = getActivity().getResources().getDisplayMetrics().density;
         int paddingPixel = (int) (paddingDp * density);
         progressBar = view.findViewById(R.id.loading_bar);
-
+        loading_bar_more = view.findViewById(R.id.loading_bar_more);
         // searchViewLayout.setPadding(10,10,10,10);
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
-
         ((HomeActivity) getActivity()).setSupportActionBar(toolbar);
         ((HomeActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
@@ -246,7 +291,12 @@ public class CategoryFragment extends Fragment {
         simpleRecyclerAdapter.SetOnItemClickListener(new CategoryListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Utils.switchFragmentWithAnimation(R.id.frag_container, new ProductOverviewFragment(dataObjects.get(position).getCategoryID()), getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG, AnimationType.SLIDE_UP);
+
+                //Utils.switchFragmentWithAnimation(R.id.frag_container, new ProductOverviewFragment(dataObjects.get(position).getCategoryID()), getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG, AnimationType.SLIDE_UP);
+                Utils.switchFragmentWithAnimation(R.id.frag_container, new ProductListFragment(dataObjects.get(position).getCategoryID()), getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG, AnimationType.SLIDE_UP);
+
+
+
             }
         });
         view.setFocusableInTouchMode(true);
@@ -283,11 +333,17 @@ public class CategoryFragment extends Fragment {
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-    private void getProducts(String search) {
-        progressBar.setVisibility(View.VISIBLE);
+    private void getProducts(String search, String page) {
+        if (!page.equals("1")) {
+            loading_bar_more.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.VISIBLE);
+        }
         Map<String, String> postParam = new HashMap<String, String>();
         postParam.put("Lang", "EN");
         postParam.put("SearchString", search);
+        postParam.put("PageNumber", page);
+        postParam.put("RowspPage", "5");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/SearchInProducts", new JSONObject(postParam),
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -295,14 +351,15 @@ public class CategoryFragment extends Fragment {
                        /* if (null != ((HomeActivity) getActivity()).getProgressBar())
                             ((HomeActivity) getActivity()).getProgressBar().setVisibility(
                                     View.GONE);*/
-                        progressBar.setVisibility(View.GONE);
-
+                        if (progressBar.getVisibility() == View.VISIBLE)
+                            progressBar.setVisibility(View.GONE);
+                         //paginate.showError(false);
+                         paginate.showLoading(false);
                         try {
                             String Status = response.getString("Status");
                             JSONArray mJsonArray = response.getJSONArray("Result");
                             if (Status.equals(AppConstants.success)) {
-
-                                productList.clear();
+                                //productList.clear();
                                 for (int i = 0; i < mJsonArray.length(); i++) {
                                     JSONObject jsonObject = mJsonArray.getJSONObject(i);
                                     Product productModel = new Product();
@@ -317,24 +374,13 @@ public class CategoryFragment extends Fragment {
                                     //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
                                     productList.add(productModel);
 
-                                   /* productList
-                                            .add(new Product(
-                                                    "1",
-                                                    "Comtrex",
-                                                    "Comtrex",
-                                                    "Comtrex.",
-                                                    "36500",
-                                                    "20",
-                                                    "1200",
-                                                    "0",
-                                                    "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                                                    "2"));*/
 
 
                                 }
                                 if (productList.size() == 0) {
                                     getActivity().findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
-                                } else getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);
+                                } else
+                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);
 
                                 //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
                                 customSuggestionsAdapter.notifyDataSetChanged();
@@ -357,14 +403,11 @@ public class CategoryFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-             /*   if (null != ((HomeActivity) getActivity()).getProgressBar())
-                    ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                            View.GONE);*/
-                progressBar.setVisibility(View.GONE);
-               /* if (productList.size() == 0) {
-                    getActivity().findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
-                } else getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);
-                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();*/
+
+                paginate.showLoading(false);
+                paginate.showError(true);
+                if (progressBar.getVisibility() == View.VISIBLE)
+                    progressBar.setVisibility(View.GONE);
             }
         }) {
             /**
@@ -381,124 +424,6 @@ public class CategoryFragment extends Fragment {
         AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
 
 
-
-       /* suggestions
-                .add(new Product(
-                        "1",
-                        "Panadol",
-                        "Panadol",
-                        "Panadol Description",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
-                        "2"));
-
-
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Panadol",
-                        "Panadol",
-                        "Panadol Description",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
-                        "2"));
-
-
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Panadol",
-                        "Panadol",
-                        "Panadol Description",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
-                        "2"));
-
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Panadol",
-                        "Panadol",
-                        "Panadol Description",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.panadol.com.au/content/dam/cf-consumer-healthcare/panadol/en_au/adult/rapid/rapid_20_caplets/desktop/Rapid%20Caplets.png",
-                        "2"));
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Comtrex",
-                        "Comtrex",
-                        "Comtrex.",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                        "2"));
-
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Comtrex",
-                        "Comtrex",
-                        "Comtrex.",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                        "2"));
-
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Comtrex",
-                        "Comtrex",
-                        "Comtrex.",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                        "2"));
-
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Comtrex",
-                        "Comtrex",
-                        "Comtrex.",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                        "2"));
-
-        suggestions
-                .add(new Product(
-                        "1",
-                        "Comtrex",
-                        "Comtrex",
-                        "Comtrex.",
-                        "36500",
-                        "20",
-                        "1200",
-                        "0",
-                        "https://www.al-agzakhana.com/wp-content/uploads/2015/02/Comtrex-Tablets.jpg",
-                        "2"));*/
     }
 
 
@@ -627,7 +552,6 @@ public class CategoryFragment extends Fragment {
                 }
         }
     }
-
 
     private void initateBoomMenu(View view) {
         bmb = (BoomMenuButton) view.findViewById(R.id.bmb);

@@ -38,6 +38,7 @@ dependencies {
     //Material design
     compile 'com.github.GrenderG:Toasty:1.2.8'
     compile 'com.github.Cielsk:clearable-edittext:0.0.3'
+    implementation 'ru.alexbykov:nopaginate:0.4.4'
 
     compile 'com.github.ceryle:RadioRealButton:v2.1.1'
     compile 'com.github.aakira:expandable-layout:1.6.0@aar'

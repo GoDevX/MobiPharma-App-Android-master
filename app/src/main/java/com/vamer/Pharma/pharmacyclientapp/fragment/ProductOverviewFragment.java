@@ -85,11 +85,9 @@ public class ProductOverviewFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.frag_category_details,
-                container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        view = inflater.inflate(R.layout.frag_category_details, container, false);
         DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         list_fragment_container = (FrameLayout) view.findViewById(R.id.list_fragment_container);
@@ -100,9 +98,7 @@ public class ProductOverviewFragment extends Fragment {
         // getActivity().setTitle("Products");
 
         // Simulate Web service calls
-        FakeWebServer.getFakeWebServer().getAllProducts(
-                AppConstants.CURRENT_CATEGORY);
-
+        FakeWebServer.getFakeWebServer().getAllProducts(AppConstants.CURRENT_CATEGORY);
 
         // TODO We Can use Async task But pallete creation is problemitic job
         // will
@@ -147,12 +143,12 @@ public class ProductOverviewFragment extends Fragment {
 
 
         setUpUi();
-        final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
+        /*final SearchViewLayout searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
         searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs",true,""));
         searchViewLayout.handleToolbarAnimation(mToolbar);
         searchViewLayout.setCollapsedHint("Search For Item");
         searchViewLayout.setExpandedHint("Search For Item");
-        view.setFocusableInTouchMode(true);
+        view.setFocusableInTouchMode(true);*/
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
