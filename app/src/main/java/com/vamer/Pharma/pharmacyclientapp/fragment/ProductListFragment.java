@@ -635,14 +635,7 @@ public class ProductListFragment extends Fragment {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                       /* if (null != ((HomeActivity) getActivity()).getProgressBar())
-                            ((HomeActivity) getActivity()).getProgressBar().setVisibility(
-                                    View.GONE);*/
 
-                       /* if (progressBar.getVisibility() == View.VISIBLE)
-                            progressBar.setVisibility(View.GONE);*/
-                        //paginate.showError(false);
-                        // paginate.showLoading(false);
                         try {
                             String Status = response.getString("Status");
                             JSONArray mJsonArray = response.getJSONArray("Result");
@@ -695,9 +688,9 @@ public class ProductListFragment extends Fragment {
             public void onErrorResponse(VolleyError error) {
 
                 //paginate.showLoading(false);
-
+                paginate.showLoading(false);
                 paginate.showError(true);
-                paginate.setNoMoreItems(true);
+
                 /*if (progressBar.getVisibility() == View.VISIBLE)
                     progressBar.setVisibility(View.GONE);*/
             }

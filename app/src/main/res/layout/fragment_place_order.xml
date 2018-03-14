@@ -1,160 +1,45 @@
 <?xml version="1.0"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/holo_gray_light"
+    tools:context="com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:layout_marginBottom="30dp">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/anim_toolbar"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:layout_collapseMode="pin"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
         <com.cielyang.android.clearableedittext.ClearableEditText
-            android:background="@color/white"
-            android:padding="15dp"
             android:id="@+id/searchtxt"
-            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:imeOptions="actionDone"
             android:inputType="text"
             android:maxLines="1"
-            android:layout_margin="10dp"
-
-            android:layout_width="match_parent"
-            android:imeOptions="actionDone"
-            android:layout_height="wrap_content" />
+            android:padding="15dp"
+            android:textColor="@color/black" />
 
     </android.support.design.widget.AppBarLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/scrollablesearch"
-        android:layout_width="match_parent"
-        android:layout_below="@id/appbar"
-        android:visibility="gone"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_below="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/appbar"
-        android:orientation="vertical"
-        tools:ignore="NotSibling">
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:padding="10dp"
-            android:visibility="gone">
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/txtSearchEveryWhere"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_action_search"
-                android:editable="false"
-                android:focusableInTouchMode="false"
-                android:hint="Search for your product" />
+    <include layout="@layout/content_main_place_order" />
 
-        </android.support.design.widget.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/inputSearch"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableLeft="@android:drawable/ic_menu_search"
-                android:hint="Search product.."
-                android:inputType="textVisiblePassword"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/btnRoshetta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtChoose"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="10dp"
-                android:width="200dp"
-                android:background="@color/colorPrimary"
-                android:onClick="uploadPrescription"
-                android:text="Upload Prescription"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/btnRecordVoice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtChoose"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:width="200dp"
-                android:background="@color/colorPrimary"
-                android:onClick="recordSound"
-                android:text="Record Your Voice"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/btnWriteText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtChoose"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:width="200dp"
-                android:background="@color/colorPrimary"
-                android:onClick="btnChoosePathClicked"
-                android:text="Write Text"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/btnCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtChoose"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:width="200dp"
-                android:background="@color/colorPrimary"
-                android:text="Shopping"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:gravity="bottom">
-
-        <include
-            android:id="@+id/bottombar"
-            layout="@layout/bottombar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    </RelativeLayout>
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
 
 

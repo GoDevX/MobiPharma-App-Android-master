@@ -1,0 +1,122 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/fragment_place_order"
+    android:id="@+id/main_layout"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loading_bar_more"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:indicator="LineScaleParty"
+            app:indicator_color="#F53700" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/scrollablesearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+     <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/inputSearch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@android:drawable/ic_menu_search"
+                android:hint="Search product.."
+                android:inputType="textVisiblePassword"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnRoshetta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtChoose"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:width="200dp"
+                android:background="@color/colorPrimary"
+                android:onClick="uploadPrescription"
+                android:text="Upload Prescription"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnRecordVoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtChoose"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:width="200dp"
+                android:background="@color/colorPrimary"
+                android:onClick="recordSound"
+                android:text="Record Your Voice"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnWriteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtChoose"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:width="200dp"
+                android:background="@color/colorPrimary"
+                android:onClick="btnChoosePathClicked"
+                android:text="Write Text"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtChoose"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:width="200dp"
+                android:background="@color/colorPrimary"
+                android:text="Shopping"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:gravity="bottom">
+
+            <include
+                android:id="@+id/bottombar"
+                layout="@layout/bottombar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

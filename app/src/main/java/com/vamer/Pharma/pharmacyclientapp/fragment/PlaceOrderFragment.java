@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -23,6 +24,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -36,32 +38,52 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.cielyang.android.clearableedittext.ClearableEditText;
+import com.vamer.Pharma.pharmacyclientapp.AppController;
 import com.vamer.Pharma.pharmacyclientapp.R;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
+import com.vamer.Pharma.pharmacyclientapp.adapter.CategoryListAdapter;
+import com.vamer.Pharma.pharmacyclientapp.adapter.ProductListAdapter;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
+import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.wang.avi.AVLoadingIndicatorView;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 import com.yalantis.contextmenu.lib.MenuObject;
 import com.yalantis.contextmenu.lib.MenuParams;
 import com.yalantis.contextmenu.lib.interfaces.OnMenuItemClickListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import ru.alexbykov.nopaginate.callback.OnLoadMoreListener;
+import ru.alexbykov.nopaginate.paginate.Paginate;
+import ru.alexbykov.nopaginate.paginate.PaginateBuilder;
 import xyz.sahildave.widget.SearchViewLayout;
 
 /**
@@ -86,16 +108,25 @@ public class PlaceOrderFragment extends Fragment {
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
-   // SearchViewLayout searchViewLayout;
+    // SearchViewLayout searchViewLayout;
     private BroadcastReceiver mRegistrationBroadcastReceiver;
 
     /**
      * Create a new instance of the fragment
      */
+
+    ProductListAdapter customSuggestionsAdapter;
+    List<Product> productList = new ArrayList<>();
+
     ClearableEditText txtSearch;
     int mutedColor = R.attr.colorPrimary;
     private CollapsingToolbarLayout collapsingToolbar;
-    private RecyclerView recyclerView;
+    private RecyclerView scrollablesearch;
+    String SearchWord;
+    public int current_page = 1;
+    AVLoadingIndicatorView loading_bar_more;
+    Paginate paginate;
+
     /**
      * The double back to exit pressed once.
      */
@@ -123,9 +154,44 @@ public class PlaceOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //	initMenuFragment();
         fragmentManager = getActivity().getSupportFragmentManager();
-        View view = inflater.inflate(R.layout.fragment_place_order, container, false);
-
+        final View view = inflater.inflate(R.layout.fragment_place_order, container, false);
+        loading_bar_more = view.findViewById(R.id.loading_bar_more);
         txtSearch = view.findViewById(R.id.searchtxt);
+        scrollablesearch = view.findViewById(R.id.scrollablesearch);
+
+
+        scrollablesearch.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
+                getActivity());
+        scrollablesearch.setLayoutManager(linearLayoutManager);
+
+        customSuggestionsAdapter = new ProductListAdapter(getActivity(), false, productList);
+
+
+        customSuggestionsAdapter.SetOnItemClickListener(new ProductListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                Utils.switchFragmentWithAnimation(R.id.frag_container,
+                        new ProductDetailsFragment(productList.get(position), "", position, false),
+                        ((HomeActivity) (getContext())), null,
+                        Utils.AnimationType.SLIDE_LEFT);
+
+            }
+        });
+
+
+        scrollablesearch.setAdapter(customSuggestionsAdapter);
+        paginate = new PaginateBuilder()
+                .with(scrollablesearch)
+                .setOnLoadMoreListener(new OnLoadMoreListener() {
+                    @Override
+                    public void onLoadMore() {
+                        //http or db request here
+                        SearchInProducts(SearchWord, String.valueOf(current_page));
+                    }
+                })
+                .build();
         txtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -134,21 +200,24 @@ public class PlaceOrderFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-               /* productList.clear();
-                if (!s.toString().equals("")){
+                productList.clear();
+                if (!s.toString().equals("")) {
                     if (s.toString().length() > 1) {
+                        SearchWord = s.toString().trim();
                         scrollablesearch.setVisibility(View.VISIBLE);
-                        bmb.setVisibility(View.GONE);
-                        getProducts(s.toString().trim());
-
-
-                    }  } else {
+                        current_page = 1;
+                        SearchInProducts(SearchWord, String.valueOf(current_page));
+                        current_page++;
+                    }
+                } else {
                     hideSoftKebad();
                     txtSearch.clearFocus();
-                    scrollablesearch.setVisibility(View.GONE);
-                    bmb.setVisibility(View.VISIBLE);
 
-                }*/
+                    scrollablesearch.setVisibility(View.GONE);
+                    //scrollablesearch.removeOnScrollListener(scrollListener);
+                    //bmb.setVisibility(View.VISIBLE);
+
+                }
             }
 
             @Override
@@ -159,11 +228,18 @@ public class PlaceOrderFragment extends Fragment {
 
 
         //  searchViewLayout = (SearchViewLayout) view.findViewById(R.id.search_view_container);
-       // searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true,""));
+        // searchViewLayout.setExpandedContentSupportFragment(getActivity(), new ProductListFragment("Chairs", true,""));
         initPlaceOrder(view);
         return view;
     }
 
+    void hideSoftKebad() {
+        InputMethodManager inputManager = (InputMethodManager)
+                getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+    }
 
     private void initPlaceOrder(View view) {
         Button btnRoshetta = view.findViewById(R.id.btnRoshetta);
@@ -203,10 +279,10 @@ public class PlaceOrderFragment extends Fragment {
                         Utils.AnimationType.SLIDE_UP);
             }
         });
-        txtSearchEveryWhere = view.findViewById(R.id.txtSearchEveryWhere);
+       // txtSearchEveryWhere = view.findViewById(R.id.txtSearchEveryWhere);
 
 
-        txtSearchEveryWhere.setOnClickListener(new View.OnClickListener() {
+        /*txtSearchEveryWhere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
@@ -215,7 +291,7 @@ public class PlaceOrderFragment extends Fragment {
                         Utils.AnimationType.SLIDE_UP);
 
             }
-        });
+        });*/
 
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
         ((HomeActivity) getActivity()).setSupportActionBar(toolbar);
@@ -298,12 +374,12 @@ public class PlaceOrderFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    public void refresh() {
+    /*public void refresh() {
         if (getArguments().getInt("index", 0) > 0 && recyclerView != null) {
             recyclerView.smoothScrollToPosition(0);
         }
     }
-
+*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -333,7 +409,7 @@ public class PlaceOrderFragment extends Fragment {
                     //	getPosts();
                 } else if (position == 2) {
                 /*	final Intent intent = new Intent(getActivity(), CountryCodeForNumberActivity.class);
-					startActivityForResult(intent, 1);*/
+                    startActivityForResult(intent, 1);*/
                     recordSound();
                 } else if (position == 3) {
                     //getFollowingPosts();
@@ -503,7 +579,7 @@ public class PlaceOrderFragment extends Fragment {
     public void WriteText() {
         final DialogPlus dialog = DialogPlus.newDialog(getActivity())
                 .setContentHolder(new ViewHolder(R.layout.write_text_dialog))
-			/*.setExpanded(true) */ // This will enable the expand feature, (similar to android L share dialog)
+            /*.setExpanded(true) */ // This will enable the expand feature, (similar to android L share dialog)
                 .create();
         dialog.show();
         final EditText textToPrescription = (EditText) dialog.findViewById(R.id.textToPrescription);
@@ -553,7 +629,7 @@ public class PlaceOrderFragment extends Fragment {
         Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_keyboard_voice);
         like.setBitmap(b);
 /*MenuObject like = new MenuObject("OrderWithYourVoice");
-		Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_keyboard_voice);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_keyboard_voice);
 		like.setBitmap(b);
 		MenuObject addFr = new MenuObject("Following");
 		BitmapDrawable bd = new BitmapDrawable(getResources(),
@@ -578,6 +654,101 @@ public class PlaceOrderFragment extends Fragment {
             Animation fadeOut = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
             fragmentContainer.startAnimation(fadeOut);
         }
+    }
+
+    private void SearchInProducts(String search, String page) {
+      /*  if (!page.equals("1")) {
+            loading_bar_more.setVisibility(View.VISIBLE);
+        }*/
+        Map<String, String> postParam = new HashMap<String, String>();
+        postParam.put("Lang", "EN");
+        postParam.put("SearchString", search);
+        postParam.put("PageNumber", page);
+        postParam.put("RowspPage", "5");
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "Products/SearchInProducts", new JSONObject(postParam),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                       /* if (null != ((HomeActivity) getActivity()).getProgressBar())
+                            ((HomeActivity) getActivity()).getProgressBar().setVisibility(
+                                    View.GONE);*/
+                      /*  if (loading_bar_more.getVisibility() == View.VISIBLE)
+                            loading_bar_more.setVisibility(View.GONE);*/
+                        //paginate.showError(false);
+                        paginate.showLoading(false);
+                        try {
+                            String Status = response.getString("Status");
+                            JSONArray mJsonArray = response.getJSONArray("Result");
+                            if (mJsonArray.length() == 0)
+                                paginate.setNoMoreItems(true);
+                            if (Status.equals(AppConstants.success)) {
+                                //productList.clear();
+                                for (int i = 0; i < mJsonArray.length(); i++) {
+                                    JSONObject jsonObject = mJsonArray.getJSONObject(i);
+                                    Product productModel = new Product();
+                                    productModel.setOrderItemType("1");
+                                    productModel.setProductId(jsonObject.getString("ProductID"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    productModel.setItemDetail(jsonObject.getString("ProductName_EN"));
+                                    productModel.setScientificName(jsonObject.getString("ScientificName"));
+                                    productModel.setQuantity("0");
+                                    productModel.setSellMRP(jsonObject.getString("Price"));
+                                    productModel.setItemName(jsonObject.getString("ProductName_EN"));
+                                    //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
+                                    productList.add(productModel);
+
+
+                                }
+                              /*  if (productList.size() == 0) {
+                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
+                                } else
+                                    getActivity().findViewById(R.id.empty_view).setVisibility(View.GONE);*/
+
+                                //  pharmacyAdapter.addMoreDataAndSkeletonFinish(dataObjects);
+                                customSuggestionsAdapter.notifyDataSetChanged();
+                                current_page++;
+                                //  LocationsRecylcerview.setAdapter(locationAdapter);
+
+                            } else {
+                                // Toast.makeText(GetNearPharmacies.this, "There is an error try again later ", Toast.LENGTH_SHORT).show();
+                            }
+                            //Todo
+                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
+
+                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                paginate.showLoading(false);
+                paginate.showError(true);
+               // paginate.setNoMoreItems(true);
+
+                if (loading_bar_more.getVisibility() == View.VISIBLE)
+                    loading_bar_more.setVisibility(View.GONE);
+            }
+        }) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Basic YWhtZWQ6YWhtZWQ=");
+                return headers;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
+
+
     }
 
 

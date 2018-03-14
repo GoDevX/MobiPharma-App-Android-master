@@ -86,7 +86,7 @@ import ru.alexbykov.nopaginate.callback.OnLoadMoreListener;
 import ru.alexbykov.nopaginate.paginate.Paginate;
 import ru.alexbykov.nopaginate.paginate.PaginateBuilder;
 
-public class CategoryFragment extends Fragment  {
+public class CategoryFragment extends Fragment {
     int mutedColor = R.attr.colorPrimary;
     LinearLayoutManager linearLayoutManager;
     EndlessRecyclerOnScrollListener scrollListener;
@@ -106,7 +106,7 @@ public class CategoryFragment extends Fragment  {
     CategoryListAdapter simpleRecyclerAdapter;
     public static int current_page = 1;
     int _xDelta;
-     Paginate paginate;
+    Paginate paginate;
     int _yDelta;
     /**
      * The double back to exit pressed once.
@@ -136,13 +136,12 @@ public class CategoryFragment extends Fragment  {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
 
-
         scrollablesearch = view.findViewById(R.id.scrollablesearch);
         txtSearch = view.findViewById(R.id.searchtxt);
 
         scrollablesearch.setHasFixedSize(true);
 
-         linearLayoutManager = new LinearLayoutManager(
+        linearLayoutManager = new LinearLayoutManager(
                 getActivity());
         scrollablesearch.setLayoutManager(linearLayoutManager);
 
@@ -168,11 +167,11 @@ public class CategoryFragment extends Fragment  {
                 if (!s.toString().equals("")) {
                     if (s.toString().length() > 1) {
                         scrollablesearch.setVisibility(View.VISIBLE);
-                      //  scrollablesearch.addOnScrollListener(scrollListener);
+                        //  scrollablesearch.addOnScrollListener(scrollListener);
 
                         bmb.setVisibility(View.GONE);
                         SearchWord = s.toString().trim();
-                        current_page=1;
+                        current_page = 1;
                         SearchInProducts(SearchWord, String.valueOf(current_page));
                         current_page++;
                     }
@@ -205,7 +204,7 @@ public class CategoryFragment extends Fragment  {
         });
 
 
-         paginate = new PaginateBuilder()
+        paginate = new PaginateBuilder()
                 .with(scrollablesearch)
                 .setOnLoadMoreListener(new OnLoadMoreListener() {
                     @Override
@@ -215,8 +214,8 @@ public class CategoryFragment extends Fragment  {
                     }
                 })
                 .build();
-       // paginate.showError(true);
-       // paginate.showLoading(true);
+        // paginate.showError(true);
+        // paginate.showLoading(true);
 
         int paddingDp = 25;
         float density = getActivity().getResources().getDisplayMetrics().density;
@@ -289,7 +288,6 @@ public class CategoryFragment extends Fragment  {
                 Utils.switchFragmentWithAnimation(R.id.frag_container, new ProductListFragment(dataObjects.get(position).getCategoryID()), getActivity(), Utils.PRODUCT_OVERVIEW_FRAGMENT_TAG, AnimationType.SLIDE_UP);
 
 
-
             }
         });
         view.setFocusableInTouchMode(true);
@@ -346,12 +344,12 @@ public class CategoryFragment extends Fragment  {
                                     View.GONE);*/
                         if (progressBar.getVisibility() == View.VISIBLE)
                             progressBar.setVisibility(View.GONE);
-                         //paginate.showError(false);
-                         paginate.showLoading(false);
+                        //paginate.showError(false);
+                        paginate.showLoading(false);
                         try {
                             String Status = response.getString("Status");
                             JSONArray mJsonArray = response.getJSONArray("Result");
-                            if(mJsonArray.length()==0)
+                            if (mJsonArray.length() == 0)
                                 paginate.setNoMoreItems(true);
                             if (Status.equals(AppConstants.success)) {
                                 //productList.clear();
@@ -368,7 +366,6 @@ public class CategoryFragment extends Fragment  {
                                     productModel.setItemName(jsonObject.getString("ProductName_EN"));
                                     //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
                                     productList.add(productModel);
-
 
 
                                 }
@@ -401,6 +398,8 @@ public class CategoryFragment extends Fragment  {
 
                 paginate.showLoading(false);
                 paginate.showError(true);
+               // paginate.setNoMoreItems(true);
+
                 if (progressBar.getVisibility() == View.VISIBLE)
                     progressBar.setVisibility(View.GONE);
             }
@@ -488,6 +487,8 @@ public class CategoryFragment extends Fragment  {
              /*   if (null != ((HomeActivity) getActivity()).getProgressBar())
                     ((HomeActivity) getActivity()).getProgressBar().setVisibility(
                             View.GONE);*/
+                paginate.showLoading(false);
+                paginate.showError(true);
                 progressBar.setVisibility(View.GONE);
 
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
