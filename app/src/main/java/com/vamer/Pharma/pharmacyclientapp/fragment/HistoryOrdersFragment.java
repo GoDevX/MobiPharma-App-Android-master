@@ -24,14 +24,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-
-import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
-import com.vamer.Pharma.pharmacyclientapp.model.Order;
-import com.vamer.Pharma.pharmacyclientapp.OrdersListing.OrdersAdapter;
-import com.vamer.Pharma.pharmacyclientapp.R;
-import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
-import com.vamer.Pharma.pharmacyclientapp.model.Product;
-import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -40,6 +32,13 @@ import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.vamer.Pharma.pharmacyclientapp.OrdersListing.OrdersAdapter;
+import com.vamer.Pharma.pharmacyclientapp.R;
+import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
+import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
+import com.vamer.Pharma.pharmacyclientapp.model.Order;
+import com.vamer.Pharma.pharmacyclientapp.model.Product;
+import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ import io.rmiri.skeleton.Master.IsCanSetAdapterListener;
 /**
  * Created by Ahmed.Khames on 1/30/2018.
  */
-public class OrdersFragment extends Fragment {
+public class HistoryOrdersFragment extends Fragment {
     private RecyclerView reViewOdrers;
     // private List<Order> orderItem;
     private OrdersAdapter ordersAdapter;
@@ -105,34 +104,6 @@ public class OrdersFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-             /*   if (event.getAction() == KeyEvent.ACTION_UP
-                        && keyCode == KeyEvent.KEYCODE_BACK) {
-
-                    if (doubleBackToExitPressedOnce) {
-                        // super.onBackPressed();
-
-                        if (mHandler != null) {
-                            mHandler.removeCallbacks(mRunnable);
-                        }
-
-                        getActivity().finish();
-
-                        return true;
-                    }
-
-                    doubleBackToExitPressedOnce = true;
-
-                    Utils.switchFragmentWithAnimation(
-                            R.id.frag_container,
-                            new PlaceOrderFragment(),
-                            ((HomeActivity) getActivity()), null,
-                            Utils.AnimationType.SLIDE_LEFT);
-
-
-                    mHandler.postDelayed(mRunnable, 2000);
-
-                }
-                return true;*/
              getActivity().onBackPressed();
                 return true;
             }
@@ -149,31 +120,7 @@ public class OrdersFragment extends Fragment {
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-       /* ObservableScrollView scrollView1=view.findViewById(R.id.scrollView2);
-        scrollView1.setScrollViewCallbacks(new ObservableScrollViewCallbacks() {
-            @Override
-            public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
 
-            }
-
-            @Override
-            public void onDownMotionEvent() {
-            }
-
-            @Override
-            public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-                ActionBar ab = ((AppCompatActivity)getActivity()).getSupportActionBar();
-                if (scrollState == ScrollState.UP) {
-                    if (ab.isShowing()) {
-                        ab.hide();
-                    }
-                } else if (scrollState == ScrollState.DOWN) {
-                    if (!ab.isShowing()) {
-                        ab.show();
-                    }
-                }
-            }
-        });*/
         reViewOdrers = (RecyclerView) view.findViewById(R.id.order_list);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         reViewOdrers.setLayoutManager(llm);
@@ -220,6 +167,7 @@ public class OrdersFragment extends Fragment {
     }
 
     private void initializeAdapter() {
+
         ordersAdapter = new OrdersAdapter(getActivity(), orderItem, reViewOdrers, new IsCanSetAdapterListener() {
             @Override
             public void isCanSet() {
@@ -329,7 +277,7 @@ public class OrdersFragment extends Fragment {
 
     public void recordSound() {
         Utils.switchFragmentWithAnimation(R.id.frag_container,
-                new RecordFragment(),
+                new CurrentRecordFragment(),
                 ((HomeActivity) getActivity()), null,
                 Utils.AnimationType.SLIDE_UP);
 
@@ -442,7 +390,7 @@ public class OrdersFragment extends Fragment {
         });
     }
     private void activeGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, RESULT_LOAD_IMAGE);
     }
     private void activeTakePhoto() {

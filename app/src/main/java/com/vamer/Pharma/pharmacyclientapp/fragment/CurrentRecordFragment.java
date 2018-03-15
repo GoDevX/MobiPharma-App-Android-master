@@ -1,14 +1,11 @@
 package com.vamer.Pharma.pharmacyclientapp.fragment;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -25,7 +22,6 @@ import android.widget.Toast;
 import com.melnykov.fab.FloatingActionButton;
 import com.vamer.Pharma.pharmacyclientapp.R;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
-import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.vamer.Pharma.soundrecorder.RecordingService;
 
 import java.io.File;
@@ -34,13 +30,13 @@ import java.io.File;
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * to handle interaction events.
- * Use the {@link RecordFragment#newInstance} factory method to
+ * Use the {@link CurrentRecordFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecordFragment extends DialogFragment {
+public class CurrentRecordFragment extends DialogFragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_POSITION = "position";
-    private static final String LOG_TAG = RecordFragment.class.getSimpleName();
+    private static final String LOG_TAG = CurrentRecordFragment.class.getSimpleName();
 
     private int position;
 
@@ -63,8 +59,8 @@ public class RecordFragment extends DialogFragment {
      * @return A new instance of fragment Record_Fragment.
      */
 
-    public static RecordFragment newInstance(int position) {
-        RecordFragment f = new RecordFragment();
+    public static CurrentRecordFragment newInstance(int position) {
+        CurrentRecordFragment f = new CurrentRecordFragment();
         Bundle b = new Bundle();
         b.putInt(ARG_POSITION, position);
         f.setArguments(b);
@@ -72,7 +68,7 @@ public class RecordFragment extends DialogFragment {
         return f;
     }
 
-    public RecordFragment() {
+    public CurrentRecordFragment() {
     }
 
     @Override

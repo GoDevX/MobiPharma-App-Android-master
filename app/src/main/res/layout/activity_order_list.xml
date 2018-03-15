@@ -7,6 +7,7 @@
    >
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -28,7 +29,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+       >
         <include layout="@layout/order_list" />
     </FrameLayout>
     <android.support.design.widget.FloatingActionButton
@@ -39,11 +40,13 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_add"
         app:pressedTranslationZ="36dp"
+
         android:visibility="gone"
         />
     <com.nightonke.boommenu.BoomMenuButton
         android:id="@+id/bmb"
         android:layout_width="wrap_content"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
         />

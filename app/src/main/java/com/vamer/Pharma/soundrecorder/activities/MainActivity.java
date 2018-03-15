@@ -13,8 +13,8 @@ import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.vamer.Pharma.pharmacyclientapp.R;
+import com.vamer.Pharma.pharmacyclientapp.fragment.CurrentRecordFragment;
 import com.vamer.Pharma.pharmacyclientapp.fragment.FileViewerFragment;
-import com.vamer.Pharma.pharmacyclientapp.fragment.RecordFragment;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity{
         public Fragment getItem(int position) {
             switch(position){
                 case 0:{
-                    return RecordFragment.newInstance(position);
+                    return CurrentRecordFragment.newInstance(position);
                 }
                 case 1:{
                     return FileViewerFragment.newInstance(position);

@@ -9,7 +9,6 @@
 package com.vamer.Pharma.pharmacyclientapp.fragment;
 
 import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -25,7 +24,6 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -451,7 +449,7 @@ public class MyCartFragment extends Fragment implements OnStartDragListener {
 
     public void recordSound() {
         Utils.switchFragmentWithAnimation(R.id.frag_container,
-                new RecordFragment(),
+                new CurrentRecordFragment(),
                 ((HomeActivity) getActivity()), null,
                 Utils.AnimationType.SLIDE_UP);
 

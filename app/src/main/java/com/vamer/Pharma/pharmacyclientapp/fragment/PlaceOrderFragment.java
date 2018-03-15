@@ -54,7 +54,6 @@ import com.cielyang.android.clearableedittext.ClearableEditText;
 import com.vamer.Pharma.pharmacyclientapp.AppController;
 import com.vamer.Pharma.pharmacyclientapp.R;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
-import com.vamer.Pharma.pharmacyclientapp.adapter.CategoryListAdapter;
 import com.vamer.Pharma.pharmacyclientapp.adapter.ProductListAdapter;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
@@ -84,7 +83,6 @@ import java.util.Map;
 import ru.alexbykov.nopaginate.callback.OnLoadMoreListener;
 import ru.alexbykov.nopaginate.paginate.Paginate;
 import ru.alexbykov.nopaginate.paginate.PaginateBuilder;
-import xyz.sahildave.widget.SearchViewLayout;
 
 /**
  *
@@ -275,7 +273,7 @@ public class PlaceOrderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Utils.switchFragmentWithAnimation(R.id.frag_container,
-                        new OrdersFragment(), getActivity(), null/*Utils.HOME_FRAGMENT*/,
+                        new FragmentMainOrders(), getActivity(), null/*Utils.HOME_FRAGMENT*/,
                         Utils.AnimationType.SLIDE_UP);
             }
         });
@@ -449,7 +447,7 @@ public class PlaceOrderFragment extends Fragment {
 
     public void recordSound() {
         Utils.switchFragmentWithAnimation(R.id.frag_container,
-                new RecordFragment(),
+                new CurrentRecordFragment(),
                 ((HomeActivity) getActivity()), Utils.RECORD_FRAGMENT,
                 Utils.AnimationType.SLIDE_UP);
     }

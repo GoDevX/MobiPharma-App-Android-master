@@ -54,7 +54,7 @@ public class Utils {
     public static final String SETTINGS_FRAGMENT_TAG = "SettingsFragment";
     public static final String OTP_LOGIN_TAG = "OTPLogingFragment";
     public static final String CONTACT_US_FRAGMENT = "ContactUs";
-    public static final String RECORD_FRAGMENT = "RecordFragment";
+    public static final String RECORD_FRAGMENT = "CurrentRecordFragment";
 
     private static final String PREFERENCES_FILE = "materialsample_settings";
     private static String CURRENT_TAG = null;

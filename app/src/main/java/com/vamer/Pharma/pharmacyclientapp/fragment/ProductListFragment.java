@@ -55,7 +55,6 @@ import com.vamer.Pharma.pharmacyclientapp.R;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
-import com.vamer.Pharma.pharmacyclientapp.model.ProductCategoryModel;
 import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils.AnimationType;
@@ -517,7 +516,7 @@ public class ProductListFragment extends Fragment {
 
     public void recordSound() {
         Utils.switchFragmentWithAnimation(R.id.frag_container,
-                new RecordFragment(),
+                new CurrentRecordFragment(),
                 ((HomeActivity) getActivity()), null,
                 Utils.AnimationType.SLIDE_UP);
 

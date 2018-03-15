@@ -16,7 +16,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
       /*  if (position ==0) {
          //   return new AddOrderFragment();
         } else if (position == 1) {
-        //    return new OrdersFragment();
+        //    return new CurrentOrdersFragment();
         } else
             return null;
     }*/

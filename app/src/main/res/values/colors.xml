@@ -180,7 +180,13 @@ of orange -->
         <item name="tab_5">#75b4e3</item>
     </array>
 
+    <!-- For PagerTitleStrip -->
+    <color name="azure">#33B5E5</color>
 
+    <!-- For pages of ViewPager -->
+    <color name="pageColor1">#FFF59D</color>
+    <color name="pageColor2">#FFCC80</color>
+    <color name="pageColor3">#FFAB91</color>
 
     <color name="colorPrimaryLight">#B2EBF2</color>
     <color name="colorIcon">#FFFFFF</color>

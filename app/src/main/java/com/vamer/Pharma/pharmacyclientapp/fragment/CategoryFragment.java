@@ -640,7 +640,7 @@ public class CategoryFragment extends Fragment {
 
     public void recordSound() {
         Utils.switchFragmentWithAnimation(R.id.frag_container,
-                new RecordFragment(),
+                new CurrentRecordFragment(),
                 ((HomeActivity) getActivity()), null,
                 Utils.AnimationType.SLIDE_UP);
 

@@ -8,15 +8,14 @@
     android:layoutDirection="ltr"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="10dp"
-    app:cardElevation="10dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="0dp">
 
 
-<io.rmiri.skeleton.SkeletonGroup
+    <io.rmiri.skeleton.SkeletonGroup
         android:id="@+id/skeletonGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         Skeleton:SK_BackgroundViewsColor="#EEEEEE"
         Skeleton:SK_animationAutoStart="true"
         Skeleton:SK_animationDirection="LTR"
@@ -25,157 +24,149 @@
         Skeleton:SK_animationNormalType="gradient"
         Skeleton:SK_backgroundMainColor="@android:color/transparent"
         Skeleton:SK_highLightColor="#DEDEDE">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingBottom="8dp"
-        >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:rowCount="2"
-        android:columnCount="4"
-        >
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_view_date"
-            android:text="10/10"
-            android:layout_gravity="center_horizontal"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-            android:paddingBottom="16dp"
-            android:textColor="@color/black"
-            />
-
-
-    </LinearLayout>
-
-
-        <View
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:layout_width="@dimen/cardview_compat_inset_shadow"
-            android:layout_height="60dp"
-            android:background="@color/black"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:alpha="0.12"
-            />
-
-    <LinearLayout
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:textSize="16sp"
-            android:text="501454545"
-            android:textColor="@color/black"
-            android:id="@+id/text_view_order_id"
-
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="10dp"
-
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:id="@+id/text_view_price"
-android:text="200$"
-                />
-
-
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_gravity="center_horizontal"
-            android:visibility="visible"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="36dp"
-            >
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:id="@+id/image_view_status"
-                android:layout_gravity="center_horizontal"
-                android:adjustViewBounds="true"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="4"
+                android:orientation="horizontal"
+                android:rowCount="2">
 
-                Skeleton:srcCompat="@drawable/tag_pending"
-                tools:ignore="VectorDrawableCompat" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
 
+                    >
+
+                    <TextView
+                        android:id="@+id/text_view_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingBottom="16dp"
+                        android:text="10/10"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="@dimen/cardview_compat_inset_shadow"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:alpha="0.12"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_order_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="501454545"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/text_view_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="200$"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="36dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/image_view_status"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"
+
+                        Skeleton:srcCompat="@drawable/tag_pending"
+                        tools:ignore="VectorDrawableCompat" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:alpha="0.12"
+                    android:background="@color/black"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin" />
+
+
+                <TextView
+                    android:id="@+id/text_view_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.85"
+                    android:background="@drawable/rounded_corners"
+                    android:padding="@dimen/activity_half_margin"
+                    android:text="Pending"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
 
 
         </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-        >
-        <View
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"
-            android:layout_gravity="center_horizontal"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:alpha="0.12"
-            />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:id="@+id/text_view_status"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="end"
-            android:text="Pending"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:padding="@dimen/activity_half_margin"
-            android:background="@drawable/rounded_corners"
-            android:alpha="0.85"
-            android:textColor="@color/black"
-            />
-
-    </LinearLayout>
-
-
-    </LinearLayout>
     </io.rmiri.skeleton.SkeletonGroup>
 </android.support.v7.widget.CardView>
