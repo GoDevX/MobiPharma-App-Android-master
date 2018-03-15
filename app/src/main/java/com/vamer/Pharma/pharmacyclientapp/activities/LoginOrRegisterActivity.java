@@ -81,11 +81,7 @@ public class LoginOrRegisterActivity extends AppCompatActivity {
                 if (valid) {
                     phone_number = phoneInputLayout.getPhoneNumber();
                     sendVerificationCode(phone_number);
-                   /*Intent i = new Intent(LoginOrRegisterActivity.this, ActivationCodeActivity.class);
-                    i.putExtra(PreferenceHelper.CUSTOMER_MOBILE,phoneInputLayout.getPhoneNumber());
-                    i.putExtra("MobileNo",phone_number);
-                    startActivity(i);*/
-                    //  startActivity(new Intent(LoginOrRegisterActivity.this,ActivationCodeActivity.class));
+
 
                 } else {
 
@@ -159,10 +155,7 @@ public class LoginOrRegisterActivity extends AppCompatActivity {
 
         AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
     }
-  /*  private void setupWindowAnimations() {
-        Slide slide = (Slide) TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
-        getWindow().setExitTransition(slide);
-    }*/
+
 
 
 }

@@ -74,7 +74,7 @@ public class ActivationCodeActivity extends AppCompatActivity {
                 chronometer_timer.start();
                 // String s = getIntent().getStringExtra("EXTRA_SESSION_ID");
                 // getIntent().getBundleExtra("MobileNo");
-                verifyMyMobile(phone);
+               // verifyMyMobile(phone);
 
             }
         });
@@ -92,12 +92,12 @@ public class ActivationCodeActivity extends AppCompatActivity {
         btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (otpView.getOTP().length() == 4) {
                     if (
 
                             otpView.getOTP().equals(pr.getString(ActivationCodeActivity.this, PreferenceHelper.USER_CODE_VERIFCATION, ""))) {
-
-                        verifyMyMobile(phone);
+                            verifyMyMobile(phone);
                     }
                     //  startActivity(new Intent(ActivationCodeActivity.this,CompleteProfileActivity.class));}
                     else {

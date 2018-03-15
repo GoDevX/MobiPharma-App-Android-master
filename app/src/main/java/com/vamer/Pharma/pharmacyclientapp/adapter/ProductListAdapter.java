@@ -121,7 +121,7 @@ public class ProductListAdapter extends
         ImageUrl = productList.get(position).getFilePath();
 
 //TODo try to fix bugs that appears in the amount of cart
-        Product tempObj = productList.get(position);
+       /* Product tempObj = productList.get(position);
         int i;
         for (i = 0; i < CenterRepository.getCenterRepository().getListOfProductsInShoppingList().size(); i++) {
 
@@ -129,7 +129,7 @@ public class ProductListAdapter extends
                 productList.get(position).setQuantity(CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(i).getQuantity());
                 holder.quanitity.setText(productList.get(position).getQuantity());
             }
-        }
+        }*/
 
 
         holder.addItem.findViewById(R.id.add_item).setOnClickListener(
@@ -141,7 +141,7 @@ public class ProductListAdapter extends
 
                         //current object
                         Product tempObj = productList.get(position);
-
+                        // List<Product>a =CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
 
                         //if current object is lready in shopping list
                         if (CenterRepository.getCenterRepository()
