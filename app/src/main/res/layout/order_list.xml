@@ -6,9 +6,10 @@
     android:name="bankura.pharmacy.pharmacyapp.activities.OrderListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:layout_margin="10dp"
     app:layoutManager="LinearLayoutManager"
-    android:scrollbars="vertical"
+    android:scrollbars="none"
     tools:listitem="@layout/order_list_content" />
 
 

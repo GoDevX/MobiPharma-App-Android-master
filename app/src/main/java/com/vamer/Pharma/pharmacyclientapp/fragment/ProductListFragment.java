@@ -253,7 +253,6 @@ public class ProductListFragment extends Fragment {
                     @Override
                     public void onLoadMore() {
 
-                        //http or db request here
                         if (!isSearchList)
                             getItemsInEachCatgeory(String.valueOf(current_page));
                         else SearchInProducts(SearchKeyword, String.valueOf(current_page));
@@ -313,7 +312,7 @@ public class ProductListFragment extends Fragment {
                        /* if (progressBar.getVisibility() == View.VISIBLE) {
                             progressBar.setVisibility(View.GONE);
                         }*/
-                      //  progressBar.setVisibility(View.GONE);
+                        //  progressBar.setVisibility(View.GONE);
                         try {
                             String Status = response.getString("Status");
                             JSONArray mJsonArray = response.getJSONArray("Result");
@@ -653,7 +652,6 @@ public class ProductListFragment extends Fragment {
                                     productModel.setQuantity("0");
                                     productModel.setSellMRP(jsonObject.getString("Price"));
                                     productModel.setItemName(jsonObject.getString("ProductName_EN"));
-                                    //productModel.setImageURL(jsonObject.getString("ProductImagePath"));
                                     productList.add(productModel);
 
 

@@ -23,14 +23,14 @@ public class FragmentMainOrders extends Fragment {
     private final String LOG_TAG = FragmentMainOrders.class.getSimpleName();
 
     // Titles of the individual pages (displayed in tabs)
-    private final String[] PAGE_TITLES = new String[] {
-            "Current Orders",
+    private final String[] PAGE_TITLES = new String[]{
+            "Track Orders",
             "History"
 
     };
 
     // The fragments that are used as the individual pages
-    private final Fragment[] PAGES = new Fragment[] {
+    private final Fragment[] PAGES = new Fragment[]{
             new CurrentOrdersFragment(),
             new HistoryOrdersFragment()
 
@@ -39,7 +39,7 @@ public class FragmentMainOrders extends Fragment {
     // The ViewPager is responsible for sliding pages (fragments) in and out upon user input
     private ViewPager mViewPager;
 
-   /* @Override
+ /*   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -58,8 +58,7 @@ public class FragmentMainOrders extends Fragment {
         // and when the ViewPager switches to a new page, the corresponding tab is selected)
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(mViewPager);
-    }
-*/
+    }*/
 
     @Nullable
     @Override
@@ -90,7 +89,7 @@ public class FragmentMainOrders extends Fragment {
         // and when the ViewPager switches to a new page, the corresponding tab is selected)
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(mViewPager);
-           return rootView;
+        return rootView;
     }
 
     /* PagerAdapter for supplying the ViewPager with the pages (fragments) to display. */

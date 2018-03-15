@@ -58,8 +58,8 @@ public class ProductListAdapter extends
 
     private Context context;
 
-    public ProductListAdapter( Context context,
-                              boolean isCartlist,List<Product> productList) {
+    public ProductListAdapter(Context context,
+                              boolean isCartlist, List<Product> productList) {
 
         if (isCartlist) {
 
@@ -69,7 +69,7 @@ public class ProductListAdapter extends
         } else {
             /*productList = CenterRepository.getCenterRepository().getMapOfProductsInCategory()
                     .get(subcategoryKey);*/
-            this.productList=productList;
+            this.productList = productList;
         }
 
         this.context = context;
@@ -96,7 +96,7 @@ public class ProductListAdapter extends
         String sellCostString =
                 BigDecimal.valueOf(Double.valueOf(productList.get(position)
                         .getSellMRP())).toString()
-                + "  ";
+                        + "  ";
 
        /* String buyMRP =
                 BigDecimal.valueOf(Double.valueOf(productList.get(position)
@@ -120,10 +120,16 @@ public class ProductListAdapter extends
 
         ImageUrl = productList.get(position).getFilePath();
 
+//TODo try to fix bugs that appears in the amount of cart
+        Product tempObj = productList.get(position);
+        int i;
+        for (i = 0; i < CenterRepository.getCenterRepository().getListOfProductsInShoppingList().size(); i++) {
 
-     /*   Glide.with(context).load(ImageUrl).placeholder(drawable)
-                .error(drawable).animate(R.anim.base_slide_right_in)
-                .centerCrop().into(holder.imagView);*/
+            if (CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(i).getProductId().equals(tempObj.getProductId())) {
+                productList.get(position).setQuantity(CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(i).getQuantity());
+                holder.quanitity.setText(productList.get(position).getQuantity());
+            }
+        }
 
 
         holder.addItem.findViewById(R.id.add_item).setOnClickListener(
