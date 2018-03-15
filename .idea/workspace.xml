@@ -24,32 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d0633df-6711-4f46-b0c9-2f40c28f9592" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/FragmentMainOrders.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/HistoryOrdersFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/tabs/Page1Fragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/tabs/Page2Fragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/tabs/Page3Fragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_page1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_page2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_page3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/ViewPagerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/ViewPagerAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/PlaceOrderFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/PlaceOrderFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/Utils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/order_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/order_list_content.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_list_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/OrdersFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CurrentOrdersFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/RecordFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CurrentRecordFragment.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -140,10 +116,15 @@
       <file leaf-file-name="order_list_content.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/order_list_content.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            <state relative-caret-position="119">
+              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
               <folding>
-                <element signature="e#1131#6875#0" expanded="false" />
+                <element signature="e#1357#1392#0" expanded="true" />
+                <element signature="e#1670#3040#0" expanded="false" />
+                <element signature="e#3059#3453#0" expanded="false" />
+                <element signature="e#3471#5029#0" expanded="false" />
+                <element signature="e#5047#5902#0" expanded="false" />
+                <element signature="e#5946#7416#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2510,7 +2491,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521114983129" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521115543213" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2558,7 +2539,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521114983129" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521115543213" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2741,7 +2722,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521114983130" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521115543214" />
       </method>
     </configuration>
     <list size="1">
@@ -2920,7 +2901,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521101953329</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Comitted by Khames">
+      <created>1521114987354</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1521114987354</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -7210,10 +7198,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/order_list_content.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        <state relative-caret-position="119">
+          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
           <folding>
-            <element signature="e#1131#6875#0" expanded="false" />
+            <element signature="e#1357#1392#0" expanded="true" />
+            <element signature="e#1670#3040#0" expanded="false" />
+            <element signature="e#3059#3453#0" expanded="false" />
+            <element signature="e#3471#5029#0" expanded="false" />
+            <element signature="e#5047#5902#0" expanded="false" />
+            <element signature="e#5946#7416#0" expanded="false" />
           </folding>
         </state>
       </provider>
