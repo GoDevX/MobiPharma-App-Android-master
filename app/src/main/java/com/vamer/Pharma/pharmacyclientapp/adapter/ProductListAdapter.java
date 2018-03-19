@@ -121,7 +121,7 @@ public class ProductListAdapter extends
         ImageUrl = productList.get(position).getFilePath();
 
 //TODo try to fix bugs that appears in the amount of cart
-       /* Product tempObj = productList.get(position);
+        Product tempObj = productList.get(position);
         int i;
         for (i = 0; i < CenterRepository.getCenterRepository().getListOfProductsInShoppingList().size(); i++) {
 
@@ -129,7 +129,7 @@ public class ProductListAdapter extends
                 productList.get(position).setQuantity(CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(i).getQuantity());
                 holder.quanitity.setText(productList.get(position).getQuantity());
             }
-        }*/
+        }
 
 
         holder.addItem.findViewById(R.id.add_item).setOnClickListener(
@@ -138,23 +138,28 @@ public class ProductListAdapter extends
                     @Override
                     public void onClick(View v) {
 
-
                         //current object
                         Product tempObj = productList.get(position);
-                        // List<Product>a =CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
+                        List<Product> a = CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
 
                         //if current object is lready in shopping list
-                        if (CenterRepository.getCenterRepository()
-                                .getListOfProductsInShoppingList().contains(tempObj)) {
 
+                        if (!productList.get(position).getQuantity().equals("0")) {
+                            int indexOfTempInShopingList = 0;
+                            int i;
+                            for (i = 0; i < CenterRepository.getCenterRepository().getListOfProductsInShoppingList().size(); i++) {
 
+                                if (CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(i).getProductId().equals(productList.get(position).getProductId())) {
+                                    indexOfTempInShopingList = i;
+                                }
+                            }
                             //get position of current item in shopping list
-                            int indexOfTempInShopingList = CenterRepository
+                          /*   indexOfTempInShopingList = CenterRepository
                                     .getCenterRepository().getListOfProductsInShoppingList()
-                                    .indexOf(tempObj);
+                                    .indexOf(tempObj);*/
 
                             // increase quantity of current item in shopping list
-                            if (Integer.parseInt(tempObj.getQuantity()) == 0) {
+                            if (Integer.parseInt(productList.get(position).getQuantity()) == 0) {
 
                                 ((HomeActivity) getContext())
                                         .updateItemCount(true);
@@ -169,8 +174,12 @@ public class ProductListAdapter extends
                                     .get(indexOfTempInShopingList)
                                     .setQuantity(
                                             String.valueOf(Integer
-                                                    .valueOf(tempObj
+                                                    .valueOf(productList.get(position)
                                                             .getQuantity()) + 1));
+                            productList.get(position).setQuantity(String.valueOf(Integer
+                                    .valueOf(productList.get(position)
+                                            .getQuantity()) + 1));
+                            List<Product> ab = CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
 
 
                             //update checkout amount
@@ -182,8 +191,11 @@ public class ProductListAdapter extends
                                                             .getSellMRP())),
                                     true);
 
+                          /*  productList.get(position).setQuantity(String.valueOf(Integer.valueOf(tempObj
+                                    .getQuantity()) + 1));*/
                             // update current item quanitity
-                            holder.quanitity.setText(tempObj.getQuantity());
+                            holder.quanitity.setText(String.valueOf(Integer.valueOf(productList.get(position).getQuantity())));
+
 
                         } else {
 
@@ -218,7 +230,92 @@ public class ProductListAdapter extends
 
                 Product tempObj = (productList).get(position);
 
-                if (CenterRepository.getCenterRepository().getListOfProductsInShoppingList()
+                if (Integer.valueOf(productList.get(position).getQuantity()) > 1)
+                       /* !productList.get(position).getQuantity().equals("0"))*/ {
+                    int indexOfTempInShopingList = 0;
+                    int i;
+                    for (i = 0; i < CenterRepository.getCenterRepository().getListOfProductsInShoppingList().size(); i++) {
+
+                        if (CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(i).getProductId().equals(productList.get(position).getProductId())) {
+                            indexOfTempInShopingList = i;
+                        }
+                    }
+                    //get position of current item in shopping list
+                          /*   indexOfTempInShopingList = CenterRepository
+                                    .getCenterRepository().getListOfProductsInShoppingList()
+                                    .indexOf(tempObj);*/
+
+                    // increase quantity of current item in shopping list
+                    if (Integer.parseInt(productList.get(position).getQuantity()) == 0) {
+
+                        ((HomeActivity) getContext())
+                                .updateItemCount(true);
+
+                    }
+
+
+                    // update quanity in shopping list
+                    CenterRepository
+                            .getCenterRepository()
+                            .getListOfProductsInShoppingList()
+                            .get(indexOfTempInShopingList)
+                            .setQuantity(
+                                    String.valueOf(Integer
+                                            .valueOf(productList.get(position)
+                                                    .getQuantity()) - 1));
+                    productList.get(position).setQuantity(String.valueOf(Integer
+                            .valueOf(productList.get(position)
+                                    .getQuantity()) - 1));
+                    List<Product> ab = CenterRepository.getCenterRepository().getListOfProductsInShoppingList();
+
+
+                    //update checkout amount
+                    ((HomeActivity) getContext()).updateCheckOutAmount(
+                            BigDecimal
+                                    .valueOf(Double
+                                            .valueOf(productList
+                                                    .get(position)
+                                                    .getSellMRP())),
+                            true);
+
+                          /*  productList.get(position).setQuantity(String.valueOf(Integer.valueOf(tempObj
+                                    .getQuantity()) + 1));*/
+                    // update current item quanitity
+                    holder.quanitity.setText(String.valueOf(Integer.valueOf(productList.get(position).getQuantity())));
+
+
+                }
+
+
+                    /*((HomeActivity) getContext()).updateItemCount(true);
+
+                    tempObj.setQuantity(String.valueOf(1));
+
+                    holder.quanitity.setText(tempObj.getQuantity());
+
+                    CenterRepository.getCenterRepository()
+                            .getListOfProductsInShoppingList().add(tempObj);
+
+                    ((HomeActivity) getContext()).updateCheckOutAmount(
+                            BigDecimal
+                                    .valueOf(Double
+                                            .valueOf(productList
+                                                    .get(position)
+                                                    .getSellMRP())),
+                            true);
+
+                }*/
+
+                Utils.vibrate(getContext());
+
+
+            }
+
+        });
+    }
+
+
+             /*   if (CenterRepository.getCenterRepository().getListOfProductsInShoppingList()
                         .contains(tempObj)) {
 
                     int indexOfTempInShopingList = CenterRepository
@@ -266,13 +363,17 @@ public class ProductListAdapter extends
                 } else {
 
                 }
+*/
 
-            }
 
-        });
-
+    public boolean contain(Product product) {
+        int i = 0;
+        for (i = 0; i < CenterRepository.getCenterRepository().getListOfProductsInShoppingList().size(); i++) {
+            if (CenterRepository.getCenterRepository().getListOfProductsInShoppingList().get(i).getProductId().equals(product.getProductId()))
+                return true;
+        }
+        return false;
     }
-
 
     private HomeActivity getContext() {
         // TODO Auto-generated method stub
@@ -344,7 +445,6 @@ public class ProductListAdapter extends
             clickListener.onItemClick(v, getPosition());
         }
     }
-
 
 
 }
