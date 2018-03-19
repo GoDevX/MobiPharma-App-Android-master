@@ -327,20 +327,13 @@ public class ProductListAdapter extends
             itemDesc = (TextView) itemView.findViewById(R.id.item_short_desc);
 
             itemCost = (TextView) itemView.findViewById(R.id.item_price);
-
             availability = (TextView) itemView
                     .findViewById(R.id.iteam_avilable);
-
             quanitity = (TextView) itemView.findViewById(R.id.iteam_amount);
-
             itemName.setSelected(true);
-
             imagView = ((ImageView) itemView.findViewById(R.id.product_thumb));
-
             addItem = ((TextView) itemView.findViewById(R.id.add_item));
-
             removeItem = ((TextView) itemView.findViewById(R.id.remove_item));
-
             itemView.setOnClickListener(this);
 
 
@@ -352,22 +345,6 @@ public class ProductListAdapter extends
         }
     }
 
-
-    public void filter(String charText) {
-        charText = charText.toLowerCase(Locale.getDefault());
-        newproductList.clear();
-        if (charText.length() == 0) {
-            newproductList.addAll(productList);
-        } else {
-            for (Product wp : productList) {
-                if (wp.getItemName().toLowerCase(Locale.getDefault())
-                        .contains(charText)) {
-                    newproductList.add(wp);
-                }
-            }
-        }
-        notifyDataSetChanged();
-    }
 
 
 }

@@ -9,11 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 
+import com.squareup.picasso.Picasso;
 import com.vamer.Pharma.pharmacyclientapp.R;
+import com.vamer.Pharma.pharmacyclientapp.adapter.ProductListAdapter;
 import com.vamer.Pharma.pharmacyclientapp.model.Order;
 
 import java.util.ArrayList;
@@ -23,50 +26,70 @@ import io.rmiri.skeleton.Master.IsCanSetAdapterListener;
 import io.rmiri.skeleton.SkeletonGroup;
 
 
-public class OrdersAdapter extends AdapterSkeleton<Order,OrdersAdapter.ViewHolder> {
+public class OrdersAdapter extends AdapterSkeleton<Order, OrdersAdapter.ViewHolder> {
+    private ProductListAdapter.OnItemClickListener clickListener;
 
     public OrdersAdapter(final Context context, final ArrayList<Order> items, final RecyclerView recyclerView, final IsCanSetAdapterListener isCanSetAdapterListener) {
         this.context = context;
         this.items = items;
         this.isCanSetAdapterListener = isCanSetAdapterListener;
-        measureHeightRecyclerViewAndItem(recyclerView, R.layout.order_list_content);// Set height
+        measureHeightRecyclerViewAndItem(recyclerView, R.layout.item_order_list);// Set height
 
+    }
+
+    public void SetOnItemClickListener(
+            final ProductListAdapter.OnItemClickListener itemClickListener) {
+        this.clickListener = itemClickListener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_list_content, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_order_list, parent, false);
         return new ViewHolder(view);
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardView cardView;
+    public interface OnItemClickListener {
+        public void onItemClick(View view, int position);
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+
+        private TextView order_item_name;
+
+        private TextView pharmacy_name;
+        private TextView order_date;
+        private TextView order_total_price;
+        private TextView order_status;
+        private ImageView pharmacy_logo;
         private SkeletonGroup skeletonGroup;
-        private AppCompatImageView photoACImgV;
-        private TextView text_view_date;
-        private TextView text_view_month;
-        private TextView text_view_order_id;
-        private TextView text_view_price;
-        private TextView text_view_status;
 
 
         private AppCompatImageButton addToParkingImgBtn;
         private AppCompatImageButton compareImgBtn;
         private RatingBar priceTv;
+        private CardView cardView;
 
 
         ViewHolder(View itemView) {
             super(itemView);
-
-            cardView = (CardView) itemView.findViewById(R.id.cardView);
+            cardView = itemView.findViewById(R.id.cardlist_item);
             skeletonGroup = (SkeletonGroup) itemView.findViewById(R.id.skeletonGroup);
-            photoACImgV = (AppCompatImageView) itemView.findViewById(R.id.image_view_status);
-            text_view_date = (TextView) itemView.findViewById(R.id.text_view_date);
-           // text_view_month = (TextView) itemView.findViewById(R.id.text_view_month);
-            text_view_order_id = (TextView) itemView.findViewById(R.id.text_view_order_id);
-            text_view_status = (TextView) itemView.findViewById(R.id.text_view_status);
-            text_view_price = (TextView) itemView.findViewById(R.id.text_view_price);
+            order_item_name = itemView.findViewById(R.id.order_item_name);
+            pharmacy_name = itemView.findViewById(R.id.pharmacy_name);
+            order_date = itemView.findViewById(R.id.order_date);
+            order_total_price = itemView.findViewById(R.id.order_total_price);
+            order_status = itemView.findViewById(R.id.order_status);
+            pharmacy_logo = itemView.findViewById(R.id.pharmacy_logo);
+            itemView.setOnClickListener(this);
+
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            clickListener.onItemClick(v, getPosition());
 
         }
     }
@@ -76,36 +99,29 @@ public class OrdersAdapter extends AdapterSkeleton<Order,OrdersAdapter.ViewHolde
 
         holder.cardView.setPreventCornerOverlap(false);
 
-//        holder.skeletonGroup.setPosition(position);//just for debug log
-
-       /* if (skeletonConfig.isSkeletonIsOn()) {
+        if (skeletonConfig.isSkeletonIsOn()) {
             return;
         } else {
             holder.skeletonGroup.setShowSkeleton(false);
             holder.skeletonGroup.finishAnimation();
-        }*/
-
-        //set data in view
-        final Order cardObj = items.get(position);
-
-        holder.text_view_date.setText(cardObj.getDate());
-       // holder.text_view_month.setText(cardObj.getMonth());
-        holder.text_view_order_id.setText(cardObj.getOrderId());
-
-        if (cardObj.getStatus().equals("0")) {
-            holder.text_view_status.setText("Pending");
-            holder.text_view_status.setBackgroundColor(getContext().getResources().getColor(R.color.colorPrimary));
-        } else {
-            holder.text_view_status.setText("Confirmed");
-            holder.text_view_status.setBackgroundColor(getContext().getResources().getColor(R.color.green));
-            holder.photoACImgV.setImageResource((R.drawable.tag_confirmed));
-
         }
+
+        Order cardObj = items.get(position);
+
+        holder.order_item_name.setText(cardObj.getOrderID());
+        // holder.text_view_month.setText(cardObj.getMonth());
+        holder.pharmacy_name.setText(cardObj.getBranchName());
+        holder.order_date.setText(cardObj.getDateTimeStamp());
+
+        holder.order_total_price.setText(cardObj.getTotalPrice());
+        holder.order_status.setText(cardObj.getOrderStatus());
+
+        holder.order_status.setText(cardObj.getOrderStatus());
+        Picasso.with(context).load(cardObj.getPharmacyLogoName()).into(holder.pharmacy_logo);
 
         //set photo by Picasso lib
 
     }
-
 
 
 }

@@ -32,7 +32,6 @@ public class PharmacyAdapter extends AdapterSkeleton<Pharmacy, PharmacyAdapter.V
 
     public interface MyAdapterListener {
 
-
         void btnOrderOnClick(View v, int position);
 
     }

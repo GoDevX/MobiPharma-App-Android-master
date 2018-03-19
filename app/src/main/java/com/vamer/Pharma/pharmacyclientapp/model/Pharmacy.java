@@ -59,6 +59,7 @@ public class Pharmacy {
     }
 
     public void setPharmacyLogo(String pharmacyLogo) {
+
         PharmacyLogo = pharmacyLogo;
     }
 

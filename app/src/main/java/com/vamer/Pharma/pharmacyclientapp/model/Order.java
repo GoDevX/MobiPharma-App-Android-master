@@ -3,225 +3,127 @@ package com.vamer.Pharma.pharmacyclientapp.model;
 /**
  * Created by arka on 4/30/16.
  */
-/**Schema
- {
- "uid": "34343434",
- "address": "dfererer",
- "prescription_url": "dfdfdfdf",
- "price": 3434.3434,
- "shipping_charge": 334.3434,
- "created_at": 343434
- "is_completed": true,
- "is_canceled": true,
- "note": "",
- "status": "PENDING" OR "CLOSED"
- }
+
+import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
+
+/**
+ * Schema
+ * {
+ * "uid": "34343434",
+ * "address": "dfererer",
+ * "prescription_url": "dfdfdfdf",
+ * "price": 3434.3434,
+ * "shipping_charge": 334.3434,
+ * "created_at": 343434
+ * "is_completed": true,
+ * "is_canceled": true,
+ * "note": "",
+ * "status": "PENDING" OR "CLOSED"
+ * }
  */
 
 
 public class Order {
 
-    private String uid;
-    private String address;
-    private String prescriptionUrl;
-    private Double price = 0.0;
-    private Double shippingCharge = 0.0;
-    private Long createdAt;
-    private String orderId;
-    private String status = "";
-    private String note = "";
-    private String orderPath;
-
-    public void setMonth(String month) {
-        this.month = month;
+    public String getOrderID() {
+        return OrderID;
     }
 
-    private String month;
-
-    public String getMonth() {
-        return month;
+    public String getDateTimeStamp() {
+        return DateTimeStamp;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getTotalPrice() {
+        return TotalPrice;
     }
 
-    public String getDate() {
-        return date;
+    public String getStatusID() {
+        return StatusID;
     }
 
-    private String date = "";
-
-    private String sellerNote = "";
-
-    public Order() {
+    public String getOrderStatus() {
+        return OrderStatus;
     }
 
-    /**
-     *
-     * @return
-     * The uid
-     */
-    public String getUid() {
-        return uid;
+    public String getPharmacyID() {
+        return PharmacyID;
     }
 
-    /**
-     *
-     * @param uid
-     * The uid
-     */
-    public void setUid(String uid) {
-        this.uid = uid;
+    public String getPharmacyName() {
+        return PharmacyName;
     }
 
-    /**
-     *
-     * @return
-     * The address
-     */
-    public String getAddress() {
-        return address;
+    public String getPharmacyLogoName() {
+        return PharmacyLogoName;
     }
 
-    /**
-     *
-     * @param address
-     * The address
-     */
-    public void setAddress(String address) {
-        this.address = address;
+    public String getBranchID() {
+        return BranchID;
     }
 
-    /**
-     *
-     * @return
-     * The prescriptionUrl
-     */
-    public String getPrescriptionUrl() {
-        return prescriptionUrl;
+    public String getBranchName() {
+        return BranchName;
     }
 
-    /**
-     *
-     * @param prescriptionUrl
-     * The prescription_url
-     */
-    public void setPrescriptionUrl(String prescriptionUrl) {
-        this.prescriptionUrl = prescriptionUrl;
+    private String OrderID;
+
+    public void setOrderID(String orderID) {
+        OrderID = orderID;
     }
 
-    /**
-     *
-     * @return
-     * The price
-     */
-    public Double getPrice() {
-        return price;
+    public void setDateTimeStamp(String dateTimeStamp) {
+        DateTimeStamp = dateTimeStamp;
     }
 
-    /**
-     *
-     * @param price
-     * The price
-     */
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setTotalPrice(String totalPrice) {
+        TotalPrice = totalPrice;
     }
 
-    /**
-     *
-     * @return
-     * The shippingCharge
-     */
-    public Double getShippingCharge() {
-        return shippingCharge;
+    public void setStatusID(String statusID) {
+        StatusID = statusID;
     }
 
-    /**
-     *
-     * @param shippingCharge
-     * The shipping_charge
-     */
-    public void setShippingCharge(Double shippingCharge) {
-        this.shippingCharge = shippingCharge;
+    public void setOrderStatus(String orderStatus) {
+        OrderStatus = orderStatus;
     }
 
-
-
-    /**
-     *  Populate the timestamp server side
-     * @return Firebase ServerValue.TIMESTAMP
-     * The createdAt
-     */
-
-
-
-
-    /**
-     *
-     * @param createdAt
-     * The created_at
-     */
-    public void setCreatedAt(Long createdAt) {
-        this.createdAt = createdAt;
+    public void setPharmacyID(String pharmacyID) {
+        PharmacyID = pharmacyID;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public void setPharmacyName(String pharmacyName) {
+        PharmacyName = pharmacyName;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setPharmacyLogoName(String pharmacyLogoName) {
+
+        PharmacyLogoName = PharmacyLogoURL+pharmacyLogoName;
     }
 
-
-    public String getStatus() {
-        return status;
+    public void setBranchID(String branchID) {
+        BranchID = branchID;
     }
 
+    public void setBranchName(String branchName) {
+        BranchName = branchName;
+    }
+    private String  PharmacyLogoURL;
+    private String DateTimeStamp;
+    private String TotalPrice;
+    private String StatusID;
+    private String OrderStatus;
+    private String PharmacyID;
+    private String PharmacyName;
+    private String PharmacyLogoName;
+    private String BranchID;
+    private String BranchName;
 
-    public void setStatus( String status) {
-        this.status = status;
+
+    public String getPharmacyLogoURL() {
+        return PharmacyLogoURL;
     }
 
-    public String getNote() {
-        return note;
+    public void setPharmacyLogoURL(String pharmacyLogoURL) {
+        PharmacyLogoURL = pharmacyLogoURL;
     }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public String getOrderPath() {
-        return orderPath;
-    }
-
-    public void setOrderPath(String orderPath) {
-        this.orderPath = orderPath;
-    }
-
-    public String getSellerNote() {
-        return sellerNote;
-    }
-
-    public void setSellerNote(String sellerNote) {
-        this.sellerNote = sellerNote;
-    }
-
-/*    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }*/
-
-    @Override
-    public boolean equals(Object o) {
-        return (o instanceof Order) && this.getOrderId().equals(((Order) o).getOrderId());
-    }
-
 }

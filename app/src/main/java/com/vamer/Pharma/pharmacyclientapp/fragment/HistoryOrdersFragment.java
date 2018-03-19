@@ -24,6 +24,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -32,18 +37,28 @@ import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.vamer.Pharma.pharmacyclientapp.AppController;
 import com.vamer.Pharma.pharmacyclientapp.OrdersListing.OrdersAdapter;
 import com.vamer.Pharma.pharmacyclientapp.R;
 import com.vamer.Pharma.pharmacyclientapp.activities.HomeActivity;
 import com.vamer.Pharma.pharmacyclientapp.model.CenterRepository;
 import com.vamer.Pharma.pharmacyclientapp.model.Order;
 import com.vamer.Pharma.pharmacyclientapp.model.Product;
+import com.vamer.Pharma.pharmacyclientapp.util.AppConstants;
+import com.vamer.Pharma.pharmacyclientapp.util.PreferenceHelper;
 import com.vamer.Pharma.pharmacyclientapp.util.Utils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import es.dmoral.toasty.Toasty;
 import io.rmiri.skeleton.Master.IsCanSetAdapterListener;
 
 /**
@@ -52,13 +67,16 @@ import io.rmiri.skeleton.Master.IsCanSetAdapterListener;
 public class HistoryOrdersFragment extends Fragment {
     private RecyclerView reViewOdrers;
     // private List<Order> orderItem;
-    private OrdersAdapter ordersAdapter;
-    private ArrayList<Order> orderItem = new ArrayList<>();
+    //private OrdersAdapter ordersAdapter;
+    RecyclerView recyclerView;
+    private ArrayList<Order> orderItems = new ArrayList<>();
     private boolean doubleBackToExitPressedOnce;
     private BoomMenuButton bmb;
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
     private Uri mCapturedImageURI;
+    OrdersAdapter ordersAdapter;
+    PreferenceHelper pr;
     private final Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
@@ -72,31 +90,35 @@ public class HistoryOrdersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_order_list, container, false);
 
-
-        DrawerLayout mDrawerLayout=getActivity().findViewById(R.id.nav_drawer);
+        pr = PreferenceHelper.getPrefernceHelperInstace();
+        DrawerLayout mDrawerLayout = getActivity().findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        initateBoomMenu(view);
+
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.anim_toolbar);
         AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
         params.setScrollFlags(0);  // clear all scroll flags
         ((HomeActivity) getActivity()).setSupportActionBar(toolbar);
         ((HomeActivity) getActivity()).getSupportActionBar()
                 .setDisplayHomeAsUpEnabled(true);
-      //  toolbar.setNavigationIcon(R.drawable.ic_action_keyboard_backspace);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+        recyclerView = view.findViewById(R.id.order_list);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+
+        // Set adapter in recyclerView
+        ordersAdapter = new OrdersAdapter(getActivity(), orderItems, recyclerView, new IsCanSetAdapterListener() {
             @Override
-            public void onClick(View v) {
-             /*   Utils.switchFragmentWithAnimation(
-                        R.id.frag_container,
-                        new PlaceOrderFragment(),
-                        ((HomeActivity) getActivity()), Utils.PLACE_ORDER_FRAGMENT,
-                        Utils.AnimationType.SLIDE_LEFT);*/
-             getActivity().onBackPressed();
+            public void isCanSet() {
+                recyclerView.setAdapter(ordersAdapter);
+
             }
-
         });
+        //  toolbar.setNavigationIcon(R.drawable.ic_action_keyboard_backspace);
+        // ordersAdapter = new OrdersAdapter(getActivity(), orderItems,
 
+        getCurrentOrders();
 
         view.setFocusableInTouchMode(true);
         view.requestFocus();
@@ -104,7 +126,35 @@ public class HistoryOrdersFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-             getActivity().onBackPressed();
+             /*   if (event.getAction() == KeyEvent.ACTION_UP
+                        && keyCode == KeyEvent.KEYCODE_BACK) {
+
+                    if (doubleBackToExitPressedOnce) {
+                        // super.onBackPressed();
+
+                        if (mHandler != null) {
+                            mHandler.removeCallbacks(mRunnable);
+                        }
+
+                        getActivity().finish();
+
+                        return true;
+                    }
+
+                    doubleBackToExitPressedOnce = true;
+
+                    Utils.switchFragmentWithAnimation(
+                            R.id.frag_container,
+                            new PlaceOrderFragment(),
+                            ((HomeActivity) getActivity()), null,
+                            Utils.AnimationType.SLIDE_LEFT);
+
+
+                    mHandler.postDelayed(mRunnable, 2000);
+
+                }
+                return true;*/
+                getActivity().onBackPressed();
                 return true;
             }
         });
@@ -112,12 +162,14 @@ public class HistoryOrdersFragment extends Fragment {
 
 
     }
+
     @Override
     public void onResume() {
         super.onResume();
         LinearLayout linearLayOut_CheckOut = getActivity().findViewById(R.id.linearLayOut_CheckOut);
         linearLayOut_CheckOut.setVisibility(View.INVISIBLE);
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
@@ -125,50 +177,12 @@ public class HistoryOrdersFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         reViewOdrers.setLayoutManager(llm);
         reViewOdrers.setHasFixedSize(true);
-        Order a = new Order();
-        a.setOrderId("44555");
-        a.setDate("10");
-        a.setMonth("May");
-        a.setPrice(Double.valueOf(2.2));
-        a.setStatus("0");
-        orderItem.add(a);
-        Order b = new Order();
-        b.setOrderId("44555");
-        b.setDate("10");
-        b.setMonth("June");
-        b.setPrice(Double.valueOf(2.2));
-        b.setStatus("1");
-        orderItem.add(b);
-
-        Order c = new Order();
-        Order d = new Order();
-        Order e = new Order();
-
-        c.setOrderId("44555");
-        c.setDate("10");
-        c.setMonth("May");
-        c.setPrice(Double.valueOf(2.2));
-        c.setStatus("1");
-        orderItem.add(c);
-        d.setOrderId("44555");
-        d.setDate("10");
-        d.setMonth("May");
-        d.setPrice(Double.valueOf(2.2));
-        d.setStatus("0");
-        orderItem.add(d);
-        e.setOrderId("44555");
-        e.setDate("10");
-        e.setMonth("May");
-        e.setPrice(Double.valueOf(2.2));
-        e.setStatus("0");
-        orderItem.add(e);
-        initializeAdapter();
+        // initializeAdapter();
 
     }
 
     private void initializeAdapter() {
-
-        ordersAdapter = new OrdersAdapter(getActivity(), orderItem, reViewOdrers, new IsCanSetAdapterListener() {
+        ordersAdapter = new OrdersAdapter(getActivity(), orderItems, reViewOdrers, new IsCanSetAdapterListener() {
             @Override
             public void isCanSet() {
                 reViewOdrers.setAdapter(ordersAdapter);
@@ -176,13 +190,14 @@ public class HistoryOrdersFragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case RESULT_LOAD_IMAGE:
                 if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
-                    Toast.makeText(getActivity(),"Prescription Added Successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Prescription Added Successfully", Toast.LENGTH_LONG).show();
                     Uri selectedImage = data.getData();
                     String[] filePathColumn = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
@@ -190,7 +205,7 @@ public class HistoryOrdersFragment extends Fragment {
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String picturePath = cursor.getString(columnIndex);
                     cursor.close();
-                    Product product=new Product("2","Prescription","Prescription","Prescrption","","","","",picturePath,"");
+                    Product product = new Product("2", "Prescription", "Prescription", "Prescrption", "", "", "", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -199,13 +214,13 @@ public class HistoryOrdersFragment extends Fragment {
                 }
             case REQUEST_IMAGE_CAPTURE:
                 if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-                    Toast.makeText(getActivity(),"Prescription Added Successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Prescription Added Successfully", Toast.LENGTH_LONG).show();
                     String[] projection = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getActivity().managedQuery(mCapturedImageURI, projection, null, null, null);
                     int column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                     cursor.moveToFirst();
                     String picturePath = cursor.getString(column_index_data);
-                    Product product=new Product("2","Prescription","Prescription","Prescrption","0","0","0","",picturePath,"");
+                    Product product = new Product("2", "Prescription", "Prescription", "Prescrption", "0", "0", "0", "", picturePath, "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
@@ -230,7 +245,7 @@ public class HistoryOrdersFragment extends Fragment {
         });
 
         for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
-            if(i==0){
+            if (i == 0) {
                 HamButton.Builder builder = new HamButton.Builder()
                         .listener(new OnBMClickListener() {
                             @Override
@@ -243,8 +258,7 @@ public class HistoryOrdersFragment extends Fragment {
                         .subNormalTextRes(R.string.upload_prescriptin);
 
                 bmb.addBuilder(builder);
-            }
-            else if(i==1){
+            } else if (i == 1) {
                 HamButton.Builder builder = new HamButton.Builder()
                         .listener(new OnBMClickListener() {
                             @Override
@@ -257,8 +271,7 @@ public class HistoryOrdersFragment extends Fragment {
                         .subNormalTextRes(R.string.record_voice);
 
                 bmb.addBuilder(builder);
-            }
-            else {
+            } else {
                 HamButton.Builder builder = new HamButton.Builder()
                         .listener(new OnBMClickListener() {
                             @Override
@@ -275,6 +288,91 @@ public class HistoryOrdersFragment extends Fragment {
         }
     }
 
+    public void getCurrentOrders() {
+        //   final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        //  progressDialog.setMessage(getResources().getString(R.string.pleasewait));
+        // progressDialog.setCancelable(false);
+        // progressDialog.show();
+        Map<String, String> postParam = new HashMap<String, String>();
+        postParam.put("CustomerToken", pr.getString(getActivity(), PreferenceHelper.CUSTOMER_TOKEN, ""));
+        postParam.put("OrdersType", "0");
+        postParam.put("Lang", "AR");
+
+        // postParam.put("GPS_Longitude", GPS_Longitude);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, AppConstants.API_BASE_URL + "order/GetMyOrders", new JSONObject(postParam),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // progressDialog.dismiss();
+                        try {
+                            String Status = response.getString("Status");
+                            if (Status.equals(AppConstants.success)) {
+
+                                JSONObject jsonObject = response.getJSONObject("Result");
+                                JSONArray jsonArray = jsonObject.getJSONArray("OrdersList");
+
+                                orderItems.clear();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+
+                                    JSONObject mjsonObject = jsonArray.getJSONObject(i);
+                                    Order order = new Order();
+                                    order.setPharmacyLogoURL(jsonObject.getString("PharmacyLogoURL"));
+                                    order.setOrderID(String.valueOf(mjsonObject.getInt("OrderID")));
+                                    order.setDateTimeStamp(mjsonObject.getString("DateTimeStamp"));
+                                    order.setTotalPrice(String.valueOf(mjsonObject.getInt("TotalPrice")));
+                                    order.setStatusID(String.valueOf(mjsonObject.getInt("StatusID")));
+                                    order.setOrderStatus(mjsonObject.getString("OrderStatus"));
+                                    order.setPharmacyID(String.valueOf(mjsonObject.getString("PharmacyID")));
+                                    order.setPharmacyName(mjsonObject.getString("PharmacyName"));
+                                    order.setPharmacyLogoName(mjsonObject.getString("PharmacyLogoName"));
+                                    order.setPharmacyName(mjsonObject.getString("PharmacyName"));
+                                    order.setBranchID(String.valueOf(mjsonObject.getInt("BranchID")));
+                                    order.setBranchName(mjsonObject.getString("BranchName"));
+
+                                    orderItems.add(order);
+                                }
+                                ordersAdapter.addMoreDataAndSkeletonFinish(orderItems);
+
+                                //   locationAdapter.notifyDataSetChanged();
+                                //  LocationsRecylcerview.setAdapter(locationAdapter);
+
+                            } else {
+                                Toast.makeText(getActivity(), "There is an error try again later ", Toast.LENGTH_SHORT).show();
+                            }
+                            //Todo
+                            // saveUserData(Result.getString("MobNo"),Result.getString("Name"),Result.getString("Token"),Result.getString("Gender"));
+
+                            // Toasty.error(LoginOrRegisterActivity.this,getResources().getString(R.string.verification_code_not_sent) , Toast.LENGTH_SHORT, true).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //progressDialog.dismiss();
+                Toasty.error(getActivity(), error.toString(), Toast.LENGTH_SHORT, true).show();
+            }
+        }) {
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Basic YWhtZWQ6YWhtZWQ=");
+                return headers;
+            }
+        };
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "tag");
+    }
+
+
     public void recordSound() {
         Utils.switchFragmentWithAnimation(R.id.frag_container,
                 new CurrentRecordFragment(),
@@ -283,7 +381,7 @@ public class HistoryOrdersFragment extends Fragment {
 
 
 		/*DialogPlus dialog = DialogPlus.newDialog(getActivity())
-				.setContentHolder(new ViewHolder(R.layout.record))
+                .setContentHolder(new ViewHolder(R.layout.record))
 				.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(DialogPlus dialog, View view) {
@@ -294,14 +392,14 @@ public class HistoryOrdersFragment extends Fragment {
 								// TODO Auto-generated method stub
 								switch(event.getAction()){
 									*//*case MotionEvent.ACTION_DOWN:
-										AppLog.logString("Start Recording");
+                                        AppLog.logString("Start Recording");
 										startRecording();
 										break;
 									case MotionEvent.ACTION_UP:
 										AppLog.logString("stop Recording");
 										stopRecording();
 										break;*//*
-								}
+                                }
 								return false;
 							}
 						});
@@ -339,26 +437,27 @@ public class HistoryOrdersFragment extends Fragment {
     }
 
 
-    public void WriteText(){
+    public void WriteText() {
         final DialogPlus dialog = DialogPlus.newDialog(getActivity())
                 .setContentHolder(new ViewHolder(R.layout.write_text_dialog))
                 .setExpanded(true)  // This will enable the expand feature, (similar to android L share dialog)
                 .create();
         dialog.show();
-        final EditText textToPrescription=(EditText) dialog.findViewById(R.id.textToPrescription);
-        final Button btnAddTextToPrescription=(Button) dialog.findViewById(R.id.btnAddTextToPrescription);
+        final EditText textToPrescription = (EditText) dialog.findViewById(R.id.textToPrescription);
+        final Button btnAddTextToPrescription = (Button) dialog.findViewById(R.id.btnAddTextToPrescription);
         btnAddTextToPrescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!textToPrescription.getText().toString().equals("")) {
+                if (!textToPrescription.getText().toString().equals("")) {
                     dialog.dismiss();
-                    Product product = new Product("4","TextNote",textToPrescription.getText().toString() , "Prescrption", "", "", "", "", "", "");
+                    Product product = new Product("4", "TextNote", textToPrescription.getText().toString(), "Prescrption", "", "", "", "", "", "");
                     CenterRepository.getCenterRepository()
                             .getListOfProductsInShoppingList().add(product);
                     ((HomeActivity) getContext())
                             .updateItemCount(true);
+                } else {
+                    Toast.makeText(getActivity(), "You have to enter Your medicine text", Toast.LENGTH_SHORT).show();
                 }
-                else {Toast.makeText(getActivity(),"You have to enter Your medicine text",Toast.LENGTH_SHORT).show();}
             }
         });
     }
@@ -372,7 +471,7 @@ public class HistoryOrdersFragment extends Fragment {
         dialog.show();
 
 
-        Button btnChoosePath= (Button) dialog.findViewById(R.id.btnChoosePath);
+        Button btnChoosePath = (Button) dialog.findViewById(R.id.btnChoosePath);
         btnChoosePath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -380,7 +479,7 @@ public class HistoryOrdersFragment extends Fragment {
                 activeGallery();
             }
         });
-        Button btnTakePhoto=(Button) dialog.findViewById(R.id.btnTakePhoto);
+        Button btnTakePhoto = (Button) dialog.findViewById(R.id.btnTakePhoto);
         btnTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -389,10 +488,12 @@ public class HistoryOrdersFragment extends Fragment {
             }
         });
     }
+
     private void activeGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, RESULT_LOAD_IMAGE);
     }
+
     private void activeTakePhoto() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
