@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "984559924239",
-    "firebase_url": "https://mobipharmacy-193908.firebaseio.com",
-    "project_id": "mobipharmacy-193908",
-    "storage_bucket": "mobipharmacy-193908.appspot.com"
+    "project_number": "230649616633",
+    "firebase_url": "https://dawadoz-e120f.firebaseio.com",
+    "project_id": "dawadoz-e120f",
+    "storage_bucket": "dawadoz-e120f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:984559924239:android:b6fd176a8cc24a78",
+        "mobilesdk_app_id": "1:230649616633:android:d6d14421fb339ba8",
         "android_client_info": {
-          "package_name": "com.vamer.Pharma.pharmacyclientapp"
+          "package_name": "com.godevx.dawadoz"
         }
       },
       "oauth_client": [
         {
-          "client_id": "984559924239-qm33aokp7rq77la0o6otkqi5uvvl4usb.apps.googleusercontent.com",
+          "client_id": "230649616633-4546m577mqdb3ht7uu7394k5i01un7b9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDMGGbUb9nvcAR_QEsDl6TEn9mNgGVj5L4"
+          "current_key": "AIzaSyAGavYCyxuGhDY3RG0HSGlBAOv3alwN58U"
         }
       ],
       "services": {

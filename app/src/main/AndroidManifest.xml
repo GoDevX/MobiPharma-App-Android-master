@@ -6,7 +6,7 @@
   ~  Written by Hitesh Sahu <hiteshkrsahu@Gmail.com>, 2017.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vamer.Pharma.pharmacyclientapp">
+    package="com.godevx.dawadoz">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -31,19 +31,19 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name=".AppController"
+        android:name="com.godevx.dawadoz.pharmacyclientapp.AppController"
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
         <!-- Firebase Notifications -->
-        <service android:name="com.vamer.Pharma.firebasenotifications.service.MyFirebaseMessagingService">
+        <service android:name="com.godevx.dawadoz.firebasenotifications.service.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.vamer.Pharma.firebasenotifications.service.MyFirebaseInstanceIDService">
+        <service android:name="com.godevx.dawadoz.firebasenotifications.service.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
@@ -58,42 +58,42 @@
 
         <activity
        android:windowSoftInputMode="adjustPan"
-            android:name=".activities.HomeActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WelcomeScreenActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.WelcomeScreenActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.LoginOrRegisterActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.LoginOrRegisterActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.CompleteProfileActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.CompleteProfileActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.ConfirmLocation"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.ConfirmLocation"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.CurrentLocationActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.CurrentLocationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".activities.GetNearPharmacies"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.GetNearPharmacies"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.PickMarketPlaceAddressActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.PickMarketPlaceAddressActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.SavedLocations"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.SavedLocations"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.ActivationCodeActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.ActivationCodeActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.vamer.Pharma.firebasenotifications.activity.MainActivity"
+            android:name="com.godevx.dawadoz.firebasenotifications.activity.MainActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="com.godevx.dawadoz.pharmacyclientapp.activities.SplashActivity"
             android:noHistory="true"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
@@ -105,7 +105,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.vamer.Pharma.soundrecorder.fileprovider"
+            android:authorities="com.godevx.dawadoz.soundrecorder.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -113,9 +113,9 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
-        <service android:name="com.vamer.Pharma.soundrecorder.RecordingService" />
+        <service android:name="com.godevx.dawadoz.soundrecorder.RecordingService" />
 
-        <activity android:name=".activities.OrderSuccessActivity"></activity>
+        <activity android:name="com.godevx.dawadoz.pharmacyclientapp.activities.OrderSuccessActivity"></activity>
     </application>
 
 </manifest>

@@ -133,6 +133,9 @@
     <string name="order_submitted">Order Submitted Successfully . </string>
     <string name="order_not_submitted">Order Not Submitted  . </string>
 
+    <string name="order_canceled">Order Canceled Successfully . </string>
+    <string name="order_not_canceled">Order Not Canceld  . </string>
+
     <string name="error_location_empty">Location Not Selected From List . </string>
     <string name="insert_location_name">Please Insert Your Location Name. </string>
     <string name="select_location_form_list">Please Select Location From List. </string>
@@ -190,7 +193,7 @@
     <string name="lab_locations">Locations</string>
     <string name="pune">Pune</string>
     <string name="address_value">C 1002, Lorelle Socity Wakad Pune</string>
-    <string name="app_name">MobiPharma</string>
+    <string name="app_name">DawaDoz</string>
     <string name="upload_prescription">Upload Prescription</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -200,13 +203,20 @@
     <string name="action_search">Search</string>
     <string name="action_cart">Cart</string>
     <string name="action_notifications">Notifications</string>
+    <!--Order Status -->
+    <string name="SentToPharmacyStatus">1</string>
+    <string name="UnderProcessingStatus">2</string>
+    <string name="NotDeliveredStatus">5</string>
+    <string name="DeliveredStatus">4</string>
+    <string name="OnDeliveryStatus">3</string>
+    <string name="CancelledStatus">6</string>
 
-    <string name="item_1">Offers</string>
-    <string name="item_2">Electronics</string>
-    <string name="item_3">Lifestyle</string>
-    <string name="item_4">Home Appliances</string>
-    <string name="item_5">Books \u0026 More</string>
-    <string name="item_6">More</string>
+
+
+    <!--Current Or History Orders Status -->
+
+    <string name="CurrentOrders">0</string>
+    <string name="HistoryOrders">1</string>
 
     <string name="my_profile">My Profile</string>
     <string name="my_rewards">My Rewards</string>
@@ -274,6 +284,7 @@
     <string name="Building_number_error">Please Enter Your Building Number.</string>
     <string name="Category">Categories</string>
     <string name="Orders">Orders</string>
+    <string name="OrderDetails">Order Details</string>
 
     <string name="no_data_available">No Results Found.</string>
 

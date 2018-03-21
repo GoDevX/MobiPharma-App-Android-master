@@ -18,7 +18,7 @@ android {
         checkReleaseBuilds false
     }
     defaultConfig {
-        applicationId "com.vamer.Pharma.pharmacyclientapp"
+        applicationId "com.godevx.dawadoz"
         minSdkVersion 17
         targetSdkVersion 27
         multiDexEnabled true
@@ -39,7 +39,7 @@ dependencies {
     compile 'com.github.GrenderG:Toasty:1.2.8'
     compile 'com.github.Cielsk:clearable-edittext:0.0.3'
     implementation 'ru.alexbykov:nopaginate:0.4.4'
-
+    compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
     compile 'com.github.ceryle:RadioRealButton:v2.1.1'
     compile 'com.github.aakira:expandable-layout:1.6.0@aar'
     compile 'me.omidh:liquidradiobutton:1.0.01'

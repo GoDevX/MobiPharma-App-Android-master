@@ -30,7 +30,7 @@
         android:textColor="@color/holo_gray_dark"
         android:textSize="18sp" />
 
-    <com.vamer.Pharma.pharmacyclientapp.view.customview.ClickableViewPager
+    <com.godevx.dawadoz.pharmacyclientapp.view.customview.ClickableViewPager
         android:id="@+id/play_list_pager"
         android:layout_width="match_parent"
         android:layout_height="280dp"

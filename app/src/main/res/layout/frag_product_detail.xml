@@ -162,7 +162,7 @@
             android:textColor="#000"
             android:textSize="20sp" />
 
-        <com.vamer.Pharma.pharmacyclientapp.view.customview.ClickableViewPager
+        <com.godevx.dawadoz.pharmacyclientapp.view.customview.ClickableViewPager
 
             android:id="@+id/similar_products_pager"
 
@@ -191,7 +191,7 @@
             android:textColor="#000"
             android:textSize="20sp" />
 
-        <com.vamer.Pharma.pharmacyclientapp.view.customview.ClickableViewPager
+        <com.godevx.dawadoz.pharmacyclientapp.view.customview.ClickableViewPager
             android:id="@+id/top_selleing_pager"
             android:layout_width="match_parent"
             android:layout_height="280dp"
