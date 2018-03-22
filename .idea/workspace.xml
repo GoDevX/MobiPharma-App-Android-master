@@ -25,90 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d0633df-6711-4f46-b0c9-2f40c28f9592" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/OrdersListing/OrdersAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/BuilderManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/ConfirmLocation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/GetNearPharmacies.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/HomeActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/OrderSuccessActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/SavedLocations.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/activities/SplashActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/CategoryListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/ItemTouchHelperAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/PharmacyAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/ProductListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/ProductsInCategoryPagerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/ShoppingListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/SimilarProductsPagerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/adapter/SingleCheckAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/api/ProductCategoryLoaderTask.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/api/ProductLoaderTask.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/helper/Connectivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/helper/NetworkConstants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/mining/AprioriFrequentItemsetGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/mining/FrequentItemsetData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/domain/mock/FakeWebServer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CategoryFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ContactUsFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CurrentOrdersFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/CurrentRecordFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/FileViewerFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/FragmentMainOrders.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/HistoryOrdersFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/LicensesFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/MyCartFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/PlaceOrderFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/PlaybackFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductDetailsFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductListFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/ProductOverviewFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/RecordFragmentDialog.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/SearchProductFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/fragment/SettingsFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/CenterRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/Customer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/ImagePrescription.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/Location.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/Money.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/Order.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/Pharmacy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/Product.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/ProductCategoryModel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/model/ProductModel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/tabs/Page1Fragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/tabs/Page2Fragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/tabs/Page3Fragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/Animatrix.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/AppConstants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/ColorGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/EndlessRecyclerOnScrollListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/FontText.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/GPSTracker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/PreferenceHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/TinyDB.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/util/Utils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/ClickableViewPager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/HidingScrollListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/ItemTouchHelperAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/ItemTouchHelperViewHolder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/LabelView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/MathUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/OnStartDragListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/ScrollableViewHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/SimpleItemTouchHelperCallback.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/SimpleViewAnimator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/TextDrawable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/pharmacyclientapp/view/customview/ViewDragHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/DBHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/MySharedPreferences.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/RecordingItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/RecordingService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/activities/MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/activities/SettingsActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/adapters/FileViewerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/fragments/SettingsFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/vamer/Pharma/soundrecorder/listeners/OnDatabaseChangedListener.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/bottombar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bottombar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_place_order.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_place_order.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -169,28 +88,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyFirebaseInstanceIDService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/firebasenotifications/service/MyFirebaseInstanceIDService.java">
+      <file leaf-file-name="OrderDetailsFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="37" column="59" lean-forward="false" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
+            <state relative-caret-position="186">
+              <caret line="219" column="0" lean-forward="false" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5618#5899#0" expanded="true" />
+                <element signature="e#5898#5899#0" expanded="true" />
+                <element signature="e#5946#7263#0" expanded="true" />
+                <element signature="e#6770#6799#0" expanded="true" />
+                <element signature="e#7262#7263#0" expanded="true" />
+                <element signature="e#8489#10125#0" expanded="true" />
+                <element signature="e#10124#10125#0" expanded="true" />
+                <element signature="e#10757#10773#0" expanded="true" />
+                <element signature="e#19553#19569#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CurrentOrdersFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ItemsInOrderDetailsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/ItemsInOrderDetailsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <folding>
+                <marker date="1521656848739" expanded="false" signature="11124:11219" ph="(v) → {" />
+                <marker date="1521656848739" expanded="false" signature="12331:12350" ph="}" />
+                <marker date="1521656848739" expanded="false" signature="18896:18911" ph=" { " />
+                <marker date="1521656848739" expanded="false" signature="18953:18963" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductDetailsFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="719" column="42" lean-forward="false" selection-start-line="719" selection-start-column="42" selection-end-line="719" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_order_details.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_order_details.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="240" column="37" lean-forward="false" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CurrentOrdersFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/CurrentOrdersFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+            <state relative-caret-position="-21">
+              <caret line="330" column="53" lean-forward="false" selection-start-line="330" selection-start-column="53" selection-end-line="330" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4080#5603#0" expanded="true" />
+                <element signature="e#5602#5603#0" expanded="true" />
                 <element signature="method#onViewCreated#0;class#CurrentOrdersFragment#0" expanded="false" />
                 <element signature="method#onActivityResult#0;class#CurrentOrdersFragment#0" expanded="false" />
                 <element signature="method#initateBoomMenu#0;class#CurrentOrdersFragment#0" expanded="false" />
+                <element signature="e#13918#13934#0" expanded="true" />
                 <element signature="method#recordSound#0;class#CurrentOrdersFragment#0" expanded="false" />
                 <element signature="method#WriteText#0;class#CurrentOrdersFragment#0" expanded="false" />
                 <element signature="method#uploadPrescription#0;class#CurrentOrdersFragment#0" expanded="false" />
@@ -204,32 +173,13 @@
       <file leaf-file-name="HistoryOrdersFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/HistoryOrdersFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4267">
+            <state relative-caret-position="242">
               <caret line="321" column="0" lean-forward="false" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
               <folding>
-                <element signature="method#onOptionsItemSelected#0;class#HomeActivity#0" expanded="false" />
-                <element signature="method#showPurchaseDialog#0;class#HomeActivity#0" expanded="false" />
+                <element signature="e#4987#5457#0" expanded="true" />
+                <element signature="e#5456#5457#0" expanded="true" />
+                <element signature="e#13119#13135#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyFirebaseMessagingService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/firebasenotifications/service/MyFirebaseMessagingService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -237,7 +187,7 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2907">
+            <state relative-caret-position="259">
               <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -264,10 +214,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>click</find>
-      <find>btnCancelOrder</find>
-      <find>bac</find>
-      <find>switchContent</find>
       <find>rs</find>
       <find>switv h</find>
       <find>switv</find>
@@ -294,6 +240,10 @@
       <find>PreferenceHelper.CUSTOMER_FIRE_BASE_TOKEN</find>
       <find>onres</find>
       <find>mRegistrationBroadcastReceiver</find>
+      <find>cart_badge</find>
+      <find>resume</find>
+      <find>btnCallPharmacy</find>
+      <find>drawable</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -2046,10 +1996,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/soundrecorder/activities/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/soundrecorder/fragments/SettingsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/BuilderManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/CompleteProfileActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/firebasenotifications/util/NotificationUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/ConfirmLocation.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/CurrentLocationActivity.java" />
@@ -2057,7 +2003,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/GetNearPharmacies.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/PharmacyAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/Utils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/ProductListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/LoginOrRegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/OrderSuccessActivity.java" />
@@ -2075,7 +2020,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/CategoryFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/domain/api/ProductCategoryLoaderTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/AddOrderActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaybackFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/SettingsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/soundrecorder/activities/MainActivity.java" />
@@ -2092,11 +2036,17 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/RecyclerAddedItemsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/soundrecorder/adapters/FileViewerAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/firebasenotifications/app/Config.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/firebasenotifications/service/MyFirebaseMessagingService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_place_order.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/bottombar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/CurrentOrdersFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/HistoryOrdersFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java" />
       </list>
     </option>
   </component>
@@ -2241,6 +2191,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MobiPharma-App-Android-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MobiPharma-App-Android-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MobiPharma-App-Android-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MobiPharma-App-Android-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2620,7 +2626,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521706520866" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521713216171" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2668,7 +2674,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521706520866" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521713216171" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2700,6 +2706,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2830,7 +2857,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521706520867" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521713216172" />
       </method>
     </configuration>
     <list size="1">
@@ -3058,7 +3085,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521671278224</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Comitted by Khames">
+      <created>1521706530453</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1521706530453</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -3072,8 +3106,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27287582" sideWeight="0.3751891" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43948564" sideWeight="0.17184943" order="2" side_tool="true" content_ui="tabs" />
@@ -3081,21 +3116,22 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27287582" sideWeight="0.6248109" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.290469" sideWeight="0.49346405" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18954249" sideWeight="0.49394855" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08660131" sideWeight="0.48260212" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20915033" sideWeight="0.6043873" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0375817" sideWeight="0.6043873" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30635402" sideWeight="0.8281506" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2526475" sideWeight="0.8281506" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22844176" sideWeight="0.50653595" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27836612" sideWeight="0.38134205" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30555555" sideWeight="0.618003" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04738562" sideWeight="0.618003" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3104,7 +3140,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3207262" sideWeight="0.49346405" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4667171" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -3165,7 +3200,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>604</line>
+          <line>673</line>
           <properties class="com.godevx.dawadoz.pharmacyclientapp.fragment.PlaceOrderFragment" method="willBeDisplayed">
             <option name="EMULATED" value="true" />
           </properties>
@@ -3245,7 +3280,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>447</line>
+          <line>516</line>
           <properties class="com.godevx.dawadoz.pharmacyclientapp.fragment.PlaceOrderFragment" method="recordSound">
             <option name="EMULATED" value="true" />
           </properties>
@@ -3309,7 +3344,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>392</line>
+          <line>412</line>
           <properties method="onResponse">
             <option name="EMULATED" value="true" />
           </properties>
@@ -3317,79 +3352,79 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>413</line>
+          <line>482</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>577</line>
+          <line>646</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>578</line>
+          <line>647</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>580</line>
+          <line>649</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>582</line>
+          <line>651</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>583</line>
+          <line>652</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>584</line>
+          <line>653</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>587</line>
+          <line>656</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>589</line>
+          <line>658</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>590</line>
+          <line>659</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>591</line>
+          <line>660</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>592</line>
+          <line>661</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>593</line>
+          <line>662</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -5051,67 +5086,67 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>454</line>
+          <line>468</line>
           <properties />
           <option name="timeStamp" value="444" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>459</line>
+          <line>473</line>
           <properties />
           <option name="timeStamp" value="445" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>460</line>
+          <line>474</line>
           <properties />
           <option name="timeStamp" value="446" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>455</line>
+          <line>469</line>
           <properties />
           <option name="timeStamp" value="447" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>456</line>
+          <line>470</line>
           <properties />
           <option name="timeStamp" value="448" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>458</line>
+          <line>472</line>
           <properties />
           <option name="timeStamp" value="450" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>457</line>
+          <line>471</line>
           <properties />
           <option name="timeStamp" value="451" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>462</line>
+          <line>476</line>
           <properties />
           <option name="timeStamp" value="452" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>466</line>
+          <line>480</line>
           <properties />
           <option name="timeStamp" value="453" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>467</line>
+          <line>481</line>
           <properties />
           <option name="timeStamp" value="454" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>464</line>
+          <line>478</line>
           <properties />
           <option name="timeStamp" value="455" />
         </line-breakpoint>
@@ -5237,79 +5272,79 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>539</line>
+          <line>608</line>
           <properties />
           <option name="timeStamp" value="538" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>546</line>
+          <line>615</line>
           <properties />
           <option name="timeStamp" value="546" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>547</line>
+          <line>616</line>
           <properties />
           <option name="timeStamp" value="547" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>549</line>
+          <line>618</line>
           <properties />
           <option name="timeStamp" value="549" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>548</line>
+          <line>617</line>
           <properties />
           <option name="timeStamp" value="550" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>562</line>
+          <line>631</line>
           <properties />
           <option name="timeStamp" value="551" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>563</line>
+          <line>632</line>
           <properties />
           <option name="timeStamp" value="552" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>567</line>
+          <line>636</line>
           <properties />
           <option name="timeStamp" value="554" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>566</line>
+          <line>635</line>
           <properties />
           <option name="timeStamp" value="555" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>568</line>
+          <line>637</line>
           <properties />
           <option name="timeStamp" value="556" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>569</line>
+          <line>638</line>
           <properties />
           <option name="timeStamp" value="559" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>570</line>
+          <line>639</line>
           <properties />
           <option name="timeStamp" value="560" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>571</line>
+          <line>640</line>
           <properties />
           <option name="timeStamp" value="561" />
         </line-breakpoint>
@@ -5663,13 +5698,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>586</line>
+          <line>583</line>
           <properties />
           <option name="timeStamp" value="774" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>594</line>
+          <line>585</line>
           <properties />
           <option name="timeStamp" value="775" />
         </line-breakpoint>
@@ -6071,19 +6106,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>103</line>
+          <line>116</line>
           <properties />
           <option name="timeStamp" value="916" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>105</line>
+          <line>118</line>
           <properties />
           <option name="timeStamp" value="917" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java</url>
-          <line>106</line>
+          <line>119</line>
           <properties />
           <option name="timeStamp" value="918" />
         </line-breakpoint>
@@ -6437,97 +6472,97 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>657</line>
+          <line>726</line>
           <properties />
           <option name="timeStamp" value="1088" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>660</line>
+          <line>729</line>
           <properties />
           <option name="timeStamp" value="1089" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>662</line>
+          <line>731</line>
           <properties />
           <option name="timeStamp" value="1090" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>663</line>
+          <line>732</line>
           <properties />
           <option name="timeStamp" value="1091" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>664</line>
+          <line>733</line>
           <properties />
           <option name="timeStamp" value="1092" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>665</line>
+          <line>734</line>
           <properties />
           <option name="timeStamp" value="1094" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>666</line>
+          <line>735</line>
           <properties />
           <option name="timeStamp" value="1095" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>667</line>
+          <line>736</line>
           <properties />
           <option name="timeStamp" value="1096" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>669</line>
+          <line>738</line>
           <properties />
           <option name="timeStamp" value="1097" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>670</line>
+          <line>739</line>
           <properties />
           <option name="timeStamp" value="1098" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>672</line>
+          <line>741</line>
           <properties />
           <option name="timeStamp" value="1099" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>673</line>
+          <line>742</line>
           <properties />
           <option name="timeStamp" value="1100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>674</line>
+          <line>743</line>
           <properties />
           <option name="timeStamp" value="1101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>676</line>
+          <line>745</line>
           <properties />
           <option name="timeStamp" value="1102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>677</line>
+          <line>746</line>
           <properties />
           <option name="timeStamp" value="1103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java</url>
-          <line>678</line>
+          <line>747</line>
           <properties />
           <option name="timeStamp" value="1104" />
         </line-breakpoint>
@@ -7343,25 +7378,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>652</line>
+          <line>645</line>
           <properties />
           <option name="timeStamp" value="1331" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>653</line>
+          <line>646</line>
           <properties />
           <option name="timeStamp" value="1332" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>654</line>
+          <line>647</line>
           <properties />
           <option name="timeStamp" value="1333" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>655</line>
+          <line>648</line>
           <properties />
           <option name="timeStamp" value="1334" />
         </line-breakpoint>
@@ -7499,349 +7534,349 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>257</line>
+          <line>277</line>
           <properties />
           <option name="timeStamp" value="1366" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>258</line>
+          <line>278</line>
           <properties />
           <option name="timeStamp" value="1368" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>261</line>
+          <line>281</line>
           <properties />
           <option name="timeStamp" value="1369" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>264</line>
+          <line>284</line>
           <properties />
           <option name="timeStamp" value="1372" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>262</line>
+          <line>282</line>
           <properties />
           <option name="timeStamp" value="1373" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>263</line>
+          <line>283</line>
           <properties />
           <option name="timeStamp" value="1374" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>266</line>
+          <line>286</line>
           <properties />
           <option name="timeStamp" value="1375" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>267</line>
+          <line>287</line>
           <properties />
           <option name="timeStamp" value="1376" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>269</line>
+          <line>289</line>
           <properties />
           <option name="timeStamp" value="1377" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>251</line>
+          <line>271</line>
           <properties />
           <option name="timeStamp" value="1378" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>252</line>
+          <line>272</line>
           <properties />
           <option name="timeStamp" value="1379" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>253</line>
+          <line>273</line>
           <properties />
           <option name="timeStamp" value="1380" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>254</line>
+          <line>274</line>
           <properties />
           <option name="timeStamp" value="1381" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>270</line>
+          <line>290</line>
           <properties />
           <option name="timeStamp" value="1382" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>272</line>
+          <line>292</line>
           <properties />
           <option name="timeStamp" value="1384" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>271</line>
+          <line>291</line>
           <properties />
           <option name="timeStamp" value="1385" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>273</line>
+          <line>293</line>
           <properties />
           <option name="timeStamp" value="1386" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>274</line>
+          <line>294</line>
           <properties />
           <option name="timeStamp" value="1387" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>275</line>
+          <line>295</line>
           <properties />
           <option name="timeStamp" value="1388" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>276</line>
+          <line>296</line>
           <properties />
           <option name="timeStamp" value="1389" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>278</line>
+          <line>298</line>
           <properties />
           <option name="timeStamp" value="1390" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>279</line>
+          <line>299</line>
           <properties />
           <option name="timeStamp" value="1392" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>281</line>
+          <line>301</line>
           <properties />
           <option name="timeStamp" value="1393" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>280</line>
+          <line>300</line>
           <properties />
           <option name="timeStamp" value="1394" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>282</line>
+          <line>302</line>
           <properties />
           <option name="timeStamp" value="1395" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>289</line>
+          <line>309</line>
           <properties />
           <option name="timeStamp" value="1397" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>291</line>
+          <line>311</line>
           <properties />
           <option name="timeStamp" value="1398" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>293</line>
+          <line>313</line>
           <properties />
           <option name="timeStamp" value="1399" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>292</line>
+          <line>312</line>
           <properties />
           <option name="timeStamp" value="1400" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>297</line>
+          <line>317</line>
           <properties />
           <option name="timeStamp" value="1401" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>298</line>
+          <line>318</line>
           <properties />
           <option name="timeStamp" value="1402" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>301</line>
+          <line>321</line>
           <properties />
           <option name="timeStamp" value="1403" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>302</line>
+          <line>322</line>
           <properties />
           <option name="timeStamp" value="1405" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>303</line>
+          <line>323</line>
           <properties />
           <option name="timeStamp" value="1406" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>305</line>
+          <line>325</line>
           <properties />
           <option name="timeStamp" value="1407" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>306</line>
+          <line>326</line>
           <properties />
           <option name="timeStamp" value="1408" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>307</line>
+          <line>327</line>
           <properties />
           <option name="timeStamp" value="1409" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>314</line>
+          <line>334</line>
           <properties />
           <option name="timeStamp" value="1410" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>315</line>
+          <line>335</line>
           <properties />
           <option name="timeStamp" value="1413" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>316</line>
+          <line>336</line>
           <properties />
           <option name="timeStamp" value="1414" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>317</line>
+          <line>337</line>
           <properties />
           <option name="timeStamp" value="1415" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>319</line>
+          <line>339</line>
           <properties />
           <option name="timeStamp" value="1417" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>321</line>
+          <line>341</line>
           <properties />
           <option name="timeStamp" value="1418" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>320</line>
+          <line>340</line>
           <properties />
           <option name="timeStamp" value="1419" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>322</line>
+          <line>342</line>
           <properties />
           <option name="timeStamp" value="1420" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>323</line>
+          <line>343</line>
           <properties />
           <option name="timeStamp" value="1421" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>324</line>
+          <line>344</line>
           <properties />
           <option name="timeStamp" value="1422" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>325</line>
+          <line>345</line>
           <properties />
           <option name="timeStamp" value="1425" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>326</line>
+          <line>346</line>
           <properties />
           <option name="timeStamp" value="1426" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>332</line>
+          <line>352</line>
           <properties />
           <option name="timeStamp" value="1437" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>328</line>
+          <line>348</line>
           <properties />
           <option name="timeStamp" value="1438" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>329</line>
+          <line>349</line>
           <properties />
           <option name="timeStamp" value="1439" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>188</line>
+          <line>194</line>
           <properties />
           <option name="timeStamp" value="1441" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>189</line>
+          <line>195</line>
           <properties />
           <option name="timeStamp" value="1442" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>190</line>
+          <line>196</line>
           <properties />
           <option name="timeStamp" value="1443" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>191</line>
+          <line>197</line>
           <properties />
           <option name="timeStamp" value="1444" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>236</line>
+          <line>245</line>
           <properties />
           <option name="timeStamp" value="1450" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>334</line>
+          <line>354</line>
           <properties />
           <option name="timeStamp" value="1451" />
         </line-breakpoint>
@@ -7925,43 +7960,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>208</line>
+          <line>217</line>
           <properties />
           <option name="timeStamp" value="1465" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>212</line>
+          <line>221</line>
           <properties />
           <option name="timeStamp" value="1467" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>210</line>
+          <line>219</line>
           <properties />
           <option name="timeStamp" value="1469" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>213</line>
+          <line>222</line>
           <properties />
           <option name="timeStamp" value="1470" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>215</line>
+          <line>224</line>
           <properties />
           <option name="timeStamp" value="1471" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>216</line>
+          <line>225</line>
           <properties />
           <option name="timeStamp" value="1472" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>217</line>
+          <line>226</line>
           <properties />
           <option name="timeStamp" value="1473" />
         </line-breakpoint>
@@ -8021,7 +8056,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>331</line>
+          <line>351</line>
           <properties />
           <option name="timeStamp" value="1497" />
         </line-breakpoint>
@@ -8195,67 +8230,67 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>647</line>
+          <line>639</line>
           <properties />
           <option name="timeStamp" value="1534" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>646</line>
+          <line>638</line>
           <properties />
           <option name="timeStamp" value="1535" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>634</line>
+          <line>625</line>
           <properties />
           <option name="timeStamp" value="1538" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>635</line>
+          <line>626</line>
           <properties />
           <option name="timeStamp" value="1539" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>636</line>
+          <line>627</line>
           <properties />
           <option name="timeStamp" value="1540" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>637</line>
+          <line>628</line>
           <properties />
           <option name="timeStamp" value="1541" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>639</line>
+          <line>630</line>
           <properties />
           <option name="timeStamp" value="1543" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>640</line>
+          <line>631</line>
           <properties />
           <option name="timeStamp" value="1544" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>641</line>
+          <line>632</line>
           <properties />
           <option name="timeStamp" value="1545" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>642</line>
+          <line>633</line>
           <properties />
           <option name="timeStamp" value="1546" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
-          <line>643</line>
+          <line>635</line>
           <properties />
           <option name="timeStamp" value="1547" />
         </line-breakpoint>
@@ -8267,61 +8302,61 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>390</line>
+          <line>410</line>
           <properties />
           <option name="timeStamp" value="1550" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>391</line>
+          <line>411</line>
           <properties />
           <option name="timeStamp" value="1551" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>393</line>
+          <line>413</line>
           <properties />
           <option name="timeStamp" value="1553" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>394</line>
+          <line>414</line>
           <properties />
           <option name="timeStamp" value="1554" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>396</line>
+          <line>416</line>
           <properties />
           <option name="timeStamp" value="1555" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>397</line>
+          <line>417</line>
           <properties />
           <option name="timeStamp" value="1556" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>382</line>
+          <line>402</line>
           <properties />
           <option name="timeStamp" value="1557" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>383</line>
+          <line>403</line>
           <properties />
           <option name="timeStamp" value="1558" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>384</line>
+          <line>404</line>
           <properties />
           <option name="timeStamp" value="1559" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>386</line>
+          <line>406</line>
           <properties />
           <option name="timeStamp" value="1560" />
         </line-breakpoint>
@@ -8330,18 +8365,6 @@
           <line>198</line>
           <properties />
           <option name="timeStamp" value="1561" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/Utils.java</url>
-          <line>126</line>
-          <properties />
-          <option name="timeStamp" value="1567" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/Utils.java</url>
-          <line>127</line>
-          <properties />
-          <option name="timeStamp" value="1568" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/Utils.java</url>
@@ -8375,49 +8398,49 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>398</line>
+          <line>418</line>
           <properties />
           <option name="timeStamp" value="1574" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>399</line>
+          <line>419</line>
           <properties />
           <option name="timeStamp" value="1575" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>400</line>
+          <line>420</line>
           <properties />
           <option name="timeStamp" value="1576" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>402</line>
+          <line>422</line>
           <properties />
           <option name="timeStamp" value="1577" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>403</line>
+          <line>423</line>
           <properties />
           <option name="timeStamp" value="1578" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>404</line>
+          <line>424</line>
           <properties />
           <option name="timeStamp" value="1579" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>405</line>
+          <line>425</line>
           <properties />
           <option name="timeStamp" value="1581" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java</url>
-          <line>406</line>
+          <line>426</line>
           <properties />
           <option name="timeStamp" value="1582" />
         </line-breakpoint>
@@ -8511,67 +8534,24 @@
           <properties />
           <option name="timeStamp" value="1597" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
+          <line>640</line>
+          <properties />
+          <option name="timeStamp" value="1598" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java</url>
+          <line>642</line>
+          <properties />
+          <option name="timeStamp" value="1599" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1598" />
+      <option name="time" value="1600" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/WelcomeScreenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/CategoryListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/ItemsInOrderDetailsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding>
-            <marker date="1521656848739" expanded="false" signature="11124:11219" ph="(v) → {" />
-            <marker date="1521656848739" expanded="false" signature="12331:12350" ph="}" />
-            <marker date="1521656848739" expanded="false" signature="18896:18911" ph=" { " />
-            <marker date="1521656848739" expanded="false" signature="18953:18963" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/OrdersAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/ShoppingListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/DesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/soundrecorder/RecordingService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -8634,22 +8614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <element signature="e#6157#6182#0" expanded="true" />
-            <element signature="e#6615#6644#0" expanded="true" />
-            <element signature="e#10349#10365#0" expanded="true" />
-            <element signature="e#19145#19161#0" expanded="true" />
-            <element signature="e#19354#19404#0" expanded="true" />
-            <element signature="e#20136#20185#0" expanded="true" />
-            <element signature="e#21891#21944#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8757,6 +8721,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -8765,13 +8730,6 @@
         <state relative-caret-position="34">
           <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="199" column="38" lean-forward="false" selection-start-line="199" selection-start-column="38" selection-end-line="199" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -8835,16 +8793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2048">
-          <caret line="89" column="13" lean-forward="false" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/app/Instrumentation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -8863,6 +8811,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="5968" column="0" lean-forward="false" selection-start-line="5968" selection-start-column="0" selection-end-line="5968" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -8922,40 +8871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#tintMyDrawable#0;class#Utils#0" expanded="false" />
-            <element signature="method#getRealPathFromURI#0;class#Utils#0" expanded="false" />
-            <element signature="method#switchContent#0;class#Utils#0" expanded="false" />
-            <element signature="method#vibrate#0;class#Utils#0" expanded="false" />
-            <element signature="method#getVersion#0;class#Utils#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/HistoryOrdersFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4267">
-          <caret line="321" column="0" lean-forward="false" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding>
-            <element signature="method#onOptionsItemSelected#0;class#HomeActivity#0" expanded="false" />
-            <element signature="method#showPurchaseDialog#0;class#HomeActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/firebasenotifications/service/MyFirebaseMessagingService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
@@ -8974,21 +8889,188 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/CurrentOrdersFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/activities/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+        <state relative-caret-position="215">
+          <caret line="291" column="0" lean-forward="false" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
+          <folding>
+            <element signature="e#4651#5599#0" expanded="true" />
+            <element signature="e#5598#5599#0" expanded="true" />
+            <element signature="e#6236#6414#0" expanded="true" />
+            <element signature="e#6413#6414#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#HomeActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#HomeActivity#0" expanded="false" />
+            <element signature="method#showPurchaseDialog#0;class#HomeActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/PreferenceHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-367">
+          <caret line="46" column="35" lean-forward="false" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main_place_order.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="114" column="37" lean-forward="false" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
+          <folding>
+            <element signature="e#1291#1331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bottombar.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_place_order.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="217" column="31" lean-forward="false" selection-start-line="217" selection-start-column="18" selection-end-line="217" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/PlaceOrderFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="231" column="40" lean-forward="false" selection-start-line="231" selection-start-column="40" selection-end-line="231" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#newInstance#0;class#PlaceOrderFragment#0" expanded="false" />
+            <element signature="e#7331#7608#0" expanded="true" />
+            <element signature="e#7607#7608#0" expanded="true" />
+            <element signature="method#hideSoftKebad#0;class#PlaceOrderFragment#0" expanded="false" />
+            <element signature="method#initPlaceOrder#0;class#PlaceOrderFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#PlaceOrderFragment#0" expanded="false" />
+            <element signature="e#14409#14425#0" expanded="true" />
+            <element signature="e#14571#14604#0" expanded="true" />
+            <element signature="e#16568#16584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/OrderDetailsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="219" column="0" lean-forward="false" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5618#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
+            <element signature="e#5946#7263#0" expanded="true" />
+            <element signature="e#6770#6799#0" expanded="true" />
+            <element signature="e#7262#7263#0" expanded="true" />
+            <element signature="e#8489#10125#0" expanded="true" />
+            <element signature="e#10124#10125#0" expanded="true" />
+            <element signature="e#10757#10773#0" expanded="true" />
+            <element signature="e#19553#19569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/util/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#tintMyDrawable#0;class#Utils#0" expanded="false" />
+            <element signature="method#getRealPathFromURI#0;class#Utils#0" expanded="false" />
+            <element signature="method#switchContent#0;class#Utils#0" expanded="false" />
+            <element signature="method#vibrate#0;class#Utils#0" expanded="false" />
+            <element signature="method#getVersion#0;class#Utils#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_order_details.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="240" column="37" lean-forward="false" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/HistoryOrdersFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="321" column="0" lean-forward="false" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
+          <folding>
+            <element signature="e#4987#5457#0" expanded="true" />
+            <element signature="e#5456#5457#0" expanded="true" />
+            <element signature="e#13119#13135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/adapter/ItemsInOrderDetailsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <marker date="1521656848739" expanded="false" signature="11124:11219" ph="(v) → {" />
+            <marker date="1521656848739" expanded="false" signature="12331:12350" ph="}" />
+            <marker date="1521656848739" expanded="false" signature="18896:18911" ph=" { " />
+            <marker date="1521656848739" expanded="false" signature="18953:18963" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/CurrentOrdersFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="330" column="53" lean-forward="false" selection-start-line="330" selection-start-column="53" selection-end-line="330" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4080#5603#0" expanded="true" />
+            <element signature="e#5602#5603#0" expanded="true" />
             <element signature="method#onViewCreated#0;class#CurrentOrdersFragment#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#CurrentOrdersFragment#0" expanded="false" />
             <element signature="method#initateBoomMenu#0;class#CurrentOrdersFragment#0" expanded="false" />
+            <element signature="e#13918#13934#0" expanded="true" />
             <element signature="method#recordSound#0;class#CurrentOrdersFragment#0" expanded="false" />
             <element signature="method#WriteText#0;class#CurrentOrdersFragment#0" expanded="false" />
             <element signature="method#uploadPrescription#0;class#CurrentOrdersFragment#0" expanded="false" />
             <element signature="method#activeGallery#0;class#CurrentOrdersFragment#0" expanded="false" />
             <element signature="method#activeTakePhoto#0;class#CurrentOrdersFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/godevx/dawadoz/pharmacyclientapp/fragment/ProductDetailsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="719" column="42" lean-forward="false" selection-start-line="719" selection-start-column="42" selection-end-line="719" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

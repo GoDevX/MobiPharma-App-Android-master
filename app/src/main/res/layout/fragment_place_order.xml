@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/holo_gray_light"
-    tools:context="com.godevx.Pharma.pharmacyclientapp.activities.HomeActivity">
+   >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
