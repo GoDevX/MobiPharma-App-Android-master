@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
         app:title="Code Confirmation"
         app:titleTextColor="@android:color/white" />
 

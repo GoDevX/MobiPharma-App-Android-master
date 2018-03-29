@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
  >
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
-        app:title="Complete Profile"
-        android:supportsRtl="true"
-        app:titleTextColor="@android:color/white" />
     <LinearLayout
         android:padding="16dp"
         android:orientation="vertical"
@@ -30,12 +20,11 @@
         android:textStyle="bold" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/full_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
         <EditText
-            android:id="@+id/your_full_name"
+            android:id="@+id/full_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -50,14 +39,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp">
 
-        <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+        <EditText
             android:id="@+id/datePickerInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/select_date"
-            app:minDate="01/01/1900"
-            app:maxDate="01/01/2050"
-            app:dateFormat="yyyy/MM/dd"/>
+            android:focusableInTouchMode="false"
+            android:clickable="true"
+            />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -109,14 +98,34 @@
 
 
     </android.support.design.widget.TextInputLayout>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#b45705"
-        android:text="Done"
-        android:id="@+id/btnDone"
-        android:textColor="#fff" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_margin="10dp"
+                android:background="#b45705"
+                android:text="@string/dialog_action_ok"
+
+                android:id="@+id/btnOk"
+                android:textColor="#fff" />
+            <Button
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_margin="10dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#b45705"
+                android:text="@string/dialog_action_cancel"
+                android:id="@+id/btnCancel"
+                android:textColor="#fff" />
+        </LinearLayout>
+
 
     </LinearLayout>
 </LinearLayout>

@@ -83,7 +83,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services:11.8.0'
     compile 'com.jpardogo.materialtabstrip:library:1.0.6'
     compile 'com.melnykov:floatingactionbutton:1.1.0'
-
+    compile 'com.github.drawers:SpinnerDatePicker:1.0.6'
 
 }
 apply plugin: 'com.google.gms.google-services'

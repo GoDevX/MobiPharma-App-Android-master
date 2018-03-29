@@ -60,7 +60,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
                     android:layout_weight="1"
-                    android:gravity=""
                     android:padding="8dp">
 
 
@@ -82,24 +81,137 @@
 
                     </io.rmiri.skeleton.SkeletonView>
 
-
-                    <io.rmiri.skeleton.SkeletonView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_below="@+id/titleSkeleton"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="4dp"
-                        Skeleton:SK_cornerRadius="10dp">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/descriptionTv"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="start|center_vertical"
-                            android:text="Description"
-                            android:textColor="@color/textColorSecondary"
-                            android:textSize="14sp" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Duration"
+                                android:textColor="@color/textColorSecondary" />
+
+                            <io.rmiri.skeleton.SkeletonView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_weight="1"
+                                Skeleton:SK_cornerRadius="10dp">
+
+                                <TextView
+                                    android:id="@+id/DeliveryDuration"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start|center_vertical"
+                                    android:text="Description"
+                                    android:textColor="@color/textColorSecondary"
+                                    android:textSize="14sp" />
+
+                            </io.rmiri.skeleton.SkeletonView>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Distance"
+                                android:textColor="@color/textColorSecondary" />
+
+                            <io.rmiri.skeleton.SkeletonView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_weight="1"
+                                Skeleton:SK_cornerRadius="10dp">
+
+                                <TextView
+                                    android:id="@+id/Distance"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start|center_vertical"
+                                    android:text="Description"
+                                    android:textColor="@color/textColorSecondary"
+                                    android:textSize="14sp" />
+
+
+                            </io.rmiri.skeleton.SkeletonView>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="DeliveryZone"
+                                android:textColor="@color/textColorSecondary" />
+
+                            <io.rmiri.skeleton.SkeletonView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_weight="1"
+                                Skeleton:SK_cornerRadius="10dp">
+
+                                <TextView
+                                    android:id="@+id/DeliveryZone_KiloMeter"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start|center_vertical"
+                                    android:text="Description"
+                                    android:textColor="@color/textColorSecondary"
+                                    android:textSize="14sp" />
+
+                            </io.rmiri.skeleton.SkeletonView>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <io.rmiri.skeleton.SkeletonView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/addToParkingImgBtn"
+                        Skeleton:SK_cornerRadius="100dp">
+
+
+                        <RatingBar
+                            android:id="@+id/priceTv"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="20dp"
+                            android:gravity="end|center_vertical"
+                            android:text="000"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="20sp" />
+
 
                     </io.rmiri.skeleton.SkeletonView>
 
@@ -141,17 +253,8 @@
                 android:paddingBottom="4dp"
                 android:paddingEnd="8dp"
                 android:paddingStart="8dp"
-                android:paddingTop="4dp"
-                android:visibility="gone">
+                android:paddingTop="4dp">
 
-                <android.support.v7.widget.AppCompatImageButton
-                    android:id="@+id/addToParkingImgBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/compareImgBtn"
-                    android:background="@android:color/transparent"
-                    android:padding="8dp"
-                    app:srcCompat="@drawable/ic_favorite" />
 
                 <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/compareImgBtn"
@@ -163,42 +266,6 @@
                     app:srcCompat="@drawable/ic_compare" />
 
 
-                <io.rmiri.skeleton.SkeletonView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/addToParkingImgBtn"
-                    Skeleton:SK_cornerRadius="100dp">
-
-
-                    <RatingBar
-                        android:id="@+id/priceTv"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="20dp"
-                        android:gravity="end|center_vertical"
-                        android:text="000"
-                        android:textColor="@color/textColorPrimary"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/priceUnitTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toStartOf="@+id/priceTv"
-                        android:gravity="center"
-                        android:text=" $ "
-                        android:textColor="@color/textColorPrimary"
-                        android:textSize="20sp"
-                        android:visibility="gone" />
-
-
-                </io.rmiri.skeleton.SkeletonView>
             </RelativeLayout>
 
         </LinearLayout>

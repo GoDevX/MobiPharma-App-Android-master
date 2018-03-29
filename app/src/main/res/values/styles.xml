@@ -6,7 +6,7 @@
   ~  Written by Hitesh Sahu <hiteshkrsahu@Gmail.com>, 2017.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="MyTheme" parent="Base.MyTheme"></style>
 
@@ -37,7 +37,11 @@
         <item name="android:divider">@null</item>
         <item name="overlapAnchor">true</item>
     </style>
-
+    <style name="DatePickerSpinner">
+        <item name="android:textSize">22dp</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/colorAccent</item>
+    </style>
     <style name="CollapsedTitleSpaceFix" parent="Base.TextAppearance.AppCompat.Title">
         <item name="android:layout_marginTop">23dp</item>
     </style>
@@ -111,5 +115,11 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
+    <style name="MySpinnerDatePickerStyle" parent="android:Theme.Material.Dialog" tools:targetApi="lollipop">
+        <item name="android:datePickerStyle">@style/MySpinnerDatePicker</item>
+    </style>
 
+    <style name="MySpinnerDatePicker" parent="android:Widget.Material.DatePicker" tools:targetApi="lollipop">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
 </resources>

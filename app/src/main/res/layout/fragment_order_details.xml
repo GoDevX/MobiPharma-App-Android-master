@@ -54,7 +54,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="2"
                 android:src="@drawable/dawaa" />
-
             <RelativeLayout
                 android:id="@+id/top_icon_detail"
                 android:layout_width="0dp"
@@ -211,7 +210,12 @@
                     android:layout_alignParentRight="true"
 
                     android:orientation="horizontal">
-
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/btnReorder"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="ReOrder" />
                     <Button
                         android:layout_weight="1"
                         android:id="@+id/btnCancelOrder"

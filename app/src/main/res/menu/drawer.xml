@@ -13,29 +13,17 @@
         <item
             android:id="@+id/home"
             android:checked="true"
+            android:visible="false"
             android:icon="@drawable/app_icon"
-            android:title="Home" />
+            android:title="@string/title_home" />
         <item
-            android:id="@+id/my_cart"
-            android:visible="false"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="My Cart" />
-
-        <item
-            android:id="@+id/apriori_result"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Apriori Mining Result"
-            android:visible="false"/>
-        <item
-            android:id="@+id/contact_us"
-            android:visible="false"
-            android:icon="@android:drawable/ic_menu_call"
-            android:title="Contact US" />
-        <item
-            android:id="@+id/settings"
-            android:visible="false"
+            android:id="@+id/manage_profile"
             android:icon="@android:drawable/ic_menu_preferences"
-            android:title="Settings" />
+            android:title="@string/manage_profile" />
+        <item
+            android:id="@+id/my_locations"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="@string/my_locations" />
     </group>
 
 </menu>

@@ -12,26 +12,26 @@
     <string name="link">Website: github.com/dkim0419/SoundRecorder</string>
 
     <string name="action_licenses">Licenses</string>
-    <string name="action_settings">Settings</string>
-    <string name="tab_title_record">Record</string>
-    <string name="tab_title_saved_recordings">Saved Recordings</string>
+    <string name="action_settings">الاعدادات</string>
+    <string name="tab_title_record">تسجيل</string>
+    <string name="tab_title_saved_recordings">التسجيلات المحفوظة</string>
 
     <!-- Toasts -->
-    <string name="toast_recording_start">Recording started</string>
-    <string name="toast_recording_finish">Recording saved to</string>
-    <string name="toast_file_delete">%1$s successfully deleted</string>
+    <string name="toast_recording_start">تم بدء التسجيل</string>
+    <string name="toast_recording_finish">تم حفظ التسجيل الي</string>
+    <string name="toast_file_delete">تم المسح بنجاح</string>
     <string name="toast_file_exists">The file %1$s already exists. Please choose a different file name.</string>
 
     <!-- Notifications -->
-    <string name="notification_recording">Recording...</string>
+    <string name="notification_recording">جاري التسجيل...</string>
 
     <!-- Dialogs -->
-    <string name="dialog_title_delete">Confirm Delete...</string>
-    <string name="dialog_text_delete">Are you sure you would like to delete this file?</string>
+    <string name="dialog_title_delete">تأكيد المسح...</string>
+    <string name="dialog_text_delete">هل أنت متأكد من مسح هذا الملف</string>
     <string name="dialog_title_licenses">Open Source Licenses</string>
-    <string name="dialog_title_share">Share File</string>
-    <string name="dialog_title_rename">Rename File</string>
-    <string name="dialog_title_options">Options</string>
+    <string name="dialog_title_share">مشاركة الملف</string>
+    <string name="dialog_title_rename">اعادة تسمية الملف</string>
+    <string name="dialog_title_options">الاعدادات</string>
 
     <string name="dialog_file_share">Share File</string>
     <string name="dialog_file_rename">Rename File</string>
@@ -41,12 +41,12 @@
     <string name="dialog_action_yes">Yes</string>
     <string name="dialog_action_no">No</string>
 
-    <string name="no_saved_recordings_message">No saved recordings</string>
-    <string name="pause_recording_button">Pause</string>
-    <string name="resume_recording_button">Resume</string>
-    <string name="default_file_name">My Recording</string>
+    <string name="no_saved_recordings_message">لا يوجد تسجيلات محفوظة</string>
+    <string name="pause_recording_button">توقف مؤقت</string>
+    <string name="resume_recording_button">متابعى</string>
+    <string name="default_file_name">تسجيلاتي</string>
     <string name="record_prompt">Tap the button to start recording your voice</string>
-    <string name="record_in_progress">Recording</string>
+    <string name="record_in_progress">جاري التسجيل</string>
 
     <string name="send_to">Send to</string>
 
@@ -99,35 +99,35 @@
     <string name="enterphonenumber">Enter Phone Number</string>
     <string name="verification_code">Verification Code</string>
     <string name="action_edit"><u>Edit</u></string>
-    <string name="phone_number"><u>Phone Number</u></string>
+    <string name="phone_number"><u>رقم الموبايل</u></string>
     <string name="account_registeration"><u>Account Login</u></string>
-    <string name="verify">Verify</string>
+    <string name="verify">تحقق</string>
     <string name="info_delivery_areas">Delivery Areas: %1$s</string>
     <string name="pleasewait">Please wait</string>
     <string name="register">Verify Your phone</string>
     <string name="phone_hint">Phone Number</string>
-    <string name="submit">Submit</string>
-    <string name="select_date">Select Date</string>
-    <string name="Current_location">Current location</string>
-    <string name="resend">Resend</string>
+    <string name="submit">ارسال</string>
+    <string name="select_date">اختر التاريخ</string>
+    <string name="Current_location">الموقع الحالي</string>
+    <string name="resend">اعادة ارسال</string>
 
-    <string name="invalid_phone_number">Please enter a valid phone number</string>
+    <string name="invalid_phone_number">من فضلك ادخل رقم صالح</string>
     <string name="valid_phone_number">Valid phone numbers!</string>
-    <string name="current_location">Current Location</string>
-    <string name="address">Address</string>
-    <string name="building_no">Building No.</string>
-    <string name="location_name">Location Name</string>
+    <string name="current_location">الموقع الحالي</string>
+    <string name="address">العنوان</string>
+    <string name="building_no">رقم المبني.</string>
+    <string name="location_name">اسم المكان</string>
 
-    <string name="Floor">Floor</string>
-    <string name="Appartment">Appartment No</string>
-    <string name="verification_sent">Verification Code Sent Sucessfully.</string>
-    <string name="Voice">Record Your Voice.</string>
-    <string name="Details">Product Details.</string>
-    <string name="Products">Products</string>
+    <string name="Floor">الطابق</string>
+    <string name="Appartment">رقم الشقة</string>
+    <string name="verification_sent">تم ارسال رمز التحقق بنجاح.</string>
+    <string name="Voice">سجل بصوتك.</string>
+    <string name="Details">تفاصيل المنتج.</string>
+    <string name="Products">المنتجات</string>
 
-    <string name="customer_found">Welcome Back . </string>
-    <string name="location_added">Location Added Successfully . </string>
-    <string name="location_not_added">Location Not Added  . </string>
+    <string name="customer_found">أهلا بعودتك. </string>
+    <string name="location_added">تم اضافة الموقع بنجاح . </string>
+    <string name="location_not_added">لم يتم اضافة الموقع . </string>
 
 
     <string name="order_submitted">Order Submitted Successfully . </string>
@@ -210,8 +210,12 @@
     <string name="DeliveredStatus">4</string>
     <string name="OnDeliveryStatus">3</string>
     <string name="CancelledStatus">6</string>
+    <string name="manage_profile">ادارة الحساب</string>
 
+    <string name="my_locations">أماكني</string>
 
+    <string name="delete">مسح</string>
+    <string name="edit">تعديل</string>
     <!--Current Or History Orders Status -->
 
     <string name="CurrentOrders">0</string>
@@ -267,37 +271,29 @@
         <item>Ruby</item>
         <item>JavaScript</item>
     </string-array>
-    <string name="menu_1">Home</string>
-    <string name="menu_2">Catalog</string>
-    <string name="menu_3">MyOrders</string>
-    <string name="menu_4">Offers</string>
-    <string name="menu_5">Points</string>
+    <string name="menu_1">الرئيسية</string>
+    <string name="menu_2">المعرض</string>
+    <string name="menu_3">طلباتي</string>
+    <string name="menu_4">العروض</string>
+    <string name="menu_5">النقاط</string>
     <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">الرئيسية</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="Add_items_prescrption">PlaceOrder</string>
-    <string name="address_error">Please Enter Your Address.</string>
-    <string name="Floor_error">Please Enter Your Floor Number.</string>
-    <string name="Apartment_error">Please Enter Your Appartment Number.</string>
-    <string name="Building_number_error">Please Enter Your Building Number.</string>
-    <string name="Category">Categories</string>
-    <string name="Orders">Orders</string>
-    <string name="OrderDetails">Order Details</string>
-    <string name="manage_profile">Manage Profile</string>
-    <string name="my_locations">My Locations</string>
+    <string name="address_error">من فضلك ادخل عنوانك.</string>
+    <string name="Floor_error">من فضلك ادخل رقم الطابق.</string>
+    <string name="Apartment_error">من فضلك ادخل رقم الشقة.</string>
+    <string name="Building_number_error">من فضلك ادخل رقم المبني.</string>
+    <string name="Category">الأقسام</string>
+    <string name="Orders">الطلبات</string>
+    <string name="OrderDetails">تفاصيل الطلبات</string>
 
-    <string name="location_name_error">Please Enter Your Location Name.</string>
-
-    <string name="no_data_available">No Results Found.</string>
+    <string name="no_data_available">لا يوجد.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="alert_login_first">You Have to login first</string>
-    <string name="delete">delete</string>
-    <string name="edit">edit</string>
-    <string name="add_location">add</string>
-    <string name="location_deleted">Location Deleted Successfully</string>
+    <string name="add_location">اضافة</string>
     <string name="locations">Location</string>
     <string name="rate_sent">Rate Sent successfully</string>
 

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.drawers:SpinnerDatePicker-1.0.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SpinnerDatePicker-1.0.6.aar/bdde9f2f7e927261e28205ad1af52dcb/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SpinnerDatePicker-1.0.6.aar/bdde9f2f7e927261e28205ad1af52dcb/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.drawers/SpinnerDatePicker/1.0.6/ee9f193ebb7c36635137a5fc0f44275e08ca67af/SpinnerDatePicker-1.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
