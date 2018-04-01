@@ -1,15 +1,12 @@
-package com.godevx.dawadoz.pharmacyclientapp.fragment;
+package com.godevx.dawadoz.main.fragment;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,31 +32,25 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.godevx.dawadoz.R;
-import com.godevx.dawadoz.pharmacyclientapp.AppController;
-import com.godevx.dawadoz.pharmacyclientapp.activities.CurrentLocationActivity;
-import com.godevx.dawadoz.pharmacyclientapp.activities.GetNearPharmacies;
-import com.godevx.dawadoz.pharmacyclientapp.activities.HomeActivity;
-import com.godevx.dawadoz.pharmacyclientapp.activities.PickMarketPlaceAddressActivity;
-import com.godevx.dawadoz.pharmacyclientapp.adapter.MyLocationsAdapter;
-import com.godevx.dawadoz.pharmacyclientapp.model.Location;
-import com.godevx.dawadoz.pharmacyclientapp.util.AppConstants;
-import com.godevx.dawadoz.pharmacyclientapp.util.GPSTracker;
-import com.godevx.dawadoz.pharmacyclientapp.util.PreferenceHelper;
-import com.godevx.dawadoz.pharmacyclientapp.util.Utils;
-import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder;
+import com.godevx.dawadoz.main.AppController;
+import com.godevx.dawadoz.main.activities.HomeActivity;
+import com.godevx.dawadoz.main.activities.PickMarketPlaceAddressActivity;
+import com.godevx.dawadoz.main.adapter.MyLocationsAdapter;
+import com.godevx.dawadoz.main.model.Location;
+import com.godevx.dawadoz.main.util.AppConstants;
+import com.godevx.dawadoz.main.util.GPSTracker;
+import com.godevx.dawadoz.main.util.PreferenceHelper;
+import com.godevx.dawadoz.main.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import co.ceryle.radiorealbutton.RadioRealButton;
-import co.ceryle.radiorealbutton.RadioRealButtonGroup;
 import es.dmoral.toasty.Toasty;
 
 import static android.app.Activity.RESULT_OK;

@@ -1,26 +1,19 @@
-package com.godevx.dawadoz.pharmacyclientapp.adapter;
+package com.godevx.dawadoz.main.adapter;
 
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.godevx.dawadoz.R;
-import com.godevx.dawadoz.pharmacyclientapp.model.Location;
-import com.godevx.dawadoz.pharmacyclientapp.model.Order;
-import com.squareup.picasso.Picasso;
+import com.godevx.dawadoz.main.model.Location;
 
 import java.util.ArrayList;
-
-import io.rmiri.skeleton.SkeletonGroup;
 
 
 public class MyLocationsAdapter extends RecyclerView.Adapter<MyLocationsAdapter.ViewHolder> {

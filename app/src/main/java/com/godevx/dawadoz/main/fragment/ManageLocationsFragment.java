@@ -1,4 +1,4 @@
-package com.godevx.dawadoz.pharmacyclientapp.fragment;
+package com.godevx.dawadoz.main.fragment;
 
 import android.content.Context;
 import android.net.Uri;

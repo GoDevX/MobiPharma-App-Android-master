@@ -1,4 +1,4 @@
-package com.godevx.dawadoz.pharmacyclientapp.model;
+package com.godevx.dawadoz.main.model;
 
 /**
  * Created by Ahmed.Khames on 3/26/2018.
